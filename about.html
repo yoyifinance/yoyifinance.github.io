@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>認識 YoYi｜YoYi 悠逸・YOYI 財經</title>
+<meta name="description" content="YoYi 悠逸｜財富導航者。6 年金融業經驗、5,000 萬資產管理實績。理財不是為了衝，是為了生活不落空。">
+<meta property="og:title" content="認識 YoYi｜YOYI 財經">
+<meta property="og:description" content="理財不是為了衝，是為了生活不落空。">
+<meta property="og:image" content="images/yoyi_turkey.jpg">
+<link rel="icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#E3BF6E;--gold2:#B8893A;--ink:#F4F1EA;--mute:#9A968C;--bg:#0b1020;--card:rgba(255,255,255,.04);--line:rgba(227,191,110,.28)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink);line-height:1.75;
+  background:radial-gradient(ellipse 100% 40% at 50% 0%,#1d2640 0%,#0b1020 55%,#05070d 100%)}
+a{color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;max-width:720px;margin:0 auto}
+.top img{height:40px}
+.top a{font-size:14px;color:var(--mute);text-decoration:none}
+/* 主視覺 */
+.hero{position:relative;max-width:720px;margin:0 auto}
+.photo{position:relative;margin:0 20px;border-radius:22px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 78%;display:block}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,7,13,.92) 100%)}
+.hero .txt{position:absolute;left:44px;right:44px;bottom:30px;z-index:1}
+.kicker{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(38px,9vw,56px);line-height:1.15;margin-top:6px}
+.hero .role{font-size:17px;color:var(--ink);opacity:.85;margin-top:4px;letter-spacing:.1em}
+.quote{margin:28px 20px 0;text-align:center;font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(20px,5vw,26px);color:var(--gold);line-height:1.6}
+.cta{display:flex;gap:12px;margin:24px 20px 0}
+.cta a{flex:1;text-align:center;text-decoration:none;font-weight:700;padding:15px 10px;border-radius:14px;font-size:16px}
+.cta .p{background:linear-gradient(135deg,#F2D48C,#C9973F);color:#1a1205;box-shadow:0 10px 30px rgba(227,191,110,.25)}
+.cta .s{border:1px solid var(--line);background:var(--card)}
+/* 區塊 */
+section{padding:56px 0 0}
+h2{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+h3{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,6vw,32px);line-height:1.35;margin-top:8px}
+.story p{margin-top:16px;color:#d9d5cc;font-size:16.5px}
+.story p b{color:var(--ink)}
+.motto{margin-top:22px;padding:18px 20px;border-left:3px solid var(--gold);background:var(--card);border-radius:0 12px 12px 0;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 10px;text-align:center}
+.stat .n{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(22px,6vw,34px);color:var(--gold);line-height:1.1;white-space:nowrap}
+.stat .n small{font-size:.5em;margin-left:2px}
+.stat .l{font-size:13px;color:var(--mute);margin-top:6px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card .i{font-size:26px}
+.card b{display:block;font-size:16.5px;margin-top:8px}
+.card p{font-size:14px;color:var(--mute);margin-top:4px;line-height:1.6}
+.steps{margin-top:22px;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,#F2D48C,#C9973F);color:#1a1205;font-weight:900}
+.step b{display:block;font-size:16px}
+.step p{font-size:14px;color:var(--mute);line-height:1.6}
+.life{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.life span{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:700}
+.life + p{margin-top:16px;color:#d9d5cc}
+.contact{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.contact a{display:flex;align-items:center;gap:14px;padding:17px 18px;border-radius:16px;text-decoration:none;background:var(--card);border:1px solid var(--line)}
+.contact a .i{font-size:24px;width:30px;text-align:center}
+.contact a b{flex:1;font-size:16.5px}
+.contact a .go{color:var(--gold);font-size:20px}
+.contact .line{background:#06C755;border-color:#06C755}
+.contact .line .go{color:#fff}
+.contact .book{background:linear-gradient(135deg,#F2D48C,#C9973F);border:none;color:#1a1205}
+.contact .book .go{color:#1a1205}
+footer{margin:56px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px;color:#5f5c55;border-top:1px solid rgba(255,255,255,.06);line-height:1.8}
+</style>
+</head>
+<body>
+<header class="top"><a href="./"><img src="logo_h.svg" alt="YOYI 財經"></a><a href="./">← 回到連結頁</a></header>
+
+<div class="hero">
+  <div class="photo"><img src="images/yoyi_turkey.jpg" alt="YoYi 悠逸"></div>
+  <div class="txt">
+    <div class="kicker">ABOUT YOYI</div>
+    <h1>YoYi 悠逸</h1>
+    <div class="role">財富導航者｜YOYI 財經</div>
+  </div>
+</div>
+<p class="quote">理財不是為了衝，<br>是為了生活不落空。</p>
+<div class="cta">
+  <a class="p" href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">預約財務諮詢</a>
+  <a class="s" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener">加入 LINE 社群</a>
+</div>
+
+<main class="wrap">
+  <section class="story">
+    <h2>MY STORY</h2>
+    <h3>讓錢替我工作，<br>也陪你完成你的夢</h3>
+    <p>嗨，我是 YoYi。<b>六年前，我轉戰到金融業。</b></p>
+    <p>因為我明白，如果只用時間與勞力換取金錢，一輩子都不可能過上我想要的生活。</p>
+    <p>現在的我，開始讓錢替我工作。如果你也有夢，不如讓我陪你一起完成。</p>
+    <div class="motto">眼界決定選擇，選擇決定財富位階。</div>
+    <div class="stats">
+      <div class="stat"><div class="n">6<small>年</small></div><div class="l">金融業經驗</div></div>
+      <div class="stat"><div class="n">5,000<small>萬</small></div><div class="l">資產管理實績</div></div>
+      <div class="stat"><div class="n">1<small>對</small>1</div><div class="l">專屬財務規劃</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>SERVICES</h2>
+    <h3>我可以陪你做的事</h3>
+    <div class="cards">
+      <div class="card"><div class="i">📘</div><b>理財入門</b><p>從零建立基礎觀念，看懂自己的收支與資產</p></div>
+      <div class="card"><div class="i">📈</div><b>定期定額／ETF</b><p>用紀律累積，找到適合自己的長期配置</p></div>
+      <div class="card"><div class="i">💧</div><b>打造現金流</b><p>讓資產產生穩定的現金流，生活更有底氣</p></div>
+      <div class="card"><div class="i">🏠</div><b>房貸減壓／房產活化</b><p>重新檢視房貸與房產，釋放每月的壓力</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>HOW IT WORKS</h2>
+    <h3>諮詢怎麼進行？</h3>
+    <div class="steps">
+      <div class="step"><div><b>填寫諮詢問卷</b><p>花 3 分鐘告訴我你的現況和目標</p></div></div>
+      <div class="step"><div><b>1 對 1 線上諮詢</b><p>一起釐清問題，聊聊你真正想要的生活</p></div></div>
+      <div class="step"><div><b>量身規劃</b><p>依照你的狀況，整理出適合的配置方向</p></div></div>
+      <div class="step"><div><b>長期陪伴</b><p>市場會變、人生會變，定期回顧與調整</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>BEYOND FINANCE</h2>
+    <h3>工作之外的我</h3>
+    <div class="life"><span>🥊 拳擊</span><span>🤿 潛水</span><span>🏍️ 重機</span><span>✈️ 旅行</span></div>
+    <p>喜歡挑戰、也喜歡看世界。用職人精神面對每一件事，也用同樣的態度守護你的資產。</p>
+  </section>
+
+  <section>
+    <h2>CONTACT</h2>
+    <h3>一起聊聊吧</h3>
+    <div class="contact">
+      <a class="book" href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener"><span class="i">📝</span><b>預約 1 對 1 財務諮詢</b><span class="go">›</span></a>
+      <a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener"><span class="i">💬</span><b>加入 LINE 社群</b><span class="go">›</span></a>
+      <a href="https://www.instagram.com/yoyi_1205/" rel="noopener"><span class="i">📸</span><b>追蹤 IG @yoyi_1205</b><span class="go">›</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
+</body>
+</html>
