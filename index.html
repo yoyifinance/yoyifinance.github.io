@@ -7,49 +7,52 @@
 <meta name="description" content="YoYi 悠逸｜YOYI 財經：每天一則財經新聞，白話看懂。加入 LINE 社群、認識 YoYi、預約財務諮詢。">
 <meta property="og:title" content="YOYI 財經｜連結">
 <meta property="og:description" content="每天一則財經新聞，白話看懂。加入 YOYI 財經 LINE 社群。">
-<meta property="og:image" content="logo.svg">
+<meta property="og:image" content="logo_light.svg">
 <link rel="icon" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#E3BF6E;--ink:#F4F1EA;--mute:#9A968C;--bg:#0b1020}
+/* 白底配金（2026-10-31 使用者要求，取代深藍底） */
+:root{--gold:#B8893A;--gold-l:#E3BF6E;--ink:#1F1B14;--mute:#7A7366;--bg:#FBF9F4;--line:rgba(184,137,58,.35)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--bg)}
 body{min-height:100vh;font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink);
-  background:radial-gradient(ellipse 90% 45% at 50% 22%,#1d2640 0%,#0b1020 60%,#05070d 100%) fixed;
+  background:radial-gradient(ellipse 90% 40% at 50% 0%,#FFFFFF 0%,#FBF9F4 60%,#F4EFE4 100%) fixed;
   display:flex;justify-content:center;padding:48px 16px 40px}
 main{width:100%;max-width:440px;min-width:0;text-align:center}
-.logo{width:150px;filter:drop-shadow(0 0 28px rgba(227,191,110,.35))}
-h1{font-size:24px;font-weight:900;letter-spacing:.06em;margin-top:18px}
+.logo{width:150px}
+h1{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:900;letter-spacing:.06em;margin-top:18px}
 .tag{color:var(--mute);font-size:15px;margin-top:8px;letter-spacing:.08em;line-height:1.7}
-.links{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+.rule{width:56px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.links{margin-top:28px;display:flex;flex-direction:column;gap:14px}
 a.btn{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:16px;text-decoration:none;color:var(--ink);
-  background:rgba(255,255,255,.05);border:1px solid rgba(227,191,110,.35);transition:transform .15s,background .15s}
-a.btn:hover,a.btn:active{transform:translateY(-2px);background:rgba(227,191,110,.12)}
+  background:#fff;border:1px solid var(--line);box-shadow:0 6px 24px rgba(120,90,30,.08);transition:transform .15s,box-shadow .15s}
+a.btn:hover,a.btn:active{transform:translateY(-2px);box-shadow:0 10px 30px rgba(120,90,30,.15)}
 a.btn .i{font-size:26px;width:34px;text-align:center}
 a.btn .t{text-align:left;flex:1;min-width:0}
 a.btn b{display:block;font-size:17px;font-weight:700}
 a.btn small{display:block;font-size:13px;color:var(--mute);margin-top:3px}
 a.btn .go{color:var(--gold);font-size:20px}
-a.line{background:#06C755;border-color:#06C755;box-shadow:0 8px 30px rgba(6,199,85,.3)}
-a.line small{color:rgba(255,255,255,.85)}
+a.line{background:#06C755;border-color:#06C755;color:#fff;box-shadow:0 8px 26px rgba(6,199,85,.25)}
+a.line small{color:rgba(255,255,255,.9)}
 a.line .go{color:#fff}
 .ig{margin-top:30px;font-size:14px;color:var(--mute)}
-.ig a{color:var(--gold);text-decoration:none}
-footer{margin-top:26px;font-size:12px;color:#5f5c55;line-height:1.7}
+.ig a{color:var(--gold);text-decoration:none;font-weight:700}
+footer{margin-top:26px;font-size:12px;color:#A39C8D;line-height:1.7}
 </style>
 </head>
 <body>
 <main>
-  <img class="logo" src="logo.svg" alt="YOYI 財經">
+  <img class="logo" src="logo_light.svg" alt="YOYI 財經">
   <h1>YoYi 悠逸｜YOYI 財經</h1>
   <p class="tag">每天一則財經新聞，白話看懂<br>台股・美股・全球經濟</p>
+  <div class="rule"></div>
 
   <nav class="links">
     <a class="btn line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener">
       <span class="i">💬</span><span class="t"><b>加入 LINE 社群</b><small>每日財經圖卡＋完整解讀，IG 看不到的獨家內容</small></span><span class="go">›</span></a>
     <a class="btn" href="about.html">
       <span class="i">👤</span><span class="t"><b>認識 YoYi</b><small>個人介紹與服務說明</small></span><span class="go">›</span></a>
-    <a class="btn" href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">
+    <a class="btn" href="booking.html">
       <span class="i">📝</span><span class="t"><b>預約財務諮詢</b><small>填寫問卷，我會盡快和你聯絡</small></span><span class="go">›</span></a>
   </nav>
 

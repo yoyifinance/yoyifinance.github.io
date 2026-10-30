@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>預約財務諮詢｜YoYi 悠逸・YOYI 財經</title>
+<meta name="description" content="預約 YoYi 1 對 1 線上財務諮詢。花 3 分鐘填寫問卷，我會盡快和你聯絡。">
+<link rel="icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 預約頁：Google 表單嵌在網站裡（表單本身仍由 Google 收資料，網站不經手客戶個資） */
+:root{--gold:#B8893A;--ink:#1F1B14;--mute:#7A7366;--bg:#FBF9F4;--line:rgba(184,137,58,.3)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink);line-height:1.75;
+  background:radial-gradient(ellipse 100% 35% at 50% 0%,#FFFFFF 0%,#FBF9F4 60%,#F4EFE4 100%)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:720px;margin:0 auto}
+.top img{height:40px}
+.top a{font-size:14px;color:var(--mute);text-decoration:none}
+.head{max-width:720px;margin:0 auto;padding:18px 20px 0;text-align:center}
+.kicker{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40px);margin-top:6px}
+.head p{color:var(--mute);margin-top:8px}
+.rule{width:56px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.note{max-width:720px;margin:20px auto 0;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.note span{font-size:13.5px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--mute)}
+.form{max-width:720px;margin:24px auto 0;padding:0 12px}
+.form .box{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(90,65,20,.08)}
+/* 問卷實測高度：手機約 5,630px、桌機約 5,470px；問卷題目增減時要重新量 */
+.form iframe{display:block;width:100%;height:5700px;border:0}
+@media(min-width:600px){.form iframe{height:5550px}}
+.alt{text-align:center;font-size:13.5px;color:var(--mute);margin-top:14px}
+.alt a{color:var(--gold);font-weight:700}
+footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+</style>
+</head>
+<body>
+<header class="top"><a href="./"><img src="logo_h_light.svg" alt="YOYI 財經"></a><a href="about.html">← 認識 YoYi</a></header>
+<div class="head">
+  <div class="kicker">BOOKING</div>
+  <h1>預約 1 對 1 財務諮詢</h1>
+  <p>花 3 分鐘告訴我你的現況和目標，我會盡快和你聯絡。</p>
+  <div class="rule"></div>
+</div>
+<div class="note"><span>⏱ 約 3 分鐘</span><span>💻 線上諮詢</span><span>🔒 資料僅供諮詢使用</span></div>
+<div class="form">
+  <div class="box">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScU9st7cWI0tRjzh5ze6UEP0wBsMwF52g4j6mr7dQdfKEKMjA/viewform?embedded=true" loading="lazy" title="財務諮詢預約問卷">載入中…</iframe>
+  </div>
+  <p class="alt">表單沒有顯示？<a href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">點這裡直接開啟問卷</a></p>
+</div>
+<footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
+</body>
+</html>
