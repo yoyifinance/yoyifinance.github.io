@@ -43,7 +43,32 @@
     "name": "CNN",
     "url": "https://edition.cnn.com/2026/10/30/investing/us-stocks-ai-investment"
    }
-  ]
+  ],
+  "market": {
+   "event": "2026-10-30",
+   "items": [
+    {
+     "name": "加權指數",
+     "symbol": "^TWII",
+     "beforeDate": "2026-10-29",
+     "before": 46368.33,
+     "afterDate": "2026-10-30",
+     "after": 45211.83,
+     "laterDate": "2026-11-06",
+     "later": null
+    },
+    {
+     "name": "台積電 2330",
+     "symbol": "2330.TW",
+     "beforeDate": "2026-10-29",
+     "before": 2415.0,
+     "afterDate": "2026-10-30",
+     "after": 2370.0,
+     "laterDate": "2026-11-06",
+     "later": null
+    }
+   ]
+  }
  },
  {
   "date": "2026-10-30",
@@ -89,6 +114,22 @@
     "name": "中央社",
     "url": "https://www.cna.com.tw/news/afe/202610290146.aspx"
    }
-  ]
+  ],
+  "market": {
+   "event": "2026-10-29",
+   "items": [
+    {
+     "name": "Alphabet GOOGL",
+     "symbol": "GOOGL",
+     "unit": "美元",
+     "beforeDate": "2026-10-28",
+     "before": 324.89,
+     "afterDate": "2026-10-29",
+     "after": 283.82,
+     "laterDate": "2026-11-05",
+     "later": null
+    }
+   ]
+  }
  }
 ]
