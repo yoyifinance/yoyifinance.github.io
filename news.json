@@ -1,0 +1,48 @@
+[
+ {
+  "date": "2026-10-30",
+  "weekday": "五",
+  "region": "全球",
+  "title": "Google 母公司單日重挫 12.6%：AI 花錢太快，市場開始問「何時回本」",
+  "one": "Google 母公司 Alphabet 第 3 季在 AI 上砸了 513.6 億美元，花掉的錢比賺進的現金還多，10/29 股價跌 12.6%，是 2004 年上市以來最大單日跌幅。",
+  "points": [
+   {
+    "h": "單日跌 12.6%，創上市以來最大跌幅",
+    "b": "股價從 324.89 美元跌到 283.82 美元，市值一天少了近 5,000 億美元（各家統計約 4,800 億到 5,000 億美元）。"
+   },
+   {
+    "h": "一季資本支出 513.6 億美元，是去年的兩倍多",
+    "b": "錢主要投入 AI 運算和資料中心。去年同期只有 239.5 億美元，而這一季營運賺進的現金是 422.9 億美元。"
+   },
+   {
+    "h": "自由現金流變成負 91 億美元",
+    "b": "白話說就是「花的比賺的多」。市場原本預期大約打平，結果差距很大，再加上搜尋業務成長放緩，投資人開始擔心 AI 投資要多久才能回本。"
+   }
+  ],
+  "taiwan": "Google 沒有砍支出：今年資本支出預估維持 1,950 億到 2,050 億美元，明年還會「大幅增加」。所以 AI 伺服器、晶片的訂單面暫時沒有改變。\n但市場的焦點從「AI 要買多少」轉向「AI 什麼時候賺錢」。財報公布後，台股 10/29 下跌 667 點，美股的台積電 ADR 同日也跌 1.75%。",
+  "impact": "Google 明年還要加碼 AI，訂單面暫時沒變；但市場開始問「何時回本」，台灣 AI 供應鏈的股價波動可能變大。",
+  "image": "images/news/2026-10-30.jpg",
+  "sources": [
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/10/29/alphabet-google-microsoft-msft-shares-today-earnings.html"
+   },
+   {
+    "name": "CNBC（財報）",
+    "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html"
+   },
+   {
+    "name": "Reuters",
+    "url": "https://www.investing.com/news/stock-market-news/alphabets-heavy-cloud-spending-drives-biggerthanexpected-cash-burn-4980612"
+   },
+   {
+    "name": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/markets/article/alphabet-heads-for-a-500-billion-drop-in-market-value-the-biggest-in-its-history-134824763.html"
+   },
+   {
+    "name": "中央社",
+    "url": "https://www.cna.com.tw/news/afe/202610290146.aspx"
+   }
+  ]
+ }
+]

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>焦點新聞｜YoYi 悠逸・YOYI 財經</title>
+<meta name="description" content="YOYI 財經焦點新聞：每天一則財經新聞，3 個白話重點，看懂和台灣、和你的關係。">
+<meta property="og:title" content="焦點新聞｜YOYI 財經">
+<meta property="og:description" content="每天一則財經新聞，白話看懂。">
+<link rel="icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 焦點新聞：手機優先、單欄；資料來自 news.json（由 99_工具腳本/news_publish.py 從每日財經成品產生） */
+:root{--gold:#B8893A;--ink:#1F1B14;--body:#4A443A;--mute:#7A7366;--bg:#FBF9F4;--line:rgba(184,137,58,.3)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink);line-height:1.75;
+  background:radial-gradient(ellipse 100% 35% at 50% 0%,#FFFFFF 0%,#FBF9F4 60%,#F4EFE4 100%)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:720px;margin:0 auto}
+.top img{height:40px}
+.top a{font-size:14px;color:var(--mute);text-decoration:none}
+.head{max-width:720px;margin:0 auto;padding:14px 20px 0;text-align:center}
+.kicker{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40px);margin-top:4px}
+.head p{color:var(--mute);margin-top:4px}
+.rule{width:56px;height:2px;margin:16px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.chips{display:flex;gap:8px;justify-content:center;margin:20px auto 0;padding:0 20px}
+.chips button{font:inherit;font-size:14px;padding:6px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--mute);cursor:pointer}
+.chips button.on{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:700}
+main{max-width:680px;margin:0 auto;padding:0 16px}
+.label{font-size:13px;letter-spacing:.3em;color:var(--gold);font-weight:700;margin:30px 4px 10px}
+/* 今日焦點 */
+.hero{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(90,65,20,.08)}
+.hero>img{display:block;width:100%;height:auto;background:#EFE8DA}
+.in{padding:18px 18px 22px}
+.meta{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute)}
+.tag{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;background:#F6EEDD;color:#8A6424}
+.tag.tw{background:#E8F1EC;color:#2F6B4A}
+.hero h2{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(21px,5.6vw,26px);line-height:1.45;margin-top:8px}
+.one{margin-top:10px;color:var(--body);font-size:16px}
+.sub{font-weight:700;font-size:15px;margin-top:20px;color:var(--ink)}
+ol.pts{list-style:none;counter-reset:p;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+ol.pts li{counter-increment:p;display:flex;gap:12px;padding:12px 14px;border-radius:14px;background:var(--bg);border:1px solid rgba(184,137,58,.15)}
+ol.pts li::before{content:counter(p);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;margin-top:2px;
+  background:linear-gradient(135deg,#D9B061,#B8893A);color:#fff;font-weight:900;font-size:14px}
+ol.pts b{display:block;font-size:15.5px;line-height:1.5}
+ol.pts span{display:block;font-size:14.5px;color:var(--body);margin-top:4px;line-height:1.7}
+.tw-box p{font-size:15px;color:var(--body);margin-top:8px}
+.impact{margin-top:20px;padding:14px 16px;border-left:3px solid var(--gold);background:#FFF9EC;border-radius:0 12px 12px 0;font-size:15px}
+.impact b{display:block;color:#8A6424;font-size:14px;margin-bottom:4px}
+.src{margin-top:16px;font-size:12.5px;color:#A39C8D;line-height:1.9}
+.src a{color:var(--mute)}
+.cta{display:block;margin-top:18px;text-align:center;text-decoration:none;font-weight:700;padding:14px 10px;border-radius:14px;background:#06C755;color:#fff;box-shadow:0 8px 22px rgba(6,199,85,.22)}
+/* 過去焦點 */
+.list{display:flex;flex-direction:column;gap:10px}
+details{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary .d{flex:none;text-align:center;width:44px;font-weight:900;color:var(--gold);line-height:1.2;font-size:17px}
+summary .d small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+summary .t{flex:1;font-weight:700;font-size:15.5px;line-height:1.5}
+summary .t .tag{margin-left:6px;vertical-align:2px}
+summary .go{color:var(--gold);transition:transform .2s;font-size:18px}
+details[open] summary .go{transform:rotate(90deg)}
+details .in{padding-top:0;border-top:1px solid rgba(184,137,58,.15)}
+details .in>img{width:100%;border-radius:12px;margin-top:14px;display:block}
+.empty{text-align:center;color:var(--mute);padding:40px 0}
+footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+</style>
+</head>
+<body>
+<header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a href="./">← 回到連結頁</a></header>
+<div class="head">
+  <div class="kicker">DAILY NEWS</div>
+  <h1>焦點新聞</h1>
+  <p>每天一則，白話看懂</p>
+  <div class="rule"></div>
+</div>
+<div class="chips" id="chips">
+  <button class="on" data-r="">全部</button><button data-r="台灣">台灣</button><button data-r="全球">全球</button>
+</div>
+<main id="app"><p class="empty">載入中…</p></main>
+<footer>內容僅為新聞整理，非投資建議。<br>© YOYI 財經</footer>
+<script>
+var LINE='https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA', all=[], region='';
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function tag(n){return '<span class="tag'+(n.region==='台灣'?' tw':'')+'">'+esc(n.region)+'</span>'}
+function md(n){return n.date.slice(5).replace('-','/')}
+// 今日焦點和過去焦點共用的內文
+function body(n){
+  var h='<p class="one">'+esc(n.one)+'</p>';
+  if(n.points.length){h+='<div class="sub">3 個白話重點</div><ol class="pts">'+n.points.map(function(p){return '<li><div><b>'+esc(p.h)+'</b><span>'+esc(p.b)+'</span></div></li>'}).join('')+'</ol>'}
+  if(n.taiwan){h+='<div class="tw-box"><div class="sub">和台灣的關係</div>'+n.taiwan.split('\n').map(function(t){return '<p>'+esc(t)+'</p>'}).join('')+'</div>'}
+  if(n.impact){h+='<div class="impact"><b>💡 對你的影響</b>'+esc(n.impact)+'</div>'}
+  if(n.sources.length){h+='<p class="src">資料來源：'+n.sources.map(function(s){return '<a href="'+esc(s.url)+'" rel="noopener" target="_blank">'+esc(s.name)+'</a>'}).join('、')+'</p>'}
+  return h;
+}
+function render(){
+  var list=all.filter(function(n){return !region||n.region===region}), app=document.getElementById('app');
+  if(!list.length){app.innerHTML='<p class="empty">這個分類還沒有新聞，明天再來看看～</p>';return}
+  var n=list[0], h='<div class="label">TODAY</div><article class="hero">';
+  if(n.image)h+='<img src="'+esc(n.image)+'" alt="'+esc(n.title)+'">';
+  h+='<div class="in"><div class="meta">'+tag(n)+'<span>'+md(n)+'（'+esc(n.weekday)+'）</span></div><h2>'+esc(n.title)+'</h2>'+body(n)
+    +'<a class="cta" href="'+LINE+'" rel="noopener">💬 每天的完整解讀 → 加入 LINE 社群</a></div></article>';
+  if(list.length>1){
+    h+='<div class="label">PAST</div><div class="list">'+list.slice(1).map(function(n){
+      return '<details><summary><div class="d">'+md(n)+'<small>週'+esc(n.weekday)+'</small></div><div class="t">'+esc(n.title)+tag(n)+'</div><span class="go">›</span></summary>'
+        +'<div class="in">'+(n.image?'<img src="'+esc(n.image)+'" alt="" loading="lazy">':'')+body(n)+'</div></details>'}).join('')+'</div>';
+  }
+  app.innerHTML=h;
+}
+document.getElementById('chips').addEventListener('click',function(e){
+  var b=e.target.closest('button'); if(!b)return;
+  [].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)}); region=b.dataset.r; render();
+});
+// 每小時換一次網址參數，避免讀到舊的快取
+fetch('news.json?h='+Math.floor(Date.now()/36e5)).then(function(r){return r.json()}).then(function(d){all=d;render()})
+  .catch(function(){document.getElementById('app').innerHTML='<p class="empty">新聞載入失敗，請稍後重新整理。</p>'});
+</script>
+</body>
+</html>
