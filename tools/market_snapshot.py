@@ -41,6 +41,10 @@ def quote(name, symbol):
             "live": reg["start"] <= time.time() < reg["end"]}
 
 
+# 有問題就記下來，最後讓 GitHub 排程標成失敗並寄通知。偶爾一兩檔抓不到下一輪就好了，不算問題
+PROBLEMS, MISSED = [], []
+
+
 def quotes(pairs, old):
     keep = {q["symbol"]: q for q in old or []}
     out = []
@@ -49,6 +53,7 @@ def quotes(pairs, old):
             out.append(quote(name, sym))
         except Exception as e:
             print("抓不到", sym, e)
+            MISSED.append(f"{name}（{e}）")
             if sym in keep:
                 out.append(keep[sym])
     return out
@@ -119,9 +124,28 @@ def main():
         "chain": {"us": quotes(CHAIN_US, (old.get("chain") or {}).get("us")),
                   "tw": quotes(CHAIN_TW, (old.get("chain") or {}).get("tw"))},
     }
+    check(data)
     with open(out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
     print("寫好", out, data["updated"])
+    if PROBLEMS:
+        print("\n⚠️ 今日市場更新有問題：\n- " + "\n- ".join(PROBLEMS))
+        sys.exit(2)  # 數字照樣寫出去（沿用上一次），但排程標成失敗，GitHub 會寄通知
+
+
+def check(data):
+    """台股今天有開盤（加權指數日期＝今天）時，收盤後的證交所資料也要是今天的；休市日不檢查。"""
+    if len(MISSED) >= 5:
+        PROBLEMS.append(f"Yahoo 有 {len(MISSED)} 項抓不到：" + "、".join(MISSED))
+    now = datetime.datetime.now(TPE)
+    today = now.strftime("%m/%d")
+    tw = data["tw"]
+    if not tw.get("index") or tw["index"]["date"] != today:
+        return
+    hm = now.strftime("%H:%M")
+    for kind, after, label in (("breadth", "14:30", "漲跌家數"), ("sectors", "14:30", "類股指數"), ("inst", "15:15", "三大法人")):
+        if hm >= after and (tw.get(kind) or {}).get("date") != today:
+            PROBLEMS.append(f"{hm} 了，{label}還是 {(tw.get(kind) or {}).get('date')} 的資料，沒抓到今天（{today}）")
 
 
 if __name__ == "__main__":

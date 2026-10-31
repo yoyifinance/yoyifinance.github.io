@@ -29,7 +29,7 @@ jobs:
         run: |
           curl -fsSL "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/data/market.json?t=$(date +%s)" -o prev.json || cp market.json prev.json
           mkdir out
-          python3 tools/market_snapshot.py out/market.json prev.json
+          python3 tools/market_snapshot.py out/market.json prev.json || echo "PROBLEM=1" >> "$GITHUB_ENV"
       - name: 推到 data 分支（覆蓋，只留最新）
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,3 +39,9 @@ jobs:
           git add market.json
           git -c user.name="yoyi-market-bot" -c user.email="actions@users.noreply.github.com" commit -qm "今日市場 $(TZ=Asia/Taipei date '+%m/%d %H:%M')"
           git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
+      # 有問題就讓這次排程失敗：GitHub 會寄 email（手機裝 GitHub App 也會推播）；問題內容在「抓數字」那一步的紀錄
+      - name: 有問題就通知
+        if: env.PROBLEM == '1'
+        run: |
+          echo "::error::今日市場更新有問題，網站暫時沿用上一次的數字。詳情看「抓數字」步驟最下面。"
+          exit 1
