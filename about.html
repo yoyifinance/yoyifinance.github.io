@@ -7,8 +7,18 @@
 <meta name="description" content="YoYi 悠逸｜財富導航者。6 年金融業經驗、5,000 萬資產管理實績。理財不是為了衝，是為了生活不落空。">
 <meta property="og:title" content="認識 YoYi｜YOYI 財經">
 <meta property="og:description" content="理財不是為了衝，是為了生活不落空。">
-<meta property="og:image" content="images/yoyi_turkey.jpg">
+<meta property="og:image" content="https://yoyifinance.github.io/images/og/og-about.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yoyifinance.github.io/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YOYI 財經">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yoyifinance.github.io/about.html">
 <link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
 /* 白底配金（2026-10-31 使用者要求） */
@@ -88,7 +98,14 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
 .dots i{width:6px;height:6px;border-radius:50%;background:rgba(184,137,58,.3)}
 .dots i.on{width:18px;border-radius:9px;background:var(--gold)}
 .vnote{font-size:12px;color:#A39C8D;text-align:center;margin-top:10px}
+/* 底部導覽：看完一頁，順手帶到下一頁 */
+.more{max-width:680px;margin:48px auto 0;padding:0 16px}
+.more h5{font-size:12.5px;letter-spacing:.3em;color:var(--gold);font-weight:700;text-align:center}
+.more nav{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+.more a{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:15px}
+.more a.line{background:#06C755;border-color:#06C755;color:#fff}
 </style>
+<script src="analytics.js" defer></script>
 </head>
 <body>
 <header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a href="./">← 回到連結頁</a></header>
@@ -170,6 +187,7 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
   </section>
 </main>
 
+<aside class="more"><h5>繼續逛逛</h5><nav><a href="news.html" data-where="bottom-nav">📰 財經日報</a><a href="calc.html" data-where="bottom-nav">🧮 理財試算</a><a href="booking.html" data-where="bottom-nav">📝 預約諮詢</a><a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener" data-where="bottom-nav">💬 LINE 社群</a></nav></aside>
 <footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
 <script>
 // 回饋卡左右滑動時，下面的小圓點跟著走

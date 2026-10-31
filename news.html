@@ -7,7 +7,18 @@
 <meta name="description" content="YOYI 財經日報：今日台股、美股市場數字、產業溫度計，加上每天一則焦點新聞白話看懂。">
 <meta property="og:title" content="財經日報｜YOYI 財經">
 <meta property="og:description" content="今日市場數字＋每天一則焦點新聞。">
+<meta property="og:image" content="https://yoyifinance.github.io/images/og/og-news.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yoyifinance.github.io/news.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YOYI 財經">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yoyifinance.github.io/news.html">
 <link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
 /* 焦點新聞：手機優先、單欄；資料來自 news.json（由 99_工具腳本/news_publish.py 從每日財經成品產生） */
@@ -141,7 +152,21 @@ details .in{padding-top:0;border-top:1px solid rgba(184,137,58,.15)}
 details .in>img{width:100%;border-radius:12px;margin-top:14px;display:block}
 .empty{text-align:center;color:var(--mute);padding:40px 0}
 footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+/* 今日焦點下方的「下一步」卡：news.json 每則可帶 cta（type＝booking／house／car／line，title、text）；沒寫就用預設 */
+.next{margin-top:14px;background:linear-gradient(135deg,#FFFBF1,#FFF4DD);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 8px 30px rgba(90,65,20,.06)}
+.next .k{font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:700}
+.next b{display:block;font-family:'Noto Serif TC',serif;font-weight:900;font-size:19px;line-height:1.5;margin-top:4px}
+.next p{font-size:14.5px;color:var(--body);margin-top:6px;line-height:1.7}
+.next a{display:block;margin-top:12px;text-align:center;text-decoration:none;font-weight:700;padding:13px 10px;border-radius:14px;color:#fff;background:linear-gradient(135deg,#D9B061,#B8893A);box-shadow:0 8px 22px rgba(184,137,58,.28)}
+.next a.ln{background:#06C755;box-shadow:0 8px 22px rgba(6,199,85,.22)}
+/* 底部導覽：看完一頁，順手帶到下一頁 */
+.more{max-width:680px;margin:48px auto 0;padding:0 16px}
+.more h5{font-size:12.5px;letter-spacing:.3em;color:var(--gold);font-weight:700;text-align:center}
+.more nav{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+.more a{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:15px}
+.more a.line{background:#06C755;border-color:#06C755;color:#fff}
 </style>
+<script src="analytics.js" defer></script>
 </head>
 <body>
 <header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a href="./">← 回到連結頁</a></header>
@@ -162,6 +187,7 @@ footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
   <button class="on" data-r="">全部</button><button data-r="台灣">台灣</button><button data-r="全球">全球</button>
 </div>
 <main id="app"><p class="empty">載入中…</p></main>
+<aside class="more"><h5>繼續逛逛</h5><nav><a href="calc.html" data-where="bottom-nav">🧮 理財試算</a><a href="about.html" data-where="bottom-nav">👤 認識 YoYi</a><a href="booking.html" data-where="bottom-nav">📝 預約諮詢</a><a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener" data-where="bottom-nav">💬 LINE 社群</a></nav></aside>
 <footer>內容僅為新聞整理，非投資建議。<br>© YOYI 財經</footer>
 <script>
 var LINE='https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA', all=[], region='';
@@ -195,12 +221,21 @@ function body(n){
   if(n.sources.length){h+='<p class="src">資料來源：'+n.sources.map(function(s){return '<a href="'+esc(s.url)+'" rel="noopener" target="_blank">'+esc(s.name)+'</a>'}).join('、')+'</p>'}
   return h;
 }
+// 今日焦點的「下一步」：依新聞主題帶到預約／試算；沒寫 cta 就用預設的預約卡
+var CTA={booking:['booking.html','📝 預約 1 對 1 財務諮詢',''],house:['calc.html#house','🏠 打開「聰明養房」試算',''],car:['calc.html#car','🚗 打開「無痛買車」試算',''],line:[LINE,'💬 加入 LINE 社群','ln']};
+function next(n){
+  var c=n.cta||{type:'booking',title:'新聞看完了，那你的錢呢？',text:'市場每天都在變，重要的是你的配置經不經得起。花 30 分鐘，一起把你的現況看清楚。'};
+  var t=CTA[c.type]||CTA.booking;
+  return '<div class="next"><div class="k">NEXT STEP｜想想自己</div><b>'+esc(c.title)+'</b>'+(c.text?'<p>'+esc(c.text)+'</p>':'')
+    +'<a class="'+t[2]+'" href="'+t[0]+'" data-where="news-cta">'+t[1]+'</a></div>';
+}
 function render(){
   var list=all.filter(function(n){return !region||n.region===region}), app=document.getElementById('app');
   if(!list.length){app.innerHTML='<p class="empty">這個分類還沒有新聞，明天再來看看～</p>';return}
   var n=list[0], h='<div style="height:16px"></div><article class="hero">';
   if(n.image)h+='<img src="'+esc(n.image)+'" alt="'+esc(n.title)+'">';
   h+='<div class="in"><div class="meta">'+tag(n)+'<span>'+md(n)+'（'+esc(n.weekday)+'）</span></div><h2>'+esc(n.title)+'</h2>'+body(n)+'</div></article>';
+  h+=next(n);
   if(list.length>1){
     h+='<div class="label">PAST</div><div class="list">'+list.slice(1).map(function(n){
       return '<details><summary><div class="d">'+md(n)+'<small>週'+esc(n.weekday)+'</small></div><div class="t">'+esc(n.title)+tag(n)+'</div><span class="go">›</span></summary>'

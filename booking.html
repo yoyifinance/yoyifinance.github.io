@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>預約財務諮詢｜YoYi 悠逸・YOYI 財經</title>
 <meta name="description" content="預約 YoYi 1 對 1 線上財務諮詢。花 3 分鐘填寫問卷，我會盡快和你聯絡。">
+<meta property="og:title" content="預約 1 對 1 財務諮詢｜YOYI 財經">
+<meta property="og:description" content="線上 30 分鐘 1 對 1，花 3 分鐘填問卷就能預約。">
+<meta property="og:image" content="https://yoyifinance.github.io/images/og/og-booking.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yoyifinance.github.io/booking.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YOYI 財經">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yoyifinance.github.io/booking.html">
 <link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
 /* 預約頁：Google 表單嵌在網站裡（表單本身仍由 Google 收資料，網站不經手客戶個資） */
@@ -30,6 +43,7 @@ h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40
 .deposit p{margin-top:8px;font-size:15px}
 .deposit em{font-style:normal;font-weight:700;color:var(--ink);background:linear-gradient(transparent 60%,rgba(227,191,110,.45) 60%)}
 .deposit small{display:block;margin-top:8px;font-size:12.5px;color:var(--mute)}
+.deposit small strong{color:var(--ink)}
 .form{max-width:720px;margin:24px auto 0;padding:0 12px}
 .form .box{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(90,65,20,.08)}
 /* 問卷分三頁，iframe 量不到內容高度，只能照實測值設定；問卷題目增減時要重新量
@@ -41,7 +55,14 @@ h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40
 .alt{text-align:center;font-size:13.5px;color:var(--mute);margin-top:14px}
 .alt a{color:var(--gold);font-weight:700}
 footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+/* 底部導覽：看完一頁，順手帶到下一頁 */
+.more{max-width:680px;margin:48px auto 0;padding:0 16px}
+.more h5{font-size:12.5px;letter-spacing:.3em;color:var(--gold);font-weight:700;text-align:center}
+.more nav{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+.more a{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:15px}
+.more a.line{background:#06C755;border-color:#06C755;color:#fff}
 </style>
+<script src="analytics.js" defer></script>
 </head>
 <body>
 <header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a href="about.html">← 認識 YoYi</a></header>
@@ -55,7 +76,7 @@ footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 <div class="deposit">
   <b>本諮詢採「保證金預約制」</b>
   <p>預約時先支付 <em>NT$ 500</em> 保證金，完成 30 分鐘線上諮詢後，<br>不論是否進行後續規劃，<em>當日全額退還</em>。</p>
-  <small>保證金只是為了確保彼此的時間承諾，匯款資訊會在問卷最後一頁提供。</small>
+  <small>保證金只是為了確保彼此的時間承諾，匯款資訊會在問卷最後一頁提供。<br>諮詢結束後，當日以<strong>銀行轉帳</strong>退回到你指定的帳戶。</small>
 </div>
 <div class="form">
   <div class="box">
@@ -68,6 +89,7 @@ footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 (function(){var f=document.querySelector('.form iframe'),first=true;
 f.addEventListener('load',function(){if(first){first=false;return}f.classList.add('tall');f.scrollIntoView({behavior:'smooth'})})})();
 </script>
+<aside class="more"><h5>繼續逛逛</h5><nav><a href="news.html" data-where="bottom-nav">📰 財經日報</a><a href="calc.html" data-where="bottom-nav">🧮 理財試算</a><a href="about.html" data-where="bottom-nav">👤 認識 YoYi</a><a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener" data-where="bottom-nav">💬 LINE 社群</a></nav></aside>
 <footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
 </body>
 </html>

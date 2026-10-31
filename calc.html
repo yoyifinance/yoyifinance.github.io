@@ -8,7 +8,17 @@
 <title>理財試算｜YoYi 悠逸・YOYI 財經</title>
 <meta property="og:title" content="理財試算｜YOYI 財經">
 <meta property="og:description" content="聰明養房、無痛買車，輸入你的數字，看資金放對位置的差別。">
+<meta property="og:image" content="https://yoyifinance.github.io/images/og/og-calc.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yoyifinance.github.io/calc.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YOYI 財經">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yoyifinance.github.io/calc.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
 /* 版面：手機單欄，上面輸入、下面即時結果；沿用官網白底配金（刻意只做淺色，和官網一致） */
@@ -108,7 +118,14 @@ tr.sum td{font-weight:900;border-bottom:0;border-top:2px solid var(--line)}
 footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .bar .fill{transition:width .35s ease}
+/* 底部導覽：看完一頁，順手帶到下一頁 */
+.more{max-width:680px;margin:48px auto 0;padding:0 16px}
+.more h5{font-size:12.5px;letter-spacing:.3em;color:var(--gold);font-weight:700;text-align:center}
+.more nav{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+.more a{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:15px}
+.more a.line{background:#06C755;border-color:#06C755;color:#fff}
 </style>
+<script src="analytics.js" defer></script>
 </head>
 <body>
 
@@ -213,6 +230,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
     <li>借錢投資會放大結果：市場好時效益更大，市場不好時壓力也更大，請保留緊急預備金。</li>
   </ul>
 </div>
+<aside class="more"><h5>繼續逛逛</h5><nav><a href="news.html" data-where="bottom-nav">📰 財經日報</a><a href="about.html" data-where="bottom-nav">👤 認識 YoYi</a><a href="booking.html" data-where="bottom-nav">📝 預約諮詢</a><a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener" data-where="bottom-nav">💬 LINE 社群</a></nav></aside>
 <footer>© YOYI 財經｜試算結果僅供參考</footer>
 </div>
 
