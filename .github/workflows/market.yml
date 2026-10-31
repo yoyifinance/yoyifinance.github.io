@@ -11,6 +11,9 @@ on:
     - cron: "*/10 13-21 * * 1-5"  # 美股盤中 21:00–05:50（夏令／冬令都涵蓋）
     - cron: "0 22 * * 1-5"        # 06:00 美股收盤後定版
   workflow_dispatch:
+  push:                           # 改了抓數字的程式就馬上跑一次
+    branches: [main]
+    paths: [".github/workflows/market.yml", "tools/market_snapshot.py"]
 permissions:
   contents: write
 concurrency:
