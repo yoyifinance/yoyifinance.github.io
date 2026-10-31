@@ -32,12 +32,15 @@ h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40
 .deposit small{display:block;margin-top:8px;font-size:12.5px;color:var(--mute)}
 .form{max-width:720px;margin:24px auto 0;padding:0 12px}
 .form .box{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(90,65,20,.08)}
-/* 問卷分三頁，最長的是第二頁：實測手機約 2,970px、桌機約 2,800px；問卷題目增減時要重新量 */
-.form iframe{display:block;width:100%;height:3100px;border:0}
-@media(min-width:600px){.form iframe{height:2950px}}
+/* 問卷分三頁，iframe 量不到內容高度，只能照實測值設定；問卷題目增減時要重新量
+   第一頁：實測手機約 1,500px、桌機約 1,400px → 一開始用這個高度，下面才不會留一大段空白
+   第二頁最長：手機約 2,970px、桌機約 2,800px → 換到下一頁後（.tall）改用這個高度 */
+.form iframe{display:block;width:100%;height:1620px;border:0}
+.form iframe.tall{height:3100px}
+@media(min-width:600px){.form iframe{height:1500px}.form iframe.tall{height:2950px}}
 .alt{text-align:center;font-size:13.5px;color:var(--mute);margin-top:14px}
 .alt a{color:var(--gold);font-weight:700}
-footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
 </style>
 </head>
 <body>
@@ -61,9 +64,9 @@ footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
   <p class="alt">表單沒有顯示？<a href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">點這裡直接開啟問卷</a></p>
 </div>
 <script>
-// 問卷每換一頁 iframe 會重新載入；捲回問卷頂端，免得客戶停在空白處
+// 問卷每換一頁 iframe 會重新載入：第一頁之後改用較高的高度，並捲回問卷頂端，免得客戶停在空白處
 (function(){var f=document.querySelector('.form iframe'),first=true;
-f.addEventListener('load',function(){if(first){first=false;return}f.scrollIntoView({behavior:'smooth'})})})();
+f.addEventListener('load',function(){if(first){first=false;return}f.classList.add('tall');f.scrollIntoView({behavior:'smooth'})})})();
 </script>
 <footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
 </body>
