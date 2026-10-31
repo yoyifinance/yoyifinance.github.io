@@ -64,10 +64,14 @@ ol.pts span{display:block;font-size:14.5px;color:var(--body);margin-top:4px;line
 .later .c{display:inline-block;min-width:0;font-size:12.5px;padding:1px 6px;margin-left:4px}
 .mnote{font-size:11.5px;color:#A39C8D;margin-top:8px}
 /* 完整解讀只在 LINE 社群：霧面鎖住。模糊的是通用假字，真內容不在網站上 */
-.lock{position:relative;margin-top:4px;border-radius:16px;overflow:hidden}
-.fog{filter:blur(4px);user-select:none;pointer-events:none;padding-bottom:6px}
-.gate{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:96px 12px 12px;
-  background:linear-gradient(180deg,rgba(251,249,244,0) 0%,rgba(251,249,244,.2) 40%,rgba(251,249,244,.75) 100%)}
+/* 邊緣不裁切，上下用漸層遮罩淡入淡出，看起來像起霧而不是貼一塊馬賽克 */
+.lock{position:relative;margin-top:4px}
+.fog{filter:blur(5px);user-select:none;pointer-events:none;padding:6px 0 10px;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 70px,#000 55%,transparent 100%);
+          mask-image:linear-gradient(180deg,transparent 0,#000 70px,#000 55%,transparent 100%)}
+.fog ol.pts li,.fog .impact{background:none;border:0}
+.gate{position:absolute;inset:-8px -8px 0;display:flex;align-items:flex-start;justify-content:center;padding:96px 20px 12px;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 100%)}
 .g-in{width:100%;max-width:330px;text-align:center;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:18px;padding:18px 16px 16px;box-shadow:0 12px 34px rgba(90,65,20,.14)}
 .g-in .k{font-size:11.5px;font-weight:700;letter-spacing:.2em;color:#1F1B14;display:inline-block;padding:3px 12px;border-radius:999px;background:linear-gradient(90deg,#D9B061,#F0D58F)}
 .g-in b{display:block;font-family:'Noto Serif TC',serif;font-size:19px;margin-top:10px}
