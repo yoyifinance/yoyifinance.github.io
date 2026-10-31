@@ -72,6 +72,22 @@ h3{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,6vw,32
 .contact .book{background:linear-gradient(135deg,#D9B061,#B8893A);border:none;color:#fff}
 .contact .book .go{color:#fff}
 footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+
+/* 客戶回饋：真實訊息摘錄，重新排版成引言卡；隱去姓名與頭貼，省略處用「⋯」標示 */
+.voices{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:22px -20px 0;padding:4px 20px 14px;scrollbar-width:none}
+.voices::-webkit-scrollbar{display:none}
+.vc{flex:none;width:86%;max-width:420px;scroll-snap-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 20px 18px;box-shadow:0 6px 22px rgba(90,65,20,.07);display:flex;flex-direction:column}
+.vc .q{font-family:'Noto Serif TC',serif;font-size:44px;line-height:.6;color:var(--gold-l);height:20px}
+.vc p{font-size:15px;color:var(--body);line-height:1.85;margin-top:8px;flex:1}
+.vc p b{color:var(--ink);background:linear-gradient(transparent 62%,rgba(227,191,110,.35) 62%)}
+.vc .who{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.vc .av{width:40px;height:40px;border-radius:50%;flex:none;display:block;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--line)}
+.vc .who b{display:block;font-size:14px}
+.vc .who small{display:block;font-size:12px;color:var(--mute)}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:2px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(184,137,58,.3)}
+.dots i.on{width:18px;border-radius:9px;background:var(--gold)}
+.vnote{font-size:12px;color:#A39C8D;text-align:center;margin-top:10px}
 </style>
 </head>
 <body>
@@ -127,6 +143,15 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
     </div>
   </section>
 
+
+  <section>
+    <h2>VOICES</h2>
+    <h3>他們這樣說</h3>
+    <div class="voices" id="voices"><div class="vc"><div class="q">“</div><p>讓我知道了什麼是理財。我是一個很愛花錢的人，聽完演講之後，覺得<b>真的該好好規劃以後的退休生活</b>⋯⋯今天的小遊戲是我目前玩過最特別的桌遊，可以體驗不同的人生逆境，以及遇到這些場景時，我會面臨什麼樣的選擇。</p><div class="who"><span class="av" style="background:radial-gradient(circle at 35% 30%,#C9B08E,#6E5238)"></span><div><b>張小姐</b><small>理財講座・財富流桌遊</small></div></div></div><div class="vc"><div class="q">“</div><p>因為現在的通膨太高，固定薪資無法滿足未來的生活及意外。規劃的目的是<b>退休以後還有收入</b>，遇到什麼事情都還可以使用，能獲得穩定的生活，也對自己的生活有個保障。還有——好好跟老婆遊山玩水 😂</p><div class="who"><span class="av" style="background:radial-gradient(circle at 35% 30%,#A9A3A0,#3F3A3A)"></span><div><b>吳先生</b><small>退休規劃</small></div></div></div><div class="vc"><div class="q">“</div><p>雖然我投入各類型投資也有數年的經驗了，但自從認識你後，在投資這條路上有了更多的選擇和彈性。對我而言，投資除了追求高報酬，<b>更重要的是風險控管</b>⋯⋯這一切加上彼此之間的信任感，成為我做出選擇的原因。</p><div class="who"><span class="av" style="background:radial-gradient(circle at 35% 30%,#BFD8EE,#5D86B0)"></span><div><b>李先生</b><small>資產配置</small></div></div></div><div class="vc"><div class="q">“</div><p>感謝你提供了一種方向，<b>讓我的退休金有了保障</b>，也讓我認識了更多金融知識⋯⋯很高興認識你這個朋友，遇到你這個貴人相助 😄</p><div class="who"><span class="av" style="background:radial-gradient(circle at 35% 30%,#F1E6D2,#B9A27E)"></span><div><b>楊先生</b><small>退休規劃</small></div></div></div></div>
+    <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
+    <p class="vnote">真實客戶訊息摘錄，已隱去全名、頭像與個人資訊；「⋯」為省略。個人經驗不代表未來成效。</p>
+  </section>
+
   <section>
     <h2>BEYOND FINANCE</h2>
     <h3>工作之外的我</h3>
@@ -146,5 +171,10 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
 </main>
 
 <footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
+<script>
+// 回饋卡左右滑動時，下面的小圓點跟著走
+(function(){var v=document.getElementById('voices'),d=document.getElementById('dots').children;
+v.addEventListener('scroll',function(){var w=v.children[0].offsetWidth+12,i=Math.round(v.scrollLeft/w);[].forEach.call(d,function(x,k){x.classList.toggle('on',k===i)})},{passive:true})})();
+</script>
 </body>
 </html>
