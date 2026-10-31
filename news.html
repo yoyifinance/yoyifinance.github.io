@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>焦點新聞｜YoYi 悠逸・YOYI 財經</title>
-<meta name="description" content="YOYI 財經焦點新聞：每天一則財經新聞，3 個白話重點，看懂和台灣、和你的關係。">
-<meta property="og:title" content="焦點新聞｜YOYI 財經">
-<meta property="og:description" content="每天一則財經新聞，白話看懂。">
+<title>財經日報｜YoYi 悠逸・YOYI 財經</title>
+<meta name="description" content="YOYI 財經日報：今日台股、美股市場數字、產業溫度計，加上每天一則焦點新聞白話看懂。">
+<meta property="og:title" content="財經日報｜YOYI 財經">
+<meta property="og:description" content="今日市場數字＋每天一則焦點新聞。">
 <link rel="icon" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -28,7 +28,55 @@ h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40
 .chips button{font:inherit;font-size:14px;padding:6px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--mute);cursor:pointer}
 .chips button.on{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:700}
 main{max-width:680px;margin:0 auto;padding:0 16px}
-.label{font-size:13px;letter-spacing:.3em;color:var(--gold);font-weight:700;margin:30px 4px 10px}
+.label{font-size:13px;letter-spacing:.3em;color:var(--gold);font-weight:700;margin:30px 4px 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.label small{letter-spacing:0;font-weight:400;font-size:12px;color:var(--mute)}
+/* 今日市場：數字來自 data 分支的 market.json（tools/market_snapshot.py，GitHub 排程盤中每 10 分鐘更新）；漲紅跌綠 */
+#mk .up{color:#C8312B}#mk .dn{color:#1E7A46}
+.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{flex:1;font:inherit;font-size:14.5px;font-weight:700;padding:7px 0;border:0;border-radius:999px;background:none;color:var(--mute);cursor:pointer}
+.seg button.on{background:var(--gold);color:#fff}
+.card{margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 14px 12px;box-shadow:0 8px 30px rgba(90,65,20,.06);line-height:1.6}
+.ct{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:700;font-size:15px}
+.ct small{font-weight:400;font-size:12px;color:var(--mute)}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:4px}
+.big b{font-size:32px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.big span{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.breadth{margin-top:10px}
+.bar{display:flex;height:8px;border-radius:99px;overflow:hidden;background:#EEE}
+.bar i{display:block}
+.bl{display:flex;justify-content:space-between;font-size:12.5px;margin-top:5px;color:var(--mute)}
+.bl b{font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.q{background:var(--bg);border-radius:12px;padding:9px 11px}
+.q .n{font-size:12.5px;color:var(--mute)}
+.q .v{font-size:16px;font-weight:900;font-variant-numeric:tabular-nums;margin-top:1px}
+.q .p{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.ir{display:grid;grid-template-columns:64px 1fr 80px;align-items:center;gap:8px;padding:6px 0;font-size:14px}
+.ir .t{color:var(--body)}
+.ir .track{position:relative;height:10px;background:var(--bg);border-radius:99px}
+.ir .track::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:rgba(0,0,0,.15)}
+.ir .track i{position:absolute;top:0;bottom:0;border-radius:99px}
+.ir .a{text-align:right;font-weight:900;font-variant-numeric:tabular-nums}
+.ir.sum{border-top:1px dashed var(--line);margin-top:4px;padding-top:9px;font-weight:700}
+.heat{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:10px}
+.hb{border-radius:10px;padding:8px 4px 7px;text-align:center;line-height:1.3}
+.hb .n{font-size:12px;font-weight:700}
+.hb .p{font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;margin-top:2px}
+.say{margin-top:10px;font-size:13.5px;color:var(--body);background:#FFF9EC;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:8px 10px}
+.say b{color:#8A6424}
+.legend{display:flex;align-items:center;gap:6px;justify-content:flex-end;font-size:11px;color:var(--mute);margin-top:8px}
+.legend i{display:block;width:70px;height:6px;border-radius:9px;background:linear-gradient(90deg,#1E7A46,#E7F4EC,#F4F1EA,#FDECEC,#C8312B)}
+.chain{display:grid;grid-template-columns:1fr 18px 1fr;gap:4px;margin-top:10px;align-items:start}
+.col h4{font-size:12px;color:var(--mute);font-weight:500;text-align:center;margin-bottom:4px}
+.col h4 b{display:block;color:var(--ink);font-size:13.5px}
+.sk{display:flex;justify-content:space-between;align-items:center;gap:4px;background:var(--bg);border-radius:10px;padding:7px 9px;margin-top:5px;font-size:13.5px}
+.sk b{font-weight:700;white-space:nowrap}
+.sk span{font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}
+.arrow{align-self:center;text-align:center;color:var(--gold);font-weight:900}
+.tvh{margin-top:12px;font-size:12.5px;color:var(--mute)}
+.tv{margin-top:6px;border-radius:12px;overflow:hidden;border:1px solid rgba(184,137,58,.15);min-height:150px}
+.mfoot{font-size:11.5px;color:#A39C8D;margin-top:10px;line-height:1.7}
+.pane[hidden]{display:none}
 /* 今日焦點 */
 .hero{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(90,65,20,.08)}
 .hero>img{display:block;width:100%;height:auto;background:#EFE8DA}
@@ -98,11 +146,18 @@ footer{margin:48px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 <body>
 <header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a href="./">← 回到連結頁</a></header>
 <div class="head">
-  <div class="kicker">DAILY NEWS</div>
-  <h1>焦點新聞</h1>
-  <p>每天一則，白話看懂</p>
+  <div class="kicker">DAILY REPORT</div>
+  <h1>財經日報</h1>
+  <p>今日市場數字＋每天一則焦點新聞</p>
   <div class="rule"></div>
 </div>
+<main id="mk">
+  <div class="label"><span>MARKET｜今日市場</span><small id="mk-upd"></small></div>
+  <div class="seg" id="seg"><button class="on" data-p="after">盤後｜台股</button><button data-p="before">盤前｜美股・國際</button></div>
+  <div class="pane" id="mk-after"><div class="card"><p class="empty">市場數字載入中…</p></div></div>
+  <div class="pane" id="mk-before" hidden></div>
+  <div class="label" style="margin-bottom:0"><span>TODAY｜焦點新聞</span></div>
+</main>
 <div class="chips" id="chips">
   <button class="on" data-r="">全部</button><button data-r="台灣">台灣</button><button data-r="全球">全球</button>
 </div>
@@ -143,7 +198,7 @@ function body(n){
 function render(){
   var list=all.filter(function(n){return !region||n.region===region}), app=document.getElementById('app');
   if(!list.length){app.innerHTML='<p class="empty">這個分類還沒有新聞，明天再來看看～</p>';return}
-  var n=list[0], h='<div class="label">TODAY</div><article class="hero">';
+  var n=list[0], h='<div style="height:16px"></div><article class="hero">';
   if(n.image)h+='<img src="'+esc(n.image)+'" alt="'+esc(n.title)+'">';
   h+='<div class="in"><div class="meta">'+tag(n)+'<span>'+md(n)+'（'+esc(n.weekday)+'）</span></div><h2>'+esc(n.title)+'</h2>'+body(n)+'</div></article>';
   if(list.length>1){
@@ -160,6 +215,84 @@ document.getElementById('chips').addEventListener('click',function(e){
 // 每小時換一次網址參數，避免讀到舊的快取
 fetch('news.json?h='+Math.floor(Date.now()/36e5)).then(function(r){return r.json()}).then(function(d){all=d;render()})
   .catch(function(){document.getElementById('app').innerHTML='<p class="empty">新聞載入失敗，請稍後重新整理。</p>'});
+
+// ===== 今日市場 =====
+var MK='https://raw.githubusercontent.com/yoyifinance/yoyifinance.github.io/data/market.json';
+function f2(v,d){d=d==null?2:d;return Number(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
+function cl(p){return p>0?'up':p<0?'dn':''}
+function sp(p){return p===0?'0.00%':(p>0?'▲ ':'▼ ')+Math.abs(p).toFixed(2)+'%'}
+function when(q,t){return q.live?'盤中 '+t:q.date+' 收盤'}
+function heatBg(p){var a=Math.min(Math.abs(p)/4,1);return p>=0?'rgba(200,49,43,'+(0.08+a*0.82)+')':'rgba(30,122,70,'+(0.08+a*0.82)+')'}
+function heatFg(p){return Math.abs(p)>2?'#fff':(p>=0?'#8E1F1A':'#14532F')}
+function mkAfter(M,t){
+  var w=M.tw, h='', x=w.index;
+  if(x){
+    h+='<div class="card"><div class="ct">加權指數<small>'+when(x,t)+'</small></div><div class="big"><b>'+f2(x.price)+'</b><span class="'+cl(x.pct)+'">'+(x.price-x.prev>0?'+':'')+f2(x.price-x.prev)+'（'+sp(x.pct)+'）</span></div>';
+    var b=w.breadth;
+    if(b){var tot=b.up+b.down+b.flat;
+      h+='<div class="breadth"><div class="bar"><i style="width:'+(b.up/tot*100)+'%;background:#C8312B"></i><i style="width:'+(b.flat/tot*100)+'%;background:#D8D2C4"></i><i style="width:'+(b.down/tot*100)+'%;background:#1E7A46"></i></div>'
+        +'<div class="bl"><span>上市 '+b.date+'　上漲 <b class="up">'+b.up+'</b> 家</span><span>平盤 <b>'+b.flat+'</b></span><span>下跌 <b class="dn">'+b.down+'</b> 家</span></div></div>'}
+    h+='</div>';
+  }
+  var I=w.inst;
+  if(I){
+    var rows=[['外資',I.foreign],['投信',I.trust],['自營商',I.dealer]], mx=Math.max(Math.abs(I.foreign),Math.abs(I.trust),Math.abs(I.dealer),Math.abs(I.total))||1;
+    var ir=function(n,v,s){return '<div class="ir'+(s?' sum':'')+'"><span class="t">'+n+'</span><div class="track"><i style="'+(v>=0?'left:50%':'right:50%')+';width:'+(Math.abs(v)/mx*50)+'%;background:'+(v>=0?'#C8312B':'#1E7A46')+'"></i></div><span class="a '+cl(v)+'">'+(v>0?'+':'')+f2(v,0)+' 億</span></div>'};
+    h+='<div class="card"><div class="ct">三大法人買賣超<small>上市・'+I.date+'</small></div><div>'+rows.map(function(r){return ir(r[0],r[1])}).join('')+ir('合計',I.total,1)+'</div></div>';
+  }
+  var S=w.sectors;
+  if(S){
+    var s=S.items;
+    h+='<div class="card"><div class="ct">🏭 產業溫度計<small>類股指數漲跌・'+S.date+'</small></div><div class="heat">'
+      +s.map(function(x){return '<div class="hb" style="background:'+heatBg(x[1])+';color:'+heatFg(x[1])+'"><div class="n">'+esc(x[0])+'</div><div class="p">'+(x[1]>0?'+':'')+x[1].toFixed(2)+'%</div></div>'}).join('')
+      +'</div><div class="legend">跌<i></i>漲</div><div class="say">💰 錢往 <b>'+s.slice(0,2).map(function(x){return esc(x[0])}).join('、')+'</b> 跑；最弱是 <b>'+s.slice(-2).reverse().map(function(x){return esc(x[0])}).join('、')+'</b></div></div>';
+  }
+  var C=M.chain;
+  if(C&&C.us.length&&C.tw.length){
+    var row=function(q){return '<div class="sk"><b>'+esc(q.name)+'</b><span class="'+cl(q.pct)+'">'+sp(q.pct)+'</span></div>'};
+    h+='<div class="card"><div class="ct">🔗 AI 供應鏈追蹤<small>美國龍頭 vs 台灣供應鏈</small></div><div class="chain">'
+      +'<div class="col"><h4><b>🇺🇸 美國龍頭</b>'+(C.us[0].live?'盤中':C.us[0].date+' 美股')+'</h4>'+C.us.map(row).join('')+'</div><div class="arrow">→</div>'
+      +'<div class="col"><h4><b>🇹🇼 台灣供應鏈</b>'+(C.tw[0].live?'盤中':C.tw[0].date+' 台股')+'</h4>'+C.tw.map(row).join('')+'</div></div></div>';
+  }
+  return h+'<p class="mfoot">資料來源：臺灣證券交易所、Yahoo Finance。盤中約每 10 分鐘更新，可能延遲 10～25 分鐘；三大法人、漲跌家數、類股指數為收盤後資料。僅為市場數據整理，非投資建議。</p>';
+}
+function mkBefore(M,t){
+  var q=function(x){var bp=x.symbol==='^TNX';
+    return '<div class="q"><div class="n">'+esc(x.name)+'</div><div class="v">'+f2(x.price)+(bp?'%':'')+'</div><div class="p '+cl(x.pct)+'">'
+      +(bp?(x.price>=x.prev?'▲ ':'▼ ')+Math.abs(Math.round((x.price-x.prev)*100))+' bp':sp(x.pct))+'</div></div>'};
+  var h='';
+  if(M.us.length)h+='<div class="card"><div class="ct">美股四大指數<small>'+when(M.us[0],t)+'</small></div><div class="grid">'+M.us.map(q).join('')+'</div>'
+    +'<div class="tvh">費半 ETF（SOXX）近 1 個月走勢・即時</div><div class="tv" id="tv"></div></div>';
+  if(M.cross.length)h+='<div class="card"><div class="ct">ADR・亞洲・原物料<small>最新報價</small></div><div class="grid">'+M.cross.map(q).join('')+'</div></div>';
+  return h+'<p class="mfoot">走勢圖由 TradingView 提供；其餘數字約每 10 分鐘更新。僅為市場數據整理，非投資建議。</p>';
+}
+// TradingView 只顯示金色走勢線（它的數字是美國配色「跌紅」，和台灣相反，所以不顯示）
+function tv(){
+  var box=document.getElementById('tv');if(!box||box.dataset.on)return;box.dataset.on=1;
+  var s=document.createElement('script');s.src='https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';s.async=true;
+  s.text=JSON.stringify({symbol:'NASDAQ:SOXX',width:'100%',height:150,locale:'zh_TW',dateRange:'1M',colorTheme:'light',isTransparent:true,autosize:false,chartOnly:true,noTimeScale:false,trendLineColor:'#B8893A',underLineColor:'rgba(184,137,58,.15)'});
+  var w=document.createElement('div');w.className='tradingview-widget-container';w.innerHTML='<div class="tradingview-widget-container__widget"></div>';w.appendChild(s);box.appendChild(w);
+}
+var mkPane='after';
+function mkLoad(){
+  var bust='?t='+Math.floor(Date.now()/6e4);
+  fetch(MK+bust).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch('market.json'+bust).then(function(r){return r.json()})})
+  .then(function(M){
+    var t=M.updated.slice(11,16);
+    document.getElementById('mk-upd').textContent='更新 '+M.updated.slice(5,10).replace('-','/')+' '+t;
+    document.getElementById('mk-after').innerHTML=mkAfter(M,t);
+    var keep=document.getElementById('tv');
+    document.getElementById('mk-before').innerHTML=mkBefore(M,t);
+    if(keep&&keep.dataset.on){document.getElementById('tv').replaceWith(keep)}else if(mkPane==='before')tv();
+  }).catch(function(){document.getElementById('mk-after').innerHTML='<div class="card"><p class="empty">市場數字暫時載入失敗，請稍後重新整理。</p></div>'});
+}
+document.getElementById('seg').addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  [].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)});mkPane=b.dataset.p;
+  document.getElementById('mk-after').hidden=mkPane!=='after';document.getElementById('mk-before').hidden=mkPane!=='before';
+  if(mkPane==='before')tv();
+});
+mkLoad();setInterval(mkLoad,5*6e4);
 </script>
 </body>
 </html>

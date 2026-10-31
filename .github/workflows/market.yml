@@ -1,0 +1,38 @@
+# 今日市場：盤中每 10 分鐘抓一次數字，寫到 data 分支的 market.json（只留最新一筆，不累積紀錄）
+# 網站 news.html（財經日報）和 index.html（跑馬燈）直接讀 data 分支，所以 main 不會被一直改
+# 時間是 UTC（台灣 = UTC+8）
+name: 今日市場
+on:
+  schedule:
+    - cron: "*/10 1-5 * * 1-5"    # 台股盤中 09:00–13:50
+    - cron: "30 6 * * 1-5"        # 14:30 收盤後：類股指數、漲跌家數
+    - cron: "15 7 * * 1-5"        # 15:15 三大法人
+    - cron: "0 9 * * 1-5"         # 17:00 補抓一次
+    - cron: "*/10 13-21 * * 1-5"  # 美股盤中 21:00–05:50（夏令／冬令都涵蓋）
+    - cron: "0 22 * * 1-5"        # 06:00 美股收盤後定版
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: market
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: 抓數字
+        run: |
+          curl -fsSL "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/data/market.json?t=$(date +%s)" -o prev.json || cp market.json prev.json
+          mkdir out
+          python3 tools/market_snapshot.py out/market.json prev.json
+      - name: 推到 data 分支（覆蓋，只留最新）
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd out
+          git init -q -b data
+          git add market.json
+          git -c user.name="yoyi-market-bot" -c user.email="actions@users.noreply.github.com" commit -qm "今日市場 $(TZ=Asia/Taipei date '+%m/%d %H:%M')"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data

@@ -38,6 +38,18 @@ a.line .go{color:#fff}
 .ig{margin-top:30px;font-size:14px;color:var(--mute)}
 .ig a{color:var(--gold);text-decoration:none;font-weight:700}
 footer{margin-top:26px;font-size:12px;color:#A39C8D;line-height:1.7}
+/* 市場跑馬燈：數字來自 data 分支的 market.json（GitHub 排程更新），點了進財經日報；抓不到就整條不顯示 */
+a.tick{display:block;margin-top:22px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 0 10px;overflow:hidden;box-shadow:0 4px 18px rgba(120,90,30,.06)}
+.tick .hd{display:flex;justify-content:space-between;align-items:center;padding:0 14px;font-size:12px;color:var(--mute)}
+.tick .hd b{color:var(--gold);font-size:12.5px;letter-spacing:.08em}
+.tick .hd span{color:var(--gold);font-weight:700}
+.tick .rail{margin-top:6px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}
+.tick .run{display:flex;width:max-content;animation:run 32s linear infinite}
+.tick .it{flex:none;white-space:nowrap;font-size:14.5px;padding:0 14px;border-right:1px solid rgba(184,137,58,.25);font-variant-numeric:tabular-nums}
+.tick .it b{font-weight:700;margin-right:5px}
+.tick .up{color:#C8312B;font-weight:700}.tick .dn{color:#1E7A46;font-weight:700}
+@keyframes run{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tick .run{animation:none}}
 </style>
 </head>
 <body>
@@ -45,13 +57,14 @@ footer{margin-top:26px;font-size:12px;color:#A39C8D;line-height:1.7}
   <img class="logo" src="logo_gold.svg" alt="YOYI 財經">
   <h1>YoYi 悠逸｜YOYI 財經</h1>
   <p class="tag">每天一則財經新聞，白話看懂<br>台股・美股・全球經濟</p>
-  <div class="rule"></div>
+  <div class="rule" id="rule"></div>
+  <a class="tick" id="tick" href="news.html" hidden><div class="hd"><b>📊 今日市場</b><span>財經日報 ›</span></div><div class="rail"><div class="run" id="run"></div></div></a>
 
   <nav class="links">
     <a class="btn line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener">
       <span class="i">💬</span><span class="t"><b>加入 LINE 社群</b><small>每日財經圖卡＋完整解讀，IG 看不到的獨家內容</small></span><span class="go">›</span></a>
     <a class="btn" href="news.html">
-      <span class="i">📰</span><span class="t"><b>焦點新聞</b><small>每天一則財經新聞，看市場怎麼反應</small></span><span class="go">›</span></a>
+      <span class="i">📰</span><span class="t"><b>財經日報</b><small>今日市場數字＋每天一則焦點新聞</small></span><span class="go">›</span></a>
     <a class="btn" href="about.html">
       <span class="i">👤</span><span class="t"><b>認識 YoYi</b><small>個人介紹與服務說明</small></span><span class="go">›</span></a>
     <a class="btn" href="booking.html">
@@ -61,5 +74,28 @@ footer{margin-top:26px;font-size:12px;color:#A39C8D;line-height:1.7}
   <p class="ig">Instagram　<a href="https://www.instagram.com/yoyi_1205/" rel="noopener">@yoyi_1205</a></p>
   <footer>本頁內容僅為資訊分享，非投資建議<br>© YOYI 財經</footer>
 </main>
+<script>
+// 市場跑馬燈：加權、外資、台積電、費半、NASDAQ、台積電 ADR、美元／台幣、最強產業
+(function(){
+  var MK='https://raw.githubusercontent.com/yoyifinance/yoyifinance.github.io/data/market.json', bust='?t='+Math.floor(Date.now()/6e4);
+  function n(v,d){return Number(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
+  function c(p){return p>0?'up':p<0?'dn':''}
+  function p(v){return (v>0?'▲':v<0?'▼':'')+Math.abs(v).toFixed(2)+'%'}
+  function it(name,val,pc){return '<span class="it"><b>'+name+'</b>'+val+(pc==null?'':' <span class="'+c(pc)+'">'+p(pc)+'</span>')+'</span>'}
+  function find(a,s){for(var i=0;i<(a||[]).length;i++)if(a[i].symbol===s)return a[i]}
+  fetch(MK+bust).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch('market.json'+bust).then(function(r){return r.json()})})
+  .then(function(M){
+    var h='', x=M.tw.index, I=M.tw.inst, S=M.tw.sectors;
+    if(x)h+=it('加權指數',n(x.price,0),x.pct);
+    if(I)h+='<span class="it"><b>外資</b><span class="'+c(I.foreign)+'">'+(I.foreign>=0?'買超 ':'賣超 ')+n(Math.abs(I.foreign),0)+' 億</span></span>';
+    [['台積電',find(M.chain.tw,'2330.TW'),0],['費半',find(M.us,'^SOX'),0],['NASDAQ',find(M.us,'^IXIC'),0],['台積電 ADR',find(M.cross,'TSM'),2],['美元／台幣',find(M.cross,'TWD=X'),2]]
+      .forEach(function(a){if(a[1])h+=it(a[0],n(a[1].price,a[2]),a[1].pct)});
+    if(S&&S.items.length){var s=S.items[0];h+='<span class="it"><b>強勢產業</b><span class="'+c(s[1])+'">'+s[0]+' '+p(s[1])+'</span></span>'}
+    if(!h)return;
+    document.getElementById('run').innerHTML=h+h;
+    document.getElementById('tick').hidden=false;document.getElementById('rule').hidden=true;
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
