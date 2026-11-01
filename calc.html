@@ -220,7 +220,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
   </div>
 </section>
 
-<a class="cta" href="https://yoyifinance.github.io/booking.html">📝 預約 1 對 1 財務諮詢<small>用你的真實數字，做一份專屬評估</small></a>
+<a class="cta" id="book" href="booking.html">📝 預約 1 對 1 財務諮詢<small>用你的真實數字，做一份專屬評估</small></a>
 <div class="warnbox">
   <b>試算說明（請一定要看）</b>
   <ul>
@@ -346,6 +346,17 @@ function calc(){var y=v('y')/100,g=v('g')/100;markScenario();house(y,g);car(y,g)
 // 網址加 #car / #house 可以直接開指定分頁（Notion 筆記連過來用），沒有才看上次停在哪一頁
 try{var t=/^#(car|house)$/.test(location.hash)?location.hash.slice(1):localStorage.getItem('yoyi-calc-tab');$('tab-'+(t==='car'?'car':'house')).click()}catch(e){}
 calc();
+// 預約按鈕：客戶有動過數字，就把目前的試算整理成一段文字帶到預約頁（問卷最後一頁「網站試算結果」，客戶可以改或刪）
+var touched=false;document.addEventListener('input',function(){touched=true});
+[].forEach.call(document.querySelectorAll('.tabs button,#sc button,#hg'),function(b){b.addEventListener('click',function(e){if(e.isTrusted)touched=true})});
+$('book').addEventListener('click',function(){
+  if(!touched){this.href='booking.html';return}
+  var car=$('tab-car').getAttribute('aria-selected')==='true', sc='假設：配息 '+v('y')+'%、帳戶每年 '+(v('g')>=0?'+':'')+v('g')+'%';
+  var t=car
+    ?'【無痛買車試算】車價 '+v('cp')+' 萬、頭期 '+v('cd')+' 萬、車貸利率 '+v('cr')+'%、'+v('cy')+' 年、殘值 '+v('cv')+'%；'+sc+'。結果：'+$('c-save').textContent+'；'+$('c-diff').textContent
+    :'【聰明養房試算】房屋現值 '+v('hv')+' 萬、房貸剩餘 '+v('hl')+' 萬、利率 '+v('hr')+'%、剩 '+v('hy')+' 年；增貸 '+v('he')+' 萬、利率 '+v('hi')+'%、'+($('hg').checked?'寬限期持續延長':'寬限期 '+v('hgy')+' 年')+'；'+sc+'。結果：'+$('h-save').textContent;
+  this.href='booking.html?calc='+encodeURIComponent(t);
+});
 </script>
 
 </body>

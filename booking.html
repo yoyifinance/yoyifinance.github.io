@@ -52,6 +52,7 @@ h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40
 .form iframe{display:block;width:100%;height:1620px;border:0}
 .form iframe.tall{height:3100px}
 @media(min-width:600px){.form iframe{height:1500px}.form iframe.tall{height:2950px}}
+.pre{margin:0;padding:12px 16px;font-size:14px;background:#FFF9EC;border-bottom:1px solid var(--line);color:var(--ink)}
 .alt{text-align:center;font-size:13.5px;color:var(--mute);margin-top:14px}
 .alt a{color:var(--gold);font-weight:700}
 footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
@@ -80,11 +81,18 @@ footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 </div>
 <div class="form">
   <div class="box">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScU9st7cWI0tRjzh5ze6UEP0wBsMwF52g4j6mr7dQdfKEKMjA/viewform?embedded=true" loading="lazy" title="財務諮詢預約問卷">載入中…</iframe>
+    <p class="pre" id="pre" hidden>✅ 已帶入你在「理財試算」的數字，在問卷<b>最後一頁</b>，可以自由修改或刪除。</p>
+    <iframe id="gf" title="財務諮詢預約問卷">載入中…</iframe>
   </div>
-  <p class="alt">表單沒有顯示？<a href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">點這裡直接開啟問卷</a></p>
+  <p class="alt">表單沒有顯示？<a id="gf-alt" href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">點這裡直接開啟問卷</a></p>
 </div>
 <script>
+// 從理財試算過來（?calc=...）就預先填入問卷最後一頁「網站試算結果」那題（entry.2011746388），客戶可以改
+(function(){var F='https://docs.google.com/forms/d/e/1FAIpQLScU9st7cWI0tRjzh5ze6UEP0wBsMwF52g4j6mr7dQdfKEKMjA/viewform',q='',c='';
+try{c=new URLSearchParams(location.search).get('calc')||''}catch(e){}
+if(c){q='&usp=pp_url&entry.2011746388='+encodeURIComponent(c.slice(0,1500));document.getElementById('pre').hidden=false;
+  document.getElementById('gf-alt').href=F+'?usp=pp_url&entry.2011746388='+encodeURIComponent(c.slice(0,1500))}
+document.getElementById('gf').src=F+'?embedded=true'+q})();
 // 問卷每換一頁 iframe 會重新載入：第一頁之後改用較高的高度，並捲回問卷頂端，免得客戶停在空白處
 (function(){var f=document.querySelector('.form iframe'),first=true;
 f.addEventListener('load',function(){if(first){first=false;return}f.classList.add('tall');f.scrollIntoView({behavior:'smooth'})})})();

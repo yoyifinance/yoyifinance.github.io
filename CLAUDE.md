@@ -12,3 +12,4 @@
 - market.json：GitHub Actions 每 10 分鐘寫到 data 分支。
 - analytics.js：GA4（G-7L1SJ24MTK）與事件追蹤（join_line、booking_click、ig_click、form_next、calc_use）。
 - 分享預覽圖在 images/og/，1200×630。
+- 試算 → 預約：calc.html 的預約按鈕把試算整理成文字放在 ?calc=，booking.html 預先填入問卷最後一頁「網站試算結果」（entry.2011746388）。問卷改題目時要確認這個代號沒變。
