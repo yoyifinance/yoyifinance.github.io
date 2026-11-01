@@ -145,7 +145,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
 </div>
 
 <!-- 試算情境說明：跟著分頁切換，放在最上面 -->
-<div class="intro" id="idea-house"><span class="tag">試算情境</span><p>用房子已經還掉的價值<b>增貸</b>，把錢放進配息帳戶，讓配息幫你分擔房貸。</p><p class="key">關鍵：配息要穩定高過增貸利息</p></div>
+<div class="intro" id="idea-house"><span class="tag">試算情境</span><p>用房子已經還掉的價值和增值的空間<b>活化</b>，把錢放進配息帳戶，讓配息幫你分擔房貸。</p><p class="key">關鍵：配息要穩定高過活化成本</p></div>
 <div class="intro" id="idea-car" hidden><span class="tag">試算情境</span><p>同樣準備好一筆買車的錢：</p><ul><li><b>A 方案</b>　全額現金付清</li><li><b>B 方案</b>　只付頭期款，其餘放進配息帳戶，用配息分擔車貸</li></ul><p class="key">關鍵：帳戶總報酬要高過車貸利率</p></div>
 
 <!-- 共用：報酬情境 -->
@@ -172,11 +172,11 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
     <div class="f"><label for="hy">剩餘年期</label><div class="num"><input type="number" id="hy" min="5" max="40" step="1" value="30">年</div><input type="range" id="hy-r" min="5" max="40" step="1" value="30"></div>
   </div>
   <div class="box">
-    <div class="bt">增貸活化</div>
-    <div class="f"><label for="he">增貸金額</label><div class="num"><input type="number" id="he" min="0" max="5000" step="10" value="200">萬</div><input type="range" id="he-r" min="0" max="200" step="10" value="200"><div class="hint" id="he-hint"></div></div>
-    <div class="f"><label for="hi">增貸利率</label><div class="num"><input type="number" id="hi" min="0" max="8" step="0.05" value="2.5">%</div><input type="range" id="hi-r" min="1" max="5" step="0.05" value="2.5"></div>
+    <div class="bt">活化額度</div>
+    <div class="f"><label for="he">活化金額</label><div class="num"><input type="number" id="he" min="0" max="5000" step="10" value="200">萬</div><input type="range" id="he-r" min="0" max="200" step="10" value="200"><div class="hint" id="he-hint"></div></div>
+    <div class="f"><label for="hi">活化利率</label><div class="num"><input type="number" id="hi" min="0" max="8" step="0.05" value="2.5">%</div><input type="range" id="hi-r" min="1" max="5" step="0.05" value="2.5"></div>
     <label class="tg"><input type="checkbox" id="hg" checked> 寬限期持續延長（只繳利息）</label>
-    <div class="f" id="hgy-row" hidden><label for="hgy">寬限期</label><div class="num"><input type="number" id="hgy" min="0" max="10" step="1" value="5">年</div><input type="range" id="hgy-r" min="0" max="10" step="1" value="5"><div class="hint">寬限期過後，增貸開始本金＋利息一起還，月付會變高</div></div>
+    <div class="f" id="hgy-row" hidden><label for="hgy">寬限期</label><div class="num"><input type="number" id="hgy" min="0" max="10" step="1" value="5">年</div><input type="range" id="hgy-r" min="0" max="10" step="1" value="5"><div class="hint">寬限期過後，活化開始本金＋利息一起還，月付會變高</div></div>
   </div>
 
   <div class="box">
@@ -227,7 +227,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
     <li>本工具僅為數學試算，<b>不構成任何投資建議或商品推薦</b>，實際結果依個人狀況、銀行核貸與市場表現而定。</li>
     <li>配息率與帳戶成長率都是假設值，<b>配息不保證</b>，可能來自本金；投資有賺有賠，帳戶價值可能低於投入金額。</li>
     <li>本試算<b>不針對任何特定金融商品</b>。增貸會增加負債與利息支出，是否增貸、資金如何運用，應依自身還款能力與財務狀況決定；請勿在未充分了解風險前，為了投資而增貸。</li>
-    <li>增貸額度、利率與寬限期以銀行核定為準。寬限期通常 3～5 年，信用與房屋狀況良好時常可申請延長，但銀行沒有義務展延。</li>
+    <li>活化（增貸）額度、利率與寬限期以銀行核定為準。寬限期通常 3～5 年，信用與房屋狀況良好時常可申請延長，但銀行沒有義務展延。</li>
     <li>借錢投資會放大結果：市場好時效益更大，市場不好時壓力也更大，請保留緊急預備金。</li>
   </ul>
 </div>
@@ -279,7 +279,7 @@ function house(y,g){
   var V=v('hv')*1e4,L=v('hl')*1e4,rr=v('hr')/100,yrs=Math.max(1,Math.round(v('hy'))),E=v('he')*1e4,ri=v('hi')/100;
   var Emax=Math.max(0,V*0.8-L);
   $('he-r').max=Math.max(10,Math.floor(Emax/1e5)*10);
-  $('he-hint').textContent=Emax>0?'最高可增貸約 '+wan(Emax)+' 萬（房屋現值 8 成 − 原房貸剩餘）':'目前房貸已超過房屋現值 8 成，沒有增貸空間';
+  $('he-hint').textContent=Emax>0?'最高可活化約 '+wan(Emax)+' 萬（房屋現值 8 成 − 原房貸剩餘）':'目前房貸已超過房屋現值 8 成，沒有活化空間';
   if(E>Emax){E=Emax}
   var N=yrs*12, P=pmt(L,rr,N), forever=$('hg').checked, gy=Math.min(Math.round(v('hgy')),yrs);
   $('hgy-row').hidden=forever;
@@ -294,9 +294,9 @@ function house(y,g){
   // 第一個月
   var net=P+first.cost-first.pay, save=P-net;
   $('h-vs').innerHTML='<div class="side"><h4>❌ 傳統養房</h4><div class="big">'+yuan(P)+'<small>元</small></div><ul><li><span>房貸本息</span><span>'+yuan(P)+'</span></li></ul></div>'
-    +'<div class="side win"><h4>⭕️ 聰明被房養</h4><div class="big">'+yuan(net)+'<small>元</small></div><ul><li><span>原房貸</span><span>'+yuan(P)+'</span></li><li><span>增貸'+(forever||gy>0?'利息':'本息')+'</span><span>+'+yuan(first.cost)+'</span></li><li><span>帳戶配息</span><span>−'+yuan(first.pay)+'</span></li></ul></div>';
+    +'<div class="side win"><h4>⭕️ 聰明被房養</h4><div class="big">'+yuan(net)+'<small>元</small></div><ul><li><span>原房貸</span><span>'+yuan(P)+'</span></li><li><span>活化'+(forever||gy>0?'利息':'本息')+'</span><span>+'+yuan(first.cost)+'</span></li><li><span>帳戶配息</span><span>−'+yuan(first.pay)+'</span></li></ul></div>';
   $('h-save').className='save '+(save>=0?'pos':'neg');
-  $('h-save').textContent=save>=0?'每月少付約 '+yuan(save)+' 元':'每月反而多付約 '+yuan(-save)+' 元（配息低於增貸成本）';
+  $('h-save').textContent=save>=0?'每月少付約 '+yuan(save)+' 元':'每月反而多付約 '+yuan(-save)+' 元（配息低於活化成本）';
   // 累積表
   var ks=[5,10,20,30,40].filter(function(k){return k<=yrs});if(ks.indexOf(yrs)<0)ks.push(yrs);
   $('h-tbl').innerHTML='<tr><th>時間</th><th>傳統養房</th><th>聰明被房養</th><th>累積省下</th></tr>'+ks.map(function(k){var r=rows[k];
@@ -306,9 +306,9 @@ function house(y,g){
   $('h-end-t').innerHTML=yrs+' 年後結算<small>兩種做法房子都繳清了</small>';
   $('h-kpi').innerHTML='<div class="kpi"><span>房貸累積少付</span><b>'+sgn(saved)+' 萬</b></div>'
     +'<div class="kpi"><span>配置帳戶剩下</span><b>'+wan(bal)+' 萬</b></div>'
-    +'<div class="kpi"><span>增貸本金還要還</span><b>'+(owe>0?'−'+wan(owe):'0')+' 萬</b></div>'
+    +'<div class="kpi"><span>活化本金還要還</span><b>'+(owe>0?'−'+wan(owe):'0')+' 萬</b></div>'
     +'<div class="kpi hl"><span>總效益</span><b>'+sgn(benefit)+' 萬</b></div>';
-  $('h-note').textContent='總效益＝房貸累積少付＋帳戶剩下的錢−還欠的增貸本金。'+(bal>0?'帳戶之後每月還能配息約 '+yuan(bal*y/12)+' 元。':'');
+  $('h-note').textContent='總效益＝房貸累積少付＋帳戶剩下的錢−還欠的活化本金。'+(bal>0?'帳戶之後每月還能配息約 '+yuan(bal*y/12)+' 元。':'');
 }
 
 // ===== 無痛買車 =====
