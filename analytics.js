@@ -8,7 +8,7 @@
 //   form_next      預約問卷換頁（step 2 = 填完第一頁，step 3 = 到了最後一頁＝填完）
 //   calc_use       理財試算有動過數字（每次開頁只記一次，tab = house / car）
 (function(){
-  var GA_ID='';
+  var GA_ID='G-7L1SJ24MTK';
   if(!GA_ID)return;
   var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);
   window.dataLayer=window.dataLayer||[];
