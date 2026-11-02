@@ -1,5 +1,40 @@
 [
  {
+  "date": "2026-11-02",
+  "weekday": "一",
+  "region": "台灣",
+  "title": "外資 10 月賣超近 1 兆元創單月新高，公股行庫承接 2,409 億",
+  "one": "外資 10 月賣超台股約 9,943 億元，創單月歷史新高，10/30 單日賣超約 1,124.7 億元；八大公股行庫同月買超約 2,409 億元，是歷來單月最大。",
+  "image": "images/news/2026-11-02.jpg",
+  "sources": [
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5607/9847954"
+   },
+   {
+    "name": "TVBS",
+    "url": "https://news.tvbs.com.tw/money/4043523"
+   },
+   {
+    "name": "今周刊",
+    "url": "https://www.businesstoday.com.tw/article/category/183008/post/202610300041/"
+   },
+   {
+    "name": "Yahoo 股市",
+    "url": "https://tw.stock.yahoo.com/news/%E5%A4%96%E8%B3%87%E8%B3%A3%E8%B6%851124%E5%84%84-%E5%8F%B2%E4%B8%8A%E7%AC%AC7%E5%A4%A7-%E7%B6%B2%E5%98%86-10%E6%9C%88%E8%B3%A3%E4%BA%86%E5%BF%AB-%E5%85%86-075400320.html"
+   },
+   {
+    "name": "自由財經",
+    "url": "https://ec.ltn.com.tw/article/breakingnews/5624174"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "外資賣超近兆元，你的計畫還穩嗎？",
+   "text": "股市和匯率的波動，常讓人重新檢視自己的資產與計畫。想了解自己的狀況，歡迎預約諮詢，一起把現況整理清楚。"
+  }
+ },
+ {
   "date": "2026-11-01",
   "weekday": "日",
   "region": "全球",
