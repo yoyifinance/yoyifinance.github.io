@@ -1,0 +1,98 @@
+/* IG 留言限定筆記共用版型（白底配金，跟官網一致） */
+:root{--gold:#B8893A;--gold-d:#8A6424;--gold-l:#E3BF6E;--ink:#1F1B14;--body:#4A443A;--mute:#7A7366;--bg:#FBF9F4;--card:#FFFFFF;--soft:#F6EEDD;--line:rgba(184,137,58,.3);--red:#B5523B;--shadow:0 6px 22px rgba(90,65,20,.07)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink);line-height:1.75;
+  background:radial-gradient(ellipse 100% 35% at 50% 0%,#FFFFFF 0%,#FBF9F4 60%,#F4EFE4 100%)}
+a{color:inherit}
+b{color:var(--ink)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:720px;margin:0 auto}
+.top img{height:40px}
+.top span{font-size:12.5px;color:var(--gold);letter-spacing:.2em;font-weight:700}
+/* 標題 */
+.hero{text-align:center;padding:26px 0 0}
+.kicker{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(25px,6.9vw,42px);line-height:1.35;margin-top:8px;text-wrap:balance}
+.hero .sub{color:var(--mute);margin-top:6px}
+.rule{width:56px;height:2px;margin:20px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.motto{margin-top:26px;padding:18px 20px;border-left:3px solid var(--gold);background:#fff;border-radius:0 12px 12px 0;box-shadow:0 4px 18px rgba(90,65,20,.06);color:var(--body)}
+/* 區塊 */
+section{padding:52px 0 0}
+h2{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+h3{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(22px,5.6vw,30px);line-height:1.4;margin-top:8px}
+section > p{margin-top:14px;color:var(--body)}
+/* 一般卡片 */
+.box{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.box h4{font-size:17px;line-height:1.5}
+.box p,.box li{font-size:15px;color:var(--body);line-height:1.75}
+.box p{margin-top:6px}
+.box ul,.box ol{padding-left:1.3em;margin-top:6px}
+.box li + li{margin-top:4px}
+.box.soft{background:var(--soft);box-shadow:none}
+.box .ic{font-size:24px;line-height:1;display:block;margin-bottom:8px}
+.note{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--soft);font-size:14px;color:var(--body);line-height:1.7}
+/* 結果對比 */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.vs .c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px;box-shadow:var(--shadow)}
+.vs .c.b{background:linear-gradient(160deg,#FFFDF7,#F6EEDD);border-color:var(--gold)}
+.vs .t{font-size:13px;color:var(--mute);font-weight:700}
+.vs .n{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,6.6vw,36px);line-height:1.15;margin-top:6px;white-space:nowrap}
+.vs .b .n{color:var(--gold-d)}
+.vs .l{font-size:13px;color:var(--mute);margin-top:4px;line-height:1.5}
+.bars{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px}
+.bar{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:center;font-size:13.5px;font-weight:700}
+.bar + .bar{margin-top:10px}
+.bar i{display:block;height:22px;border-radius:6px;background:#D9D3C6}
+.bar.b i{background:linear-gradient(90deg,#D9B061,#B8893A)}
+.bars small{display:block;font-size:12px;color:var(--mute);margin-top:10px}
+/* 方案卡、明細列 */
+.plan{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;box-shadow:var(--shadow)}
+.plan .tag{display:inline-block;font-size:12.5px;font-weight:900;letter-spacing:.1em;padding:3px 12px;border-radius:999px;background:#EFEBE3;color:var(--mute)}
+.plan.b .tag{background:var(--gold);color:#fff}
+.plan h4{font-size:18px;margin-top:10px}
+.rows{margin-top:12px;border-top:1px dashed var(--line)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.row span{color:var(--body)}
+.row b{white-space:nowrap;font-variant-numeric:tabular-nums}
+.row b.neg{color:var(--red)}
+.row.total{border-bottom:0;padding-top:12px}
+.row.total span{color:var(--ink);font-weight:700}
+.row.total b{font-family:'Noto Serif TC',serif;font-size:20px;color:var(--gold-d)}
+.sub-h{font-size:13px;font-weight:700;color:var(--gold);margin-top:16px;letter-spacing:.1em}
+/* 表格 */
+.tbl-w{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl th{background:var(--soft);font-size:12.5px;color:var(--gold-d);padding:10px 10px;text-align:left;font-weight:700}
+.tbl td{padding:11px 10px;border-top:1px dashed var(--line);font-variant-numeric:tabular-nums;color:var(--body)}
+.tbl td:first-child{color:var(--ink);font-weight:700;white-space:nowrap}
+.tbl td.hl{color:var(--gold-d);font-weight:900}
+/* 時間軸 */
+.tl{margin-top:20px;border-left:2px solid var(--line);margin-left:8px}
+.tl .it{position:relative;padding:0 0 18px 20px}
+.tl .it::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px #fff}
+.tl .it b{display:block;font-size:16px}
+.tl .it .d{font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px;color:var(--gold-d);line-height:1.3}
+.tl .it p{font-size:14.5px;color:var(--mute);line-height:1.6}
+/* 編號步驟 */
+.steps{margin-top:22px;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 4px 18px rgba(90,65,20,.06)}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,#D9B061,#B8893A);color:#fff;font-weight:900}
+.step b{display:block;font-size:16px}
+.step p{font-size:14.5px;color:var(--mute);line-height:1.65;margin-top:2px}
+/* 小卡格 */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.grid .box{margin-top:0}
+@media(max-width:420px){.grid.one{grid-template-columns:1fr}}
+/* 行動 */
+.contact{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.contact a{display:flex;align-items:center;gap:14px;padding:17px 18px;border-radius:16px;text-decoration:none;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(90,65,20,.06)}
+.contact a .i{font-size:24px;width:30px;text-align:center}
+.contact a b{display:block;font-size:16.5px;color:inherit}
+.contact a small{display:block;font-size:13px;color:var(--mute);font-weight:400;line-height:1.5}
+.contact a div{flex:1}
+.contact a .go{color:var(--gold);font-size:20px}
+.contact .book{background:linear-gradient(135deg,#D9B061,#B8893A);border:none;color:#fff}
+.contact .book small,.contact .book .go{color:rgba(255,255,255,.9)}
+footer{margin:56px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
