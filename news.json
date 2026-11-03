@@ -1,5 +1,40 @@
 [
  {
+  "date": "2026-11-03",
+  "weekday": "二",
+  "region": "全球",
+  "title": "費城半導體指數 11 月首日再挫逾 3%，鎧俠財測拖累記憶體股，台積電 ADR 失守 400 美元",
+  "one": "美股 11/02 費城半導體指數收約 10,328 點、下跌約 3.3%，日本記憶體廠鎧俠財測低於預期、股價重挫約 15.8%，台積電 ADR 收約 398.6 美元，跌約 1.8%。",
+  "image": "images/news/2026-11-03.jpg",
+  "sources": [
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6644206"
+   },
+   {
+    "name": "聯合報",
+    "url": "https://udn.com/news/story/6811/9853278"
+   },
+   {
+    "name": "鉅亨網（鎧俠財測）",
+    "url": "https://news.cnyes.com/news/id/6644532"
+   },
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/11/01/stock-market-today-live-updates.html"
+   },
+   {
+    "name": "中央社",
+    "url": "https://www.cna.com.tw/news/afe/202611020235.aspx"
+   }
+  ],
+  "cta": {
+   "type": "line",
+   "title": "半導體連續修正，你看懂了嗎？",
+   "text": "費半短短幾天大幅回檔，背後是市場重新評估 AI 與記憶體的景氣預期。歡迎加入 LINE 社群，每天用白話整理重大財經新聞，一起看懂數字背後的故事。"
+  }
+ },
+ {
   "date": "2026-11-02",
   "weekday": "一",
   "region": "台灣",
