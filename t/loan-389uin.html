@@ -43,6 +43,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 .f .num{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--mute)}
 .f input{font:inherit;font-size:16px;font-weight:700;text-align:right;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:5px 8px;background:#FFFBEF;font-variant-numeric:tabular-nums;width:92px}
 .f input.wide{width:130px}
+.f input::placeholder{color:#C9BFA9;font-weight:500}
 .f .hint{grid-column:1/-1;font-size:12px;color:var(--mute)}
 /* 壓力情境按鈕 */
 .sc{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
@@ -363,12 +364,10 @@ function chart(fw){
 function niceStep(v){const p=Math.pow(10,Math.floor(Math.log10(v||1))), r=v/p;return (r<=1?1:r<=2?2:r<=2.5?2.5:r<=5?5:10)*p}
 function axis(v){return v===0?'0':v>=1e8?(+(v/1e8).toFixed(2))+'億':(+(v/1e4).toFixed(1))+'萬'}
 
-/* 點進輸入框就全選，直接打字會取代原本的數字（iOS 需要延遲一下才選得到） */
-document.querySelectorAll('input:not([type=checkbox])').forEach(i=>{
-  let fresh=false;
-  i.addEventListener('focus',()=>{fresh=true;setTimeout(()=>{try{i.select()}catch(e){}},0)});
-  i.addEventListener('mouseup',e=>{if(fresh){e.preventDefault();fresh=false}});
-  i.addEventListener('blur',()=>{fresh=false});
+/* 點進輸入框先清空、原數字變淡色提示；直接打字就是新數字，沒輸入就離開會還原（iPhone 的數字欄位不支援全選，所以用清空） */
+document.querySelectorAll('input:not([type=checkbox]):not(#cn)').forEach(i=>{
+  i.addEventListener('focus',()=>{i.dataset.old=i.value;i.placeholder=i.value;i.value=''});
+  i.addEventListener('blur',()=>{if(i.value===''&&i.dataset.old!==undefined){i.value=i.dataset.old}i.placeholder='';delete i.dataset.old});
 });
 /* 聯動：勾選時貸款金額改多少，投資金額就跟著改；直接改投資金額＝取消聯動，重新勾選會再對齊 */
 $('lk').addEventListener('change',()=>{if($('lk').checked){$('P').value=$('L').value;render()}});
