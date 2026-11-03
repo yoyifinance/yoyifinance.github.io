@@ -24,7 +24,9 @@ body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.7;backgroun
 .wrap{max-width:820px;margin:0 auto}
 .top{display:flex;justify-content:space-between;align-items:center;padding-block:16px}
 .top img{height:38px;display:block}
-.top span{font-size:12px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.top a{font-size:14px;color:var(--mute);text-decoration:none}
+.top a.logo{display:block}
+.home{display:block;margin-top:16px;text-align:center;text-decoration:none;font-weight:700;font-size:15px;padding:14px 10px;border-radius:14px;background:#fff;border:1px solid var(--gold);color:var(--gold-d)}
 .head{text-align:center;padding-top:4px}
 .kicker{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
 h1{font-family:var(--serif);font-weight:900;font-size:clamp(28px,7vw,38px);margin:4px 0 0;text-wrap:balance}
@@ -115,7 +117,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
   html,body{background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{padding:0;font-size:12px}
   .wrap{max-width:none}
-  .sc,.tabs,#exbox,#mo,#tip,.f .hint,.link,#ytbox{display:none!important}
+  .top a.back,.home,.sc,.tabs,#exbox,#mo,#tip,.f .hint,.link,#ytbox{display:none!important}
   .box{box-shadow:none;break-inside:avoid;padding:10px 12px;margin-top:8px;border-radius:10px}
   #sumbox{break-inside:auto}.cmp tr,.verdict{break-inside:avoid}
   .grid2{grid-template-columns:1fr 1fr}
@@ -132,7 +134,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
 </head>
 <body>
 <div class="wrap">
-<header class="top"><img src="../logo_h_gold.svg" alt="YOYI 財經"><span>面談試算用</span></header>
+<header class="top"><a class="logo" href="https://yoyifinance.github.io/"><img src="../logo_h_gold.svg" alt="YOYI 財經"></a><a class="back" href="https://yoyifinance.github.io/">← 回到首頁</a></header>
 <div class="head">
   <div class="kicker">LOAN × INVEST</div>
   <h1>貸款投資試算</h1>
@@ -215,6 +217,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
     <li>本試算未計入稅負、手續費、管理費與匯率變動。</li>
   </ul>
 </div>
+<a class="home" href="https://yoyifinance.github.io/">🏠 回到首頁</a>
 <footer>© YOYI 財經｜資訊分享，非投資建議｜試算結果僅供參考</footer>
 </div>
 
