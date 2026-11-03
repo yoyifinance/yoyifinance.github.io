@@ -102,7 +102,7 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
 .link{display:flex;align-items:center;gap:8px;padding:9px 0;border-top:1px dashed rgba(184,137,58,.25);font-size:13.5px;color:var(--body)}
 .link input{width:18px;height:18px;accent-color:var(--gold);margin:0}
 /* 匯出 */
-.ex{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.ex{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
 .ex button{font:inherit;font-weight:700;font-size:15px;padding:13px 8px;border-radius:14px;cursor:pointer;border:1px solid var(--gold);background:#fff;color:var(--gold-d);line-height:1.35}
 .ex button.pdf{background:linear-gradient(135deg,#D9B061,#B8893A);color:#fff;border-color:transparent}
 .ex button small{display:block;font-weight:400;font-size:12px;opacity:.85}
@@ -198,10 +198,9 @@ footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
 
 <div class="box" id="exbox">
   <div class="bt">匯出報表<small>存成檔案留底</small></div>
-  <div class="f"><label for="cn">報表標題備註（選填，例：王先生 11/3 面談）</label><div class="num"><input class="wide" type="text" id="cn" maxlength="30" style="text-align:left;font-weight:500"></div><div class="hint">只會寫進匯出的檔案，不會上傳到任何地方</div></div>
+  <div class="f"><label for="cn">報表標題備註（選填，例：王先生 11/3 面談）</label><div class="num"><input class="wide" type="text" id="cn" maxlength="30" style="text-align:left;font-weight:500"></div><div class="hint">只會寫進 PDF 標題和檔名，不會上傳到任何地方</div></div>
   <div class="ex">
     <button type="button" class="pdf" id="btn-pdf">📄 輸出 PDF<small>開啟列印 → 選「儲存為 PDF」</small></button>
-    <button type="button" id="btn-xls">📊 輸出 Excel<small>摘要＋年度表＋每月明細</small></button>
   </div>
 </div>
 
@@ -324,62 +323,6 @@ $('btn-pdf').addEventListener('click',()=>{
 addEventListener('beforeprint',prep);
 addEventListener('afterprint',()=>{document.title=oldTitle;chart()});
 
-function loadXLSX(){
-  if(window.XLSX) return Promise.resolve();
-  return new Promise((ok,no)=>{const s=document.createElement('script');
-    s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';s.onload=ok;s.onerror=()=>no(new Error('load'));document.head.appendChild(s)});
-}
-$('btn-xls').addEventListener('click',async()=>{
-  const btn=$('btn-xls'); btn.disabled=true;
-  try{await loadXLSX()}catch(e){btn.disabled=false;alert('Excel 元件載入失敗，請確認網路連線後再試一次。');return}
-  const o=base(), t=today(), m=memo(), R=v=>Math.round(v);
-  const wb=XLSX.utils.book_new();
-  const sum=[
-    ['貸款投資試算'+(m?'｜'+m:'')],['試算日期',t.s],[],
-    ['輸入條件'],['貸款金額',o.L,'元'],['貸款年利率',o.R/100],['貸款年期',o.N,'年'],['寬限期',o.G,'年'],
-    ['投資金額',o.P,'元'],['累積期（不配息）',o.A,'年'],[],
-    ['', '你的設定','壓力情境'],
-    ['年化配息率',o.Y/100,num('SY')/100],['帳戶每年成長（扣掉配息後）',o.Gr/100,num('SG')/100],[],
-    ['重點整理（元）','你的設定','壓力情境'],
-  ];
-  if(B.gm>0) sum.push(['寬限期每月應繳（只繳利息）',R(B.first.pay),R(S.first.pay)]);
-  const bd=B.rows.find(r=>!r.acm)||B.first, sd=S.rows.find(r=>!r.acm)||S.first;
-  sum.push(
-    [B.gm>0?'寬限期後每月應繳':'每月應繳',R(B.firstAm.pay),R(S.firstAm.pay)],
-    [`第 ${B.firstAm.m} 個月利息`,R(B.firstAm.int),R(S.firstAm.int)],
-    [`第 ${B.firstAm.m} 個月本金`,R(B.firstAm.prin),R(S.firstAm.prin)],
-    ['貸款總繳金額',R(B.last.cumPay),R(S.last.cumPay)],
-    ['其中總利息',R(B.last.cumInt),R(S.last.cumInt)],
-    [`第 ${bd.m} 個月配息`,R(bd.div),R(sd.div)],
-    [`第 ${bd.m} 個月需自己貼補（負數＝有結餘）`,R(bd.pay-bd.div),R(sd.pay-sd.div)],
-    ['貸款期間總配息',R(B.last.cumDiv),R(S.last.cumDiv)],
-    ['累積自付金額（總繳 − 總配息）',R(B.last.net),R(S.last.net)],
-    [`第 ${B.n/12} 年底帳戶價值`,R(B.last.acc),R(S.last.acc)],
-    ['最終盈虧',R(B.last.pl),R(S.last.pl)],
-    [],['盈虧＝投資帳戶價值 −（投資金額 − 貸款金額）− 剩餘貸款 − 累積自付金額'],
-    ['資訊分享，非投資建議。本表僅為數學試算，不構成任何投資建議或商品推薦，不針對任何特定金融商品。'],
-    ['配息率與帳戶成長率為假設值，配息不保證、可能來自本金；投資有賺有賠，帳戶價值可能低於投入金額。'],
-  );
-  const ws=XLSX.utils.aoa_to_sheet(sum);
-  ws['!cols']=[{wch:38},{wch:16},{wch:16}];
-  for(const a of ['B6','B13','C13','B14','C14']) if(ws[a]) ws[a].z='0.00%';
-  fmt(ws,'#,##0');
-  XLSX.utils.book_append_sheet(wb,ws,'摘要');
-  const yh=['年度','貸款繳款(年)','其中利息','其中本金','平均每月繳款','配息(年)','自己貼補(年)','平均每月貼補','帳戶價值(年末)','剩餘貸款(年末)','盈虧(年末)'];
-  const mh=['月份','年度','寬限期','累積期','貸款期初餘額','當月利息','本金攤還','當月應繳','貸款期末餘額','帳戶期初','配息','帳戶成長','帳戶期末','需貼補','結餘','盈虧'];
-  for(const [X,nm,lab] of [[B,'你的設定',sname()],[S,'壓力情境',tname()]]){
-    const ya=[[lab],yh,...X.yrs.map(y=>[`第 ${y.y} 年`,R(y.pay),R(y.int),R(y.prin),R(y.pay/12),R(y.div),R(y.pay-y.div),R((y.pay-y.div)/12),R(y.acc),R(y.bal),R(y.pl)]),
-      ['合計',R(X.last.cumPay),R(X.last.cumInt),R(X.last.cumPay-X.last.cumInt),'',R(X.last.cumDiv),R(X.last.net),'',R(X.last.acc),R(X.last.bal),R(X.last.pl)]];
-    const w1=XLSX.utils.aoa_to_sheet(ya); w1['!cols']=yh.map((_,i)=>({wch:i?14:10})); fmt(w1,'#,##0');
-    XLSX.utils.book_append_sheet(wb,w1,'年度_'+nm);
-    const ma=[[lab],mh,...X.rows.map(r=>[r.m,r.y,r.grace?'是':'',r.acm?'是':'',R(r.b0),R(r.int),R(r.prin),R(r.pay),R(r.bal),R(r.a0),R(r.div),R(r.acc-r.a0),R(r.acc),R(r.sub),R(r.sur),R(r.pl)])];
-    const w2=XLSX.utils.aoa_to_sheet(ma); w2['!cols']=mh.map((_,i)=>({wch:i<4?7:13})); fmt(w2,'#,##0');
-    XLSX.utils.book_append_sheet(wb,w2,'月明細_'+nm);
-  }
-  XLSX.writeFile(wb,`貸款投資試算_${m?fmemo()+'_':''}${t.f}.xlsx`);
-  btn.disabled=false;
-});
-function fmt(ws,z){for(const k in ws){if(k[0]==='!')continue;const c=ws[k];if(c.t==='n'&&!c.z&&Math.abs(c.v)>=1000)c.z=z}}
 function monthly(){
   const X=view==='b'?B:S;
   let h=`<thead><tr><th>月份</th><th>貸款<br>期初餘額</th><th>當月<br>利息</th><th>本金<br>攤還</th><th>當月<br>應繳</th><th>貸款<br>期末餘額</th><th>帳戶<br>期初</th><th>配息</th><th>帳戶<br>成長</th><th>帳戶<br>期末</th><th>需貼補</th><th>結餘</th><th>盈虧</th></tr></thead><tbody>`;
@@ -420,6 +363,13 @@ function chart(fw){
 function niceStep(v){const p=Math.pow(10,Math.floor(Math.log10(v||1))), r=v/p;return (r<=1?1:r<=2?2:r<=2.5?2.5:r<=5?5:10)*p}
 function axis(v){return v===0?'0':v>=1e8?(+(v/1e8).toFixed(2))+'億':(+(v/1e4).toFixed(1))+'萬'}
 
+/* 點進輸入框就全選，直接打字會取代原本的數字（iOS 需要延遲一下才選得到） */
+document.querySelectorAll('input:not([type=checkbox])').forEach(i=>{
+  let fresh=false;
+  i.addEventListener('focus',()=>{fresh=true;setTimeout(()=>{try{i.select()}catch(e){}},0)});
+  i.addEventListener('mouseup',e=>{if(fresh){e.preventDefault();fresh=false}});
+  i.addEventListener('blur',()=>{fresh=false});
+});
 /* 聯動：勾選時貸款金額改多少，投資金額就跟著改；直接改投資金額＝取消聯動，重新勾選會再對齊 */
 $('lk').addEventListener('change',()=>{if($('lk').checked){$('P').value=$('L').value;render()}});
 document.querySelectorAll('input:not([type=checkbox]):not(#cn)').forEach(i=>i.addEventListener('input',()=>{
