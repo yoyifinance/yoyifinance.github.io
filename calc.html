@@ -158,14 +158,14 @@ mmedia (prefers-reduced-motion:reduce){*{transition:none!important}}
 <div class="box">
   <div class="bt">配置帳戶的報酬假設<small>可以自己拉動調整</small></div>
   <div class="sc" id="sc">
-    <button type="button" data-y="4" data-g="0" aria-pressed="true"><b>保守</b><span>配息 4%<br>成長 0%</span></button>
-    <button type="button" data-y="6" data-g="1"><b>中性</b><span>配息 6%<br>成長 1%</span></button>
-    <button type="button" data-y="8" data-g="2"><b>樂觀</b><span>配息 8%<br>成長 2%</span></button>
+    <button type="button" data-y="4" data-g="0"><b>超保守</b><span>配息 4%<br>帳戶成長 0%</span></button>
+    <button type="button" data-y="6" data-g="2" aria-pressed="true"><b>中性</b><span>配息 6%<br>帳戶成長 2%</span></button>
+    <button type="button" data-y="10" data-g="2"><b>樂觀</b><span>配息 10%<br>帳戶成長 2%</span></button>
     <button type="button" class="warn" data-y="3" data-g="-3"><b>市場不好</b><span>配息 3%<br>每年 −3%</span></button>
   </div>
-  <div class="f"><label for="y">年化配息率</label><div class="num"><input type="number" id="y" step="0.5" min="0" max="12" value="4">%</div><input type="range" id="y-r" min="0" max="12" step="0.5" value="4"></div>
-  <div class="f"><label for="g">帳戶每年成長（扣掉配息後）</label><div class="num"><input type="number" id="g" step="0.5" min="-10" max="6" value="0">%</div><input type="range" id="g-r" min="-10" max="6" step="0.5" value="0"><div class="hint">例：總報酬 10%、配息拿走 8%，帳戶本身每年再長 2%</div></div>
-  <p class="scnote" id="scnote">目前用「保守」情境。配息和成長都不是保證的數字，請用「市場不好」看看最差的情況。</p>
+  <div class="f"><label for="y">年化配息率</label><div class="num"><input type="number" id="y" step="0.5" min="0" max="12" value="6">%</div><input type="range" id="y-r" min="0" max="12" step="0.5" value="6"></div>
+  <div class="f"><label for="g">帳戶每年成長（扣掉配息後）</label><div class="num"><input type="number" id="g" step="0.5" min="-10" max="6" value="2">%</div><input type="range" id="g-r" min="-10" max="6" step="0.5" value="2"><div class="hint">例：總報酬 10%、配息拿走 8%，帳戶本身每年再長 2%</div></div>
+  <p class="scnote" id="scnote">目前用「中性」情境。配息和成長都不是保證的數字，請用「市場不好」看看最差的情況。</p>
 </div>
 
 <!-- ===== 聰明養房 ===== -->
@@ -256,7 +256,7 @@ function pair(id){var n=$(id),r=$(id+'-r');if(!r)return;
   r.addEventListener('input',function(){n.value=r.value;calc()})}
 ['y','g','hv','hl','hr','hy','he','hi','hgy','cp','cd','cr','cy','cv'].forEach(pair);
 // 情境按鈕
-var SC=[].slice.call($('sc').children), SCN=['保守','中性','樂觀','市場不好'];
+var SC=[].slice.call($('sc').children), SCN=['超保守','中性','樂觀','市場不好'];
 SC.forEach(function(b){b.addEventListener('click',function(){
   $('y').value=$('y-r').value=b.dataset.y;$('g').value=$('g-r').value=b.dataset.g;calc()})});
 function markScenario(){
