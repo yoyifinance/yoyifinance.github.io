@@ -12,3 +12,11 @@ header.top a.home svg{width:16px;height:16px;flex:none}
 header.top a.home:hover,header.top a.home:active{background:linear-gradient(135deg,#D9B061,#B8893A);color:#fff;border-color:transparent}
 html{scroll-padding-top:72px}
 body{overflow-x:clip}
+/* 自製圖示（繼續逛逛、聯絡按鈕）：金色線條＋淺金圓底；綠色 LINE 按鈕上改白色；IG 用 IG 漸層底 */
+.ic{width:30px;height:30px;border-radius:50%;display:inline-grid;place-items:center;flex:none;font-style:normal;color:#9A6E25;
+  background:linear-gradient(135deg,#FFF7E6,#F2E2BD);border:1px solid rgba(184,137,58,.35)}
+.ic svg{width:17px;height:17px}
+.contact a .i{width:auto}
+.contact a .i .ic{width:40px;height:40px}.contact a .i .ic svg{width:22px;height:22px}
+a.line .ic{color:#fff;background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.55)}
+.ic.ig{color:#fff;border:none;background:radial-gradient(circle at 30% 107%,#FDF497 0%,#FD5949 45%,#D6249F 62%,#285AEB 95%)}
