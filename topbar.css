@@ -1,0 +1,14 @@
+/* 全站置頂橫條（2026-11-04）：左邊 LOGO、右邊「回到首頁」按鈕，往下滑一直停在最上方
+   用 header.top 蓋過各頁原本的 .top 樣式；各頁在自己的 <style> 之後載入這支 */
+header.top{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;
+  max-width:none;margin:0 calc(50% - 50vw);padding:10px max(16px,calc(50vw - 340px));
+  background:rgba(251,249,244,.86);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);
+  border-bottom:1px solid rgba(184,137,58,.18);box-shadow:0 6px 20px rgba(90,65,20,.06)}
+header.top img{height:36px;display:block}
+header.top a.home{display:inline-flex;align-items:center;gap:6px;padding:8px 15px 8px 12px;border-radius:999px;
+  font-size:14px;font-weight:700;letter-spacing:.04em;color:#8A6526;text-decoration:none;background:#fff;
+  border:1px solid rgba(184,137,58,.45);box-shadow:0 4px 12px rgba(184,137,58,.15);transition:all .15s}
+header.top a.home svg{width:16px;height:16px;flex:none}
+header.top a.home:hover,header.top a.home:active{background:linear-gradient(135deg,#D9B061,#B8893A);color:#fff;border-color:transparent}
+html{scroll-padding-top:72px}
+body{overflow-x:clip}
