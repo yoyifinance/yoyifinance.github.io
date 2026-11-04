@@ -59,6 +59,7 @@ h3{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,6vw,32
 .stat .n small{font-size:.5em;margin-left:2px}
 .stat .l{font-size:13px;color:var(--mute);margin-top:6px}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+@media(max-width:480px){.cards{grid-template-columns:1fr}.card{display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:center}.card .i{grid-row:span 2}.card b{margin-top:0}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 4px 18px rgba(90,65,20,.06)}
 .card .i{font-size:26px}
 .card b{display:block;font-size:16.5px;margin-top:8px}
@@ -83,6 +84,37 @@ h3{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,6vw,32
 .contact .book .go{color:#fff}
 footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
 
+.story h3 .hl{font-style:normal;color:var(--gold)}
+.snote{font-size:12px!important;color:#A39C8D!important;margin-top:12px!important;text-align:center}
+.lead{margin-top:12px;color:var(--body);font-size:16.5px}
+/* 招牌理念：足球隊形，球場由下往上＝守門員 → 後衛 → 前鋒 */
+.pitch{position:relative;margin-top:22px;aspect-ratio:3/4;max-height:560px;border-radius:22px;overflow:hidden;
+  background:repeating-linear-gradient(180deg,#FFFDF8 0 12.5%,#F8F1E2 12.5% 25%);border:1px solid var(--line);box-shadow:0 14px 40px rgba(90,65,20,.10)}
+@media(min-width:720px){.pitch{max-width:440px;margin-left:auto;margin-right:auto}}
+.pitch>svg{position:absolute;inset:0;width:100%;height:100%}
+.pitch .row{position:absolute;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.pitch .tag{font-size:12.5px;font-weight:900;letter-spacing:.08em;padding:3px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--gold);box-shadow:0 3px 10px rgba(90,65,20,.08)}
+.pitch .ps{display:flex;justify-content:center;gap:clamp(14px,6vw,34px)}
+.pitch .p{width:clamp(40px,11vw,50px);height:clamp(40px,11vw,50px);border-radius:50%;display:grid;place-items:center;font-size:clamp(18px,5vw,23px);
+  background:linear-gradient(135deg,#E2BD70,#B8893A);box-shadow:0 0 0 3px #fff,0 8px 18px rgba(184,137,58,.35)}
+.pitch .r1{top:13%}.pitch .r2{top:43%}.pitch .r3{top:71%}
+.pitch .p.gk,.pos.gk .ic{background-color:#1F1B14;background-image:linear-gradient(135deg,#3A3226,#1F1B14)}
+.pitch .p.gk{box-shadow:0 0 0 3px var(--gold-l),0 8px 18px rgba(31,27,20,.35)}
+.pitch .arrow{position:absolute;left:12px;top:16%;bottom:12%;width:2px;background:linear-gradient(0deg,rgba(184,137,58,0),rgba(184,137,58,.55))}
+.pitch .arrow::before{content:'';position:absolute;top:-6px;left:-5px;border:6px solid transparent;border-bottom:8px solid rgba(184,137,58,.7);border-top:0}
+.ico-sh,.ico-gk{background-repeat:no-repeat!important;background-position:center!important;background-size:55% 55%!important}
+.ico-sh{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z'/%3E%3Cpath d='M8.8 12l2.2 2.2 4.2-4.4'/%3E%3C/svg%3E"),linear-gradient(135deg,#E2BD70,#B8893A)!important;background-size:55% 55%,100% 100%!important}
+.ico-gk{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E3BF6E' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 13V6.5a1.5 1.5 0 0 1 3 0V11'/%3E%3Cpath d='M10 10V4.5a1.5 1.5 0 0 1 3 0V10'/%3E%3Cpath d='M13 10V5.5a1.5 1.5 0 0 1 3 0V11'/%3E%3Cpath d='M16 11V8.5a1.5 1.5 0 0 1 3 0V14c0 3.9-2.8 7-6.5 7S6 18.6 5 16l-1.6-3.4a1.4 1.4 0 0 1 2.4-1.4L7 13'/%3E%3C/svg%3E"),linear-gradient(135deg,#3A3226,#1F1B14)!important;background-size:58% 58%,100% 100%!important}
+.poss{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.pos{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 4px 18px rgba(90,65,20,.06)}
+.pos .ic{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:21px;background:linear-gradient(135deg,#E2BD70,#B8893A)}
+.pos small{display:block;font-size:12px;letter-spacing:.2em;color:var(--gold);font-weight:700}
+.pos b{display:block;font-size:17px;line-height:1.4}
+.pos p{font-size:14.5px;color:var(--body);margin-top:4px;line-height:1.65}
+.motto2{margin-top:22px;text-align:center;padding:22px 16px;border-radius:18px;background:linear-gradient(135deg,#FFFBF1,#FFF2D6);border:1px solid var(--line)}
+.motto2 b{display:block;font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(24px,6.5vw,32px);letter-spacing:.04em}
+.motto2 span{display:block;font-size:14px;color:var(--mute);margin-top:4px}
+.bookf{margin-top:20px;scroll-margin-top:16px}
 /* 客戶回饋：真實訊息摘錄，重新排版成引言卡；隱去姓名與頭貼，省略處用「⋯」標示 */
 .voices{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:22px -20px 0;padding:4px 20px 14px;scrollbar-width:none}
 .voices::-webkit-scrollbar{display:none}
@@ -106,6 +138,7 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
 .more a.line{background:#06C755;border-color:#06C755;color:#fff}
 </style>
 <script src="analytics.js" defer></script>
+<script src="yoyi-form.js" defer></script>
 </head>
 <body>
 <header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a href="./">← 回到連結頁</a></header>
@@ -119,33 +152,54 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
 </div>
 <p class="quote">理財不是為了衝，<br>是為了生活不落空。</p>
 <div class="cta">
-  <a class="p" href="booking.html">預約財務諮詢</a>
+  <a class="p" href="#book" data-where="hero">預約財務諮詢</a>
   <a class="s" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener">加入 LINE 社群</a>
 </div>
 
 <main class="wrap">
   <section class="story">
     <h2>MY STORY</h2>
-    <h3>讓錢替我工作，<br>也陪你完成你的夢</h3>
-    <p>嗨，我是 YoYi。<b>六年前，我轉戰到金融業。</b></p>
-    <p>因為我明白，如果只用時間與勞力換取金錢，一輩子都不可能過上我想要的生活。</p>
-    <p>現在的我，開始讓錢替我工作。如果你也有夢，不如讓我陪你一起完成。</p>
+    <h3>從負債 <em class="hl">500 萬</em>，<br>到每月穩定的現金流</h3>
+    <p>嗨，我是 YoYi。</p>
+    <p><b>六年前<br>我背著 500 萬的負債<br>轉戰到金融業。</b></p><p>那時我明白一件事：<br>如果只用時間和勞力換錢<br>我一輩子都還不完<br>也過不上想要的生活。</p>
+    <p>所以我開始學著讓錢替我工作。<br>一步一步還債<br>整理現金流<br>到現在<b>每個月有穩定的五位數現金流</b>。</p>
+    <p>這六年<br>我陪伴了<b>超過 100 個家庭</b><br>整理他們的財務。</p><p>如果你也有夢<br>不如讓我陪你一起完成。</p>
     <div class="motto">眼界決定選擇，選擇決定財富位階。</div>
     <div class="stats">
+      <div class="stat"><div class="n">100<small>+</small></div><div class="l">陪伴家庭</div></div>
       <div class="stat"><div class="n">6<small>年</small></div><div class="l">金融業經驗</div></div>
       <div class="stat"><div class="n">5,000<small>萬</small></div><div class="l">資產管理實績</div></div>
-      <div class="stat"><div class="n">1<small>對</small>1</div><div class="l">專屬財務規劃</div></div>
     </div>
+    <p class="snote">以上為個人經歷分享<br>每個人的狀況不同<br>規劃依個人條件評估。</p>
+  </section>
+
+  <section class="team">
+    <h2>MY PHILOSOPHY</h2>
+    <h3>你的錢，<br>也需要一支球隊</h3>
+    <p class="lead">好的球隊<br>每個位置都有任務。<br>你的每一筆錢也是。</p>
+    <div class="pitch" aria-hidden="true">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="none"><g fill="none" stroke="#C9A25A" stroke-opacity=".55" stroke-width="1.6"><rect x="14" y="14" width="272" height="372" rx="6"/><line x1="14" y1="200" x2="286" y2="200"/><circle cx="150" cy="200" r="40"/><rect x="80" y="314" width="140" height="72"/><rect x="114" y="356" width="72" height="30"/><rect x="80" y="14" width="140" height="72"/><rect x="114" y="14" width="72" height="30"/></g><circle cx="150" cy="200" r="3" fill="#C9A25A"/></svg>
+      <div class="arrow"></div>
+      <div class="row r1"><span class="tag">前鋒｜成長</span><div class="ps"><span class="p">⚽</span><span class="p">⚽</span></div></div>
+      <div class="row r2"><span class="tag">後衛｜現金流</span><div class="ps"><span class="p ico-sh"></span><span class="p ico-sh"></span><span class="p ico-sh"></span><span class="p ico-sh"></span></div></div>
+      <div class="row r3"><span class="tag">守門員｜守住</span><div class="ps"><span class="p gk ico-gk"></span></div></div>
+    </div>
+    <div class="poss">
+      <div class="pos gk"><span class="ic ico-gk"></span><div><small>01　守門員</small><b>守住已經累積的成果</b><p>透過風險規劃<br>不讓一次失球<br>讓你前功盡棄。</p></div></div>
+      <div class="pos"><span class="ic ico-sh"></span><div><small>02　後衛</small><b>穩住生活的節奏</b><p>整理收支、儲蓄和預備金<br>讓現金流穩定<br>生活不會被一次意外打亂。</p></div></div>
+      <div class="pos"><span class="ic">⚽</span><div><small>03　前鋒</small><b>讓資產有機會成長</b><p>依照目標和時間<br>做長期配置<br>讓時間一起幫你進攻。</p></div></div>
+    </div>
+    <div class="motto2"><b>先守得住<br>才贏得了。</b><span>由後往前，一個位置一個位置排好陣型</span></div>
   </section>
 
   <section>
     <h2>SERVICES</h2>
     <h3>我可以陪你做的事</h3>
     <div class="cards">
-      <div class="card"><div class="i">📘</div><b>理財入門</b><p>從零建立基礎觀念，看懂自己的收支與資產</p></div>
-      <div class="card"><div class="i">📈</div><b>定期定額／ETF</b><p>用紀律累積，找到適合自己的長期配置</p></div>
-      <div class="card"><div class="i">💧</div><b>打造現金流</b><p>讓資產產生穩定的現金流，生活更有底氣</p></div>
-      <div class="card"><div class="i">🏠</div><b>房貸與現金流檢視</b><p>看清房貸條件與每月收支，讓生活更有餘裕</p></div>
+      <div class="card"><div class="i">📘</div><b>理財入門</b><p>從零建立基礎觀念<br>看懂自己的收支與資產</p></div>
+      <div class="card"><div class="i">📈</div><b>定期定額／ETF</b><p>用紀律累積<br>找到適合自己的長期配置</p></div>
+      <div class="card"><div class="i">💧</div><b>打造現金流</b><p>讓資產產生穩定的現金流<br>生活更有底氣</p></div>
+      <div class="card"><div class="i">🏠</div><b>房貸與現金流檢視</b><p>看清房貸條件與每月收支<br>讓生活更有餘裕</p></div>
     </div>
   </section>
 
@@ -154,9 +208,9 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
     <h3>諮詢怎麼進行？</h3>
     <div class="steps">
       <div class="step"><div><b>填寫諮詢問卷</b><p>花 3 分鐘告訴我你的現況和目標</p></div></div>
-      <div class="step"><div><b>1 對 1 線上諮詢</b><p>一起釐清問題，聊聊你真正想要的生活</p></div></div>
-      <div class="step"><div><b>量身規劃</b><p>依照你的狀況，整理出適合的配置方向</p></div></div>
-      <div class="step"><div><b>長期陪伴</b><p>市場會變、人生會變，定期回顧與調整</p></div></div>
+      <div class="step"><div><b>1 對 1 線上諮詢</b><p>一起釐清問題<br>聊聊你真正想要的生活</p></div></div>
+      <div class="step"><div><b>量身規劃</b><p>依照你的狀況<br>整理出適合的配置方向</p></div></div>
+      <div class="step"><div><b>長期陪伴</b><p>市場會變<br>人生會變<br>定期回顧與調整</p></div></div>
     </div>
   </section>
 
@@ -173,14 +227,15 @@ footer{margin:60px 0 0;padding:28px 20px 40px;text-align:center;font-size:12.5px
     <h2>BEYOND FINANCE</h2>
     <h3>工作之外的我</h3>
     <div class="life"><span>🥊 拳擊</span><span>🤿 潛水</span><span>🏍️ 重機</span><span>✈️ 旅行</span></div>
-    <p>喜歡挑戰、也喜歡看世界。用職人精神面對每一件事，也用同樣的態度守護你的資產。</p>
+    <p>喜歡挑戰<br>也喜歡看世界。<br>用職人精神面對每一件事<br>也用同樣的態度守護你的資產。</p>
   </section>
 
   <section>
     <h2>CONTACT</h2>
     <h3>一起聊聊吧</h3>
+    <p class="lead">花 3 分鐘填寫<br>預約線上 30 分鐘 1 對 1 財務諮詢。</p>
+    <div id="book" class="bookf" data-yoyi-form></div>
     <div class="contact">
-      <a class="book" href="booking.html"><span class="i">📝</span><b>預約 1 對 1 財務諮詢</b><span class="go">›</span></a>
       <a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener"><span class="i">💬</span><b>加入 LINE 社群</b><span class="go">›</span></a>
       <a href="https://www.instagram.com/yoyi_1205/" rel="noopener"><span class="i">📸</span><b>追蹤 IG @yoyi_1205</b><span class="go">›</span></a>
     </div>

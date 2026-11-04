@@ -12,4 +12,6 @@
 - market.json：GitHub Actions 每 10 分鐘寫到 data 分支。
 - analytics.js：GA4（G-7L1SJ24MTK）與事件追蹤（join_line、booking_click、ig_click、form_next、calc_use）。
 - 分享預覽圖在 images/og/，1200×630。
+- 預約問卷：yoyi-form.js 是官網樣式的 7 頁問卷，頁面放 `<div data-yoyi-form></div>` 就會出現（認識 YoYi、理財試算、n/ 筆記都已內嵌），資料直接 POST 到原本的 Google 問卷。Google 問卷改題目、選項文字時，yoyi-form.js 的 entry 代號和選項要一字不差同步改。booking.html 仍用 iframe 版，保留給首頁按鈕。
+- 文字排版（使用者 2026-11-04 要求）：短句在逗號、頓號處改成換行（拿掉標點），不要讓一句話講到一半就被折到下一行。
 - 試算 → 預約：calc.html 的預約按鈕把試算整理成文字放在 ?calc=，booking.html 預先填入問卷最後一頁「網站試算結果」（entry.2011746388）。問卷改題目時要確認這個代號沒變。
