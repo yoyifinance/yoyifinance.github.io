@@ -11,7 +11,7 @@
 - news.json：每日焦點新聞，由 yoyi-daily-finance 的排程寫入（規則在該 repo 的 排程提示詞_每日財經.md 第 7 節），每則可帶 cta。
 - market.json：GitHub Actions 每 10 分鐘寫到 data 分支。
 - analytics.js：GA4（G-7L1SJ24MTK）與事件追蹤（join_line、booking_click、ig_click、form_next、calc_use）。
-- 分享預覽圖在 images/og/，1200×630。
+- 分享預覽圖在 images/og/，1200×630，字是做在圖裡的（改名字、改標語要重做圖）。版型在本機 .preview/og.html（不進 git），用 Edge 無頭模式 `--window-size=1200,630 --screenshot` 截 ?k=home|about|booking|calc|news；換圖後把各頁 og:image 的 ?v= 改新日期，LINE／FB 才會重抓。
 - 預約問卷：yoyi-form.js 是官網樣式的 7 頁問卷，頁面放 `<div data-yoyi-form></div>` 就會出現（認識 YoYi、理財試算、n/ 筆記都已內嵌），資料直接 POST 到原本的 Google 問卷。Google 問卷改題目、選項文字時，yoyi-form.js 的 entry 代號和選項要一字不差同步改。booking.html、理財試算也都是這份問卷（試算頁提供 window.yoyiCalcText()，問卷翻到「網站試算結果」那頁時自動帶入），已不再用 Google iframe。
 - 名字：對外用「YoYi 宥毅」（2026-11-04 使用者同意用本名「宥毅」，取代原本的「悠逸」）；不放姓氏與其他個資。
 - 置頂橫條：topbar.css（LOGO＋「回到首頁」按鈕，sticky），各頁在自己的 <style> 之後載入；新頁面照做。首頁 index.html 不用。
