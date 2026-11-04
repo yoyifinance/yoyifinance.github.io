@@ -55,11 +55,14 @@ var CSS='.yf h4,.yf p{margin:0}.yf{background:#fff;border:1px solid rgba(184,137
 '.yf-acct button{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid #B8893A;background:#fff;color:#B8893A;cursor:pointer}'+
 '.yf-nav{display:flex;gap:10px;padding:0 20px 20px}.yf-nav button{font:inherit;font-weight:700;font-size:16px;padding:14px 10px;border-radius:14px;cursor:pointer;border:1px solid rgba(184,137,58,.35);background:#fff;color:#1F1B14}'+
 '.yf-nav .nx{flex:1;border:none;color:#fff;background:linear-gradient(135deg,#D9B061,#B8893A);box-shadow:0 10px 26px rgba(184,137,58,.3)}.yf-nav .bk{width:96px}.yf-nav button[disabled]{opacity:.6;cursor:default}'+
-'.yf-note{font-size:12px;color:#A39C8D;text-align:center;padding:0 20px 18px}'+
+'.yf-note{font-size:12px;color:#A39C8D;text-align:center;padding:0 20px 18px}.yf-lock{width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:#B8893A}'+
 '.yf-done{padding:34px 22px 30px;text-align:center}.yf-done .ok{width:64px;height:64px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;background:linear-gradient(135deg,#E2BD70,#B8893A);box-shadow:0 10px 26px rgba(184,137,58,.35)}'+
 '.yf-done h4{font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;margin-top:14px}.yf-done p{font-size:15px;color:#4A443A;margin-top:10px;line-height:1.8}.yf-done .tip{font-size:13.5px;color:#7A7366;background:#FFF9EC;border-radius:12px;padding:10px 12px;margin-top:14px}'+
 '.yf-pg.in{animation:yfin .3s ease}@keyframes yfin{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}';
 
+var LOCK='<svg class="yf-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>';
+// 選項顯示時拿掉開頭的表情符號（送出的值仍是 Google 問卷原文，一字不差）
+function label(o){return o.replace(/^[☀-➿\uD83C-􏰀-\uDFFF️‍\s]+/,'')}
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function track(n,p){try{window.yoyiTrack&&window.yoyiTrack(n,p||{})}catch(e){}}
 function calcText(){var c='';try{c=new URLSearchParams(location.search).get('calc')||''}catch(e){}return (window.YOYI_CALC||c||'').slice(0,1500)}
@@ -69,7 +72,7 @@ function qHtml(q,uid){
   if(q.t==='radio'||q.t==='check'||q.t==='consent'){
     var long=q.o.some(function(o){return o.length>14}),ty=q.t==='radio'?'radio':'checkbox';
     h+=q.t==='consent'?'':'<div class="l">'+esc(q.l)+rq+'</div>';
-    h+='<div class="yf-op'+(long||q.t==='consent'?' col':'')+(q.t==='consent'?' cs':'')+'">'+q.o.map(function(o){return '<label><input type="'+ty+'" name="'+n+'" value="'+esc(o)+'"><span>'+esc(o)+'</span></label>'}).join('');
+    h+='<div class="yf-op'+(long||q.t==='consent'?' col':'')+(q.t==='consent'?' cs':'')+'">'+q.o.map(function(o){return '<label><input type="'+ty+'" name="'+n+'" value="'+esc(o)+'"><span>'+esc(label(o))+'</span></label>'}).join('');
     if(q.other)h+='<label><input type="checkbox" name="'+n+'" value="__other_option__"><span>其他</span></label>';
     h+='</div>';
     if(q.other)h+='<input class="yf-oth" type="text" name="'+n+'-oth" placeholder="請寫下其他配置">';
@@ -82,15 +85,16 @@ function qHtml(q,uid){
 }
 
 function mount(box,ix){
-  var uid='yf'+ix,cur=0,calc=calcText(),steps=STEPS.map(function(s){return s});
+  // 理財試算頁會提供 window.yoyiCalcText()：試算結果那題一直顯示，翻到那頁時帶入最新的試算文字（客戶自己改過就不覆蓋）
+  var uid='yf'+ix,cur=0,live=typeof window.yoyiCalcText==='function',calc=calcText()||(live?' ':''),edited=false,steps=STEPS.map(function(s){return s});
   box.innerHTML='<div class="yf" id="'+uid+'"><div class="yf-top"><div class="yf-bar"><i></i></div><div class="yf-cnt"><span><b>1</b> / '+steps.length+'</span><span>約 3 分鐘</span></div></div>'+
    steps.map(function(s,i){var qs=s.q.filter(function(q){return !q.calc||calc});
-    var dep=s.dep?'<div class="yf-dep"><b>本諮詢採「保證金預約制」</b><br>預約保證金 <em>NT$ 500</em><br>完成線上 30 分鐘 1 對 1 諮詢後<br>不論是否進行後續規劃<br><em>當日全額退還</em>。<br>保證金只是為了確保彼此的時間承諾 🙏'+
+    var dep=s.dep?'<div class="yf-dep"><b>本諮詢採「保證金預約制」</b><br>預約保證金 <em>NT$ 500</em><br>完成線上 30 分鐘 1 對 1 諮詢後<br>不論是否進行後續規劃<br><em>當日全額退還</em>。<br>保證金只是為了確保彼此的時間承諾'+
      '<div class="yf-acct"><div><small>銀行名稱／代碼</small><strong>'+BANK.name+'</strong></div><div><small>轉帳帳號</small><strong>'+BANK.acct+'</strong></div><button type="button" data-copy="'+BANK.acct+'">複製帳號</button></div></div>':'';
     return '<div class="yf-pg" data-i="'+i+'"'+(i?' hidden':'')+'><h4>'+esc(s.h)+'</h4><p class="s">'+esc(s.s)+'</p>'+dep+qs.map(function(q){return qHtml(q,uid)}).join('')+'</div>'}).join('')+
-   '<div class="yf-nav"><button type="button" class="bk" hidden>上一步</button><button type="button" class="nx">下一步</button></div><p class="yf-note">🔒 資料只用於這次諮詢聯絡<br>不會公開</p></div>';
+   '<div class="yf-nav"><button type="button" class="bk" hidden>上一步</button><button type="button" class="nx">下一步</button></div><p class="yf-note">'+LOCK+'資料只用於這次諮詢聯絡<br>不會公開</p></div>';
   var root=box.firstChild,pgs=root.querySelectorAll('.yf-pg'),bk=root.querySelector('.bk'),nx=root.querySelector('.nx');
-  if(calc){var ta=root.querySelector('[name="'+uid+'-2011746388"]');if(ta)ta.value=calc}
+  var ta=root.querySelector('[name="'+uid+'-2011746388"]');if(ta){ta.value=calc.trim();ta.addEventListener('input',function(){edited=true})}
   root.addEventListener('change',function(e){
     var t=e.target;if(t.value==='__other_option__'){var o=root.querySelector('[name="'+t.name+'-oth"]');o.classList.toggle('on',t.checked);if(t.checked)o.focus()}
     var q=t.closest('.yf-q');if(q)q.classList.remove('bad')});
@@ -107,6 +111,7 @@ function mount(box,ix){
     return !bad}
   function show(i){pgs[cur].hidden=true;cur=i;pgs[i].hidden=false;pgs[i].classList.remove('in');void pgs[i].offsetWidth;pgs[i].classList.add('in');
     root.querySelector('.yf-bar i').style.width=((i+1)/steps.length*100)+'%';root.querySelector('.yf-cnt b').textContent=i+1;
+    if(live&&ta&&!edited&&pgs[i].contains(ta)){var c=window.yoyiCalcText();if(c)ta.value=c.slice(0,1500)}
     bk.hidden=!i;nx.textContent=i===steps.length-1?'送出預約 ✓':'下一步';
     var r=root.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.4)root.scrollIntoView({behavior:'smooth',block:'start'})}
   root.querySelector('.yf-bar i').style.width=(1/steps.length*100)+'%';
@@ -126,7 +131,7 @@ function mount(box,ix){
       alert('網路好像不太穩，送出失敗了\n請再按一次「送出預約」。')})}
   function done(){track('form_submit',{});
     root.innerHTML='<div class="yf-done"><div class="ok">✓</div><h4>預約完成，謝謝你！</h4><p>我已經收到你的資料<br>會根據你的目標先做功課。<br><b>24 小時內</b>我會透過 LINE 跟你聯絡<br>約線上 30 分鐘 1 對 1 的時間。</p>'+
-     '<p class="tip">☕ 小提醒：<br>請確認 LINE 已開啟「允許利用 ID 加入好友」<br>才不會錯過我的訊息。</p></div>';
+     '<p class="tip"><b>小提醒</b><br>請確認 LINE 已開啟「允許利用 ID 加入好友」<br>才不會錯過我的訊息。</p></div>';
     root.scrollIntoView({behavior:'smooth',block:'start'})}
 }
 

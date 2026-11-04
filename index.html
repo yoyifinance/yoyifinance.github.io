@@ -38,7 +38,9 @@ h1{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:900;letter-spaci
 a.btn{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:16px;text-decoration:none;color:var(--ink);
   background:#fff;border:1px solid var(--line);box-shadow:0 6px 24px rgba(120,90,30,.08);transition:transform .15s,box-shadow .15s}
 a.btn:hover,a.btn:active{transform:translateY(-2px);box-shadow:0 10px 30px rgba(120,90,30,.15)}
-a.btn .i{font-size:26px;width:34px;text-align:center}
+a.btn .i{display:block;flex:none}
+a.btn .i .ic{width:42px;height:42px}a.btn .i .ic svg{width:22px;height:22px}
+.tick .hd b{display:inline-flex;align-items:center;gap:5px}.tick .tk{width:15px;height:15px}
 a.btn .t{text-align:left;flex:1;min-width:0}
 a.btn b{display:block;font-size:17px;font-weight:700}
 a.btn small{display:block;font-size:13px;color:var(--mute);margin-top:3px}
@@ -63,6 +65,7 @@ a.tick{display:block;margin-top:22px;text-decoration:none;color:var(--ink);backg
 @media (prefers-reduced-motion:reduce){.tick .run{animation:none}}
 </style>
 <script src="analytics.js" defer></script>
+<link rel="stylesheet" href="topbar.css">
 </head>
 <body>
 <main>
@@ -70,21 +73,21 @@ a.tick{display:block;margin-top:22px;text-decoration:none;color:var(--ink);backg
   <h1>YoYi 宥毅｜YOYI 財經</h1>
   <p class="tag">每天一則財經新聞，白話看懂<br>台股・美股・全球經濟</p>
   <div class="rule" id="rule"></div>
-  <a class="tick" id="tick" href="news.html" hidden><div class="hd"><b>📊 今日市場</b><span>財經日報 ›</span></div><div class="rail"><div class="run" id="run"></div></div></a>
+  <a class="tick" id="tick" href="news.html" hidden><div class="hd"><b><svg class="tk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg>今日市場</b><span>財經日報 ›</span></div><div class="rail"><div class="run" id="run"></div></div></a>
 
   <nav class="links">
     <a class="btn line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener">
-      <span class="i">💬</span><span class="t"><b>加入 LINE 社群</b><small>每日財經圖卡＋完整解讀<br>IG 看不到的獨家內容</small></span><span class="go">›</span></a>
+      <span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4C7 4 3 7.1 3 11c0 3.5 3.1 6.4 7.4 6.9L10 21l3.6-3.1C17.9 17.4 21 14.5 21 11c0-3.9-4-7-9-7z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-width="2.6"/></svg></i></span><span class="t"><b>加入 LINE 社群</b><small>每日財經圖卡＋完整解讀<br>IG 看不到的獨家內容</small></span><span class="go">›</span></a>
     <a class="btn" href="news.html">
-      <span class="i">📰</span><span class="t"><b>財經日報</b><small>今日市場數字＋每天一則焦點新聞</small></span><span class="go">›</span></a>
+      <span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8.5h3V17a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg></i></span><span class="t"><b>財經日報</b><small>今日市場數字＋每天一則焦點新聞</small></span><span class="go">›</span></a>
     <a class="btn" href="glossary.html">
-      <span class="i">📖</span><span class="t"><b>財經名詞小教室</b><small>看不懂的名詞？搜尋一下就懂</small></span><span class="go">›</span></a>
+      <span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5c-2.2-1.6-5.2-2-8-1.5v13c2.8-.5 5.8-.1 8 1.5 2.2-1.6 5.2-2 8-1.5V5c-2.8-.5-5.8-.1-8 1.5z"/><path d="M12 6.5V19.5"/></svg></i></span><span class="t"><b>財經名詞小教室</b><small>看不懂的名詞？搜尋一下就懂</small></span><span class="go">›</span></a>
     <a class="btn" href="calc.html">
-      <span class="i">🧮</span><span class="t"><b>理財試算</b><small>聰明養房、無痛買車，輸入數字看差別</small></span><span class="go">›</span></a>
+      <span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01" stroke-width="2.6"/></svg></i></span><span class="t"><b>理財試算</b><small>聰明養房、無痛買車，輸入數字看差別</small></span><span class="go">›</span></a>
     <a class="btn" href="about.html">
-      <span class="i">👤</span><span class="t"><b>認識 YoYi</b><small>個人介紹與服務說明</small></span><span class="go">›</span></a>
+      <span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.5c.8-3.7 3.6-5.7 7-5.7s6.2 2 7 5.7"/></svg></i></span><span class="t"><b>認識 YoYi</b><small>個人介紹與服務說明</small></span><span class="go">›</span></a>
     <a class="btn" href="booking.html">
-      <span class="i">📝</span><span class="t"><b>預約財務諮詢</b><small>填寫問卷，我會盡快和你聯絡</small></span><span class="go">›</span></a>
+      <span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5"/><path d="M9 13l2.2 2.2L15 11"/></svg></i></span><span class="t"><b>預約財務諮詢</b><small>填寫問卷，我會盡快和你聯絡</small></span><span class="go">›</span></a>
   </nav>
 
   <p class="ig">Instagram　<a href="https://www.instagram.com/yoyi_1205/" rel="noopener">@yoyi_1205</a></p>

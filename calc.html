@@ -115,7 +115,10 @@ tr.sum td{font-weight:900;border-bottom:0;border-top:2px solid var(--line)}
 .warnbox ul{margin:6px 0 0;padding-left:18px}
 .cta{display:block;margin-top:16px;text-align:center;text-decoration:none;font-weight:700;padding:15px 10px;border-radius:14px;background:linear-gradient(135deg,#D9B061,#B8893A);color:#fff;box-shadow:0 10px 26px rgba(184,137,58,.3)}
 .cta small{display:block;font-weight:400;font-size:12.5px;opacity:.92}
-.bookf{margin-top:14px;scroll-margin-top:12px}
+.bookh{margin-top:28px;text-align:center;scroll-margin-top:80px}
+.bookh b{display:block;font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px}
+.bookh small{display:block;font-size:14px;color:var(--mute);margin-top:4px;line-height:1.6}
+.bookf{margin-top:14px}
 footer{margin-top:30px;text-align:center;font-size:12px;color:#A39C8D}
 mmedia (prefers-reduced-motion:reduce){*{transition:none!important}}
 .bar .fill{transition:width .35s ease}
@@ -223,8 +226,8 @@ mmedia (prefers-reduced-motion:reduce){*{transition:none!important}}
   </div>
 </section>
 
-<a class="cta" id="book" href="booking.html">📝 預約 1 對 1 財務諮詢<small>用你的真實數字，做一份專屬評估</small></a>
-<div class="bookf" id="bookf" hidden></div>
+<div class="bookh" id="book"><b>預約 1 對 1 財務諮詢</b><small>用你的真實數字<br>做一份專屬評估</small></div>
+<div class="bookf" id="bookf" data-yoyi-form></div>
 <div class="warnbox">
   <b>試算說明（請一定要看）</b>
   <ul>
@@ -350,15 +353,10 @@ function calc(){var y=v('y')/100,g=v('g')/100;markScenario();house(y,g);car(y,g)
 // 網址加 #car / #house 可以直接開指定分頁（Notion 筆記連過來用），沒有才看上次停在哪一頁
 try{var t=/^#(car|house)$/.test(location.hash)?location.hash.slice(1):localStorage.getItem('yoyi-calc-tab');$('tab-'+(t==='car'?'car':'house')).click()}catch(e){}
 calc();
-// 預約按鈕：直接在按鈕下方展開問卷（yoyi-form.js）；客戶有動過數字，就把目前的試算整理成一段文字預填「網站試算結果」，客戶可以改或刪
-// yoyi-form.js 沒載入時，照舊連到預約頁
+// 預約問卷直接放在頁面下方（yoyi-form.js）；客戶有動過數字，翻到問卷「網站試算結果」那頁時，自動帶入目前的試算文字，客戶可以改或刪
 var touched=false;document.addEventListener('input',function(e){if(!e.target.closest('#bookf'))touched=true});
 [].forEach.call(document.querySelectorAll('.tabs button,#sc button,#hg'),function(b){b.addEventListener('click',function(e){if(e.isTrusted)touched=true})});
-$('book').addEventListener('click',function(e){
-  var t=touched?calcText():'';
-  if(window.YoyiForm){e.preventDefault();var f=$('bookf');f.hidden=false;YoyiForm.open(f,t);f.scrollIntoView({behavior:'smooth',block:'start'});return}
-  this.href=t?'booking.html?calc='+encodeURIComponent(t):'booking.html';
-});
+window.yoyiCalcText=function(){return touched?calcText():''};
 function calcText(){
   var car=$('tab-car').getAttribute('aria-selected')==='true', sc='假設：配息 '+v('y')+'%、帳戶每年 '+(v('g')>=0?'+':'')+v('g')+'%';
   var t=car

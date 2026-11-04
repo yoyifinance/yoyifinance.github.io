@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wghtm400;500;700;900&family=Noto+Serif+TC:wghtm700;900&display=swap" rel="stylesheet">
 <style>
-/* 預約頁：Google 表單嵌在網站裡（表單本身仍由 Google 收資料，網站不經手客戶個資） */
+/* 預約頁：官網樣式問卷（yoyi-form.js），資料直接送進原本的 Google 問卷，網站不經手客戶個資 */
 :root{--gold:#B8893A;--ink:#1F1B14;--mute:#7A7366;--bg:#FBF9F4;--line:rgba(184,137,58,.3)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--bg)}
@@ -36,7 +36,7 @@ h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40
 .head p{color:var(--mute);margin-top:8px}
 .rule{width:56px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .note{max-width:720px;margin:20px auto 0;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.note span{font-size:13.5px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--mute)}
+.note span{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--mute)}
 .deposit{max-width:680px;margin:20px auto 0;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 18px rgba(90,65,20,.06);text-align:center}
 mmedia(max-width:719px){.deposit{margin:20px 20px 0}}
 .deposit b{display:block;font-family:'Noto Serif TC',serif;font-size:18px;color:var(--gold)}
@@ -44,17 +44,8 @@ mmedia(max-width:719px){.deposit{margin:20px 20px 0}}
 .deposit em{font-style:normal;font-weight:700;color:var(--ink);background:linear-gradient(transparent 60%,rgba(227,191,110,.45) 60%)}
 .deposit small{display:block;margin-top:8px;font-size:12.5px;color:var(--mute)}
 .deposit small strong{color:var(--ink)}
-.form{max-width:720px;margin:24px auto 0;padding:0 12px}
-.form .box{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(90,65,20,.08)}
-/* 問卷分三頁，iframe 量不到內容高度，只能照實測值設定；問卷題目增減時要重新量
-   第一頁：實測手機約 1,500px、桌機約 1,400px → 一開始用這個高度，下面才不會留一大段空白
-   第二頁最長：手機約 2,970px、桌機約 2,800px → 換到下一頁後（.tall）改用這個高度 */
-.form iframe{display:block;width:100%;height:1620px;border:0}
-.form iframe.tall{height:3100px}
-mmedia(min-width:600px){.form iframe{height:1500px}.form iframe.tall{height:2950px}}
-.pre{margin:0;padding:12px 16px;font-size:14px;background:#FFF9EC;border-bottom:1px solid var(--line);color:var(--ink)}
-.alt{text-align:center;font-size:13.5px;color:var(--mute);margin-top:14px}
-.alt a{color:var(--gold);font-weight:700}
+.form{max-width:680px;margin:24px auto 0;padding:0 16px}
+.note span svg{width:15px;height:15px;color:var(--gold)}
 footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
 /* 底部導覽：看完一頁，順手帶到下一頁 */
 .more{max-width:680px;margin:48px auto 0;padding:0 16px}
@@ -64,6 +55,7 @@ footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 .more a.line{background:#06C755;border-color:#06C755;color:#fff}
 </style>
 <script src="analytics.js" defer></script>
+<script src="yoyi-form.js" defer></script>
 <link rel="stylesheet" href="topbar.css">
 </head>
 <body>
@@ -71,34 +63,17 @@ footer{margin:32px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 <div class="head">
   <div class="kicker">BOOKING</div>
   <h1>預約 1 對 1 財務諮詢</h1>
-  <p>花 3 分鐘告訴我你的現況和目標，<br>我會盡快和你聯絡。</p>
+  <p>花 3 分鐘告訴我你的現況和目標<br>我會盡快和你聯絡。</p>
   <div class="rule"></div>
 </div>
-<div class="note"><span>⏱ 約 3 分鐘</span><span>💻 線上 30 分鐘 1 對 1</span><span>🔒 資料僅供諮詢使用</span></div>
+<div class="note"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>約 3 分鐘</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/></svg>線上 30 分鐘 1 對 1</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>資料僅供諮詢使用</span></div>
 <div class="deposit">
   <b>本諮詢採「保證金預約制」</b>
-  <p>預約時先支付 <em>NT$ 500</em> 保證金，完成 30 分鐘線上諮詢後，<br>不論是否進行後續規劃，<em>當日全額退還</em>。</p>
-  <small>保證金只是為了確保彼此的時間承諾，匯款資訊會在問卷最後一頁提供。<br>諮詢結束後，當日以<strong>銀行轉帳</strong>退回到你指定的帳戶。</small>
+  <p>預約時先支付 <em>NT$ 500</em> 保證金<br>完成 30 分鐘線上諮詢後<br>不論是否進行後續規劃<br><em>當日全額退還</em>。</p>
+  <small>保證金只是為了確保彼此的時間承諾<br>匯款資訊會在問卷最後一頁提供。<br>諮詢結束後<br>當日以<strong>銀行轉帳</strong>退回到你指定的帳戶。</small>
 </div>
-<div class="form">
-  <div class="box">
-    <p class="pre" id="pre" hidden>✅ 已帶入你在「理財試算」的數字，在問卷<b>最後一頁</b>，可以自由修改或刪除。</p>
-    <iframe id="gf" title="財務諮詢預約問卷">載入中…</iframe>
-  </div>
-  <p class="alt">表單沒有顯示？<a id="gf-alt" href="https://forms.gle/qEmpiEZo3QuPvNoV6" rel="noopener">點這裡直接開啟問卷</a></p>
-</div>
-<script>
-// 從理財試算過來（?calc=...）就預先填入問卷最後一頁「網站試算結果」那題（entry.2011746388），客戶可以改
-(function(){var F='https://docs.google.com/forms/d/e/1FAIpQLScU9st7cWI0tRjzh5ze6UEP0wBsMwF52g4j6mr7dQdfKEKMjA/viewform',q='',c='';
-try{c=new URLSearchParams(location.search).get('calc')||''}catch(e){}
-if(c){q='&usp=pp_url&entry.2011746388='+encodeURIComponent(c.slice(0,1500));document.getElementById('pre').hidden=false;
-  document.getElementById('gf-alt').href=F+'?usp=pp_url&entry.2011746388='+encodeURIComponent(c.slice(0,1500))}
-document.getElementById('gf').src=F+'?embedded=true'+q})();
-// 問卷每換一頁 iframe 會重新載入：第一頁之後改用較高的高度，並捲回問卷頂端，免得客戶停在空白處
-(function(){var f=document.querySelector('.form iframe'),first=true;
-f.addEventListener('load',function(){if(first){first=false;return}f.classList.add('tall');f.scrollIntoView({behavior:'smooth'})})})();
-</script>
+<div class="form" id="book" data-yoyi-form></div>
 <aside class="more"><h5>繼續逛逛</h5><nav><a href="news.html" data-where="bottom-nav"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8.5h3V17a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg></i>財經日報</a><a href="calc.html" data-where="bottom-nav"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01" stroke-width="2.6"/></svg></i>理財試算</a><a href="about.html" data-where="bottom-nav"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.5c.8-3.7 3.6-5.7 7-5.7s6.2 2 7 5.7"/></svg></i>認識 YoYi</a><a class="line" href="https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA" rel="noopener" data-where="bottom-nav"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4C7 4 3 7.1 3 11c0 3.5 3.1 6.4 7.4 6.9L10 21l3.6-3.1C17.9 17.4 21 14.5 21 11c0-3.9-4-7-9-7z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01" stroke-width="2.6"/></svg></i>LINE 社群</a></nav></aside>
-<footer>本頁內容僅為資訊分享，非投資建議；實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
+<footer>本頁內容僅為資訊分享，非投資建議<br>實際規劃依個人狀況而定。<br>© YOYI 財經</footer>
 </body>
 </html>
