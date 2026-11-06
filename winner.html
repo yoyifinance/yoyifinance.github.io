@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中獎者小問卷｜YOYI 財經</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="YOYI 財經社群中獎者小問卷，約 1 分鐘。">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* 中獎者小問卷（2026-11-06）：只私訊給中獎者，不放選單、不進 sitemap、noindex。
+   網址 winner.html?e=2026-11-02 → 自動記錄是哪一期猜猜看。
+   送出方式：GF 有填（Google 問卷 formResponse 網址＋各題 entry 代號）就直接送進 Google 問卷；
+   GF 空白時，送出後把答案整理成文字，讓中獎者一鍵傳回 YoYi 的 LINE。 */
+:root{--gold:#B8893A;--ink:#1F1B14;--mute:#7A7366;--bg:#FBF9F4;--line:rgba(184,137,58,.3)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink);line-height:1.75;
+  background:radial-gradient(ellipse 100% 35% at 50% 0%,#FFFFFF 0%,#FBF9F4 60%,#F4EFE4 100%)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:720px;margin:0 auto}
+.top img{height:40px}
+.top a{font-size:14px;color:var(--mute);text-decoration:none}
+.head{max-width:720px;margin:0 auto;padding:18px 20px 0;text-align:center}
+.kicker{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+h1{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(28px,7vw,40px);margin-top:6px}
+.head p{color:var(--mute);margin-top:8px}
+.rule{width:56px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.note{max-width:720px;margin:20px auto 0;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.note span{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--mute)}
+.note span svg{width:15px;height:15px;color:var(--gold)}
+.form{max-width:680px;margin:24px auto 0;padding:0 16px}
+footer{margin:40px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px;color:#A39C8D;border-top:1px solid rgba(184,137,58,.18);line-height:1.8}
+
+/* 問卷本體（樣式同 yoyi-form.js） */
+.yf h4,.yf p{margin:0}.yf{background:#fff;border:1px solid rgba(184,137,58,.3);border-radius:22px;box-shadow:0 14px 44px rgba(90,65,20,.10);overflow:hidden;text-align:left;color:#1F1B14}
+.yf-top{padding:18px 20px 0}.yf-bar{height:6px;border-radius:9px;background:#F3EBDA;overflow:hidden}.yf-bar i{display:block;height:100%;background:linear-gradient(90deg,#E2BD70,#B8893A);border-radius:9px;transition:width .35s}
+.yf-cnt{display:flex;justify-content:space-between;font-size:12.5px;color:#7A7366;margin-top:8px;letter-spacing:.06em}.yf-cnt b{color:#B8893A}
+.yf-pg{padding:6px 20px 22px}.yf-pg h4{font-family:"Noto Serif TC",serif;font-weight:900;font-size:23px;line-height:1.35;margin-top:10px}.yf-pg>p.s{white-space:pre-line;font-size:14px;color:#7A7366;margin-top:2px}
+.yf-q{margin-top:20px}.yf-q>label,.yf-q>.l{display:block;font-weight:700;font-size:15.5px;margin-bottom:8px}.yf-q .rq{color:#C0563B;margin-left:3px}.yf-q .hint{font-weight:500;font-size:13px;color:#7A7366;margin-left:4px}
+.yf input[type=text],.yf textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:14px;border:1px solid rgba(184,137,58,.35);background:#FFFDF8;color:#1F1B14;outline:none;-webkit-appearance:none;appearance:none}
+.yf textarea{min-height:92px;resize:vertical;line-height:1.6}.yf input:focus,.yf textarea:focus{border-color:#B8893A;background:#fff;box-shadow:0 0 0 3px rgba(227,191,110,.25)}
+.yf-op{display:flex;flex-wrap:wrap;gap:8px}.yf-op label{position:relative;cursor:pointer}.yf-op input{position:absolute;opacity:0;pointer-events:none}
+.yf-op span{display:block;padding:9px 15px;border-radius:999px;border:1px solid rgba(184,137,58,.35);background:#fff;font-size:14.5px;line-height:1.45;transition:all .15s}
+.yf-op.cs span::before{content:"☐ ";font-size:1.15em}.yf-op.cs input:checked+span::before{content:"☑ "}
+.yf-op.col{flex-direction:column}.yf-op.col span{border-radius:14px;padding:11px 14px}
+.yf-op input:checked+span{background:linear-gradient(135deg,#E2BD70,#B8893A);border-color:#B8893A;color:#fff;font-weight:700;box-shadow:0 6px 16px rgba(184,137,58,.28)}
+.yf-op input:focus-visible+span{outline:2px solid #B8893A;outline-offset:2px}
+.yf-oth{margin-top:8px;display:none}.yf-oth.on{display:block}
+.yf-er{display:none;font-size:13px;color:#C0563B;margin-top:6px}.yf-q.bad .yf-er{display:block}.yf-q.bad input[type=text],.yf-q.bad textarea{border-color:#D98A72}
+.yf-nav{display:flex;gap:10px;padding:0 20px 20px}.yf-nav button{font:inherit;font-weight:700;font-size:16px;padding:14px 10px;border-radius:14px;cursor:pointer;border:1px solid rgba(184,137,58,.35);background:#fff;color:#1F1B14}
+.yf-nav .nx{flex:1;border:none;color:#fff;background:linear-gradient(135deg,#D9B061,#B8893A);box-shadow:0 10px 26px rgba(184,137,58,.3)}.yf-nav .bk{width:96px}.yf-nav button[disabled]{opacity:.6;cursor:default}
+.yf-note{font-size:12px;color:#A39C8D;text-align:center;padding:0 20px 18px}.yf-lock{width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:#B8893A}
+.yf-done{padding:34px 22px 30px;text-align:center}.yf-done .ok{width:64px;height:64px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;background:linear-gradient(135deg,#E2BD70,#B8893A);box-shadow:0 10px 26px rgba(184,137,58,.35)}
+.yf-done h4{font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;margin-top:14px}.yf-done p{font-size:15px;color:#4A443A;margin-top:10px;line-height:1.8}
+.yf-ans{margin-top:16px;text-align:left;white-space:pre-wrap;font-size:14px;line-height:1.7;background:#FFF9EC;border:1px dashed #C9A25A;border-radius:14px;padding:12px 14px;color:#4A443A;max-height:260px;overflow:auto}
+.yf-btns{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.yf-btns a,.yf-btns button{display:block;font:inherit;font-weight:700;font-size:16px;padding:14px 10px;border-radius:14px;cursor:pointer;text-decoration:none;text-align:center}
+.yf-btns .ln{background:#06C755;color:#fff;border:none;box-shadow:0 10px 24px rgba(6,199,85,.25)}
+.yf-btns .cp{background:#fff;color:var(--gold);border:1px solid var(--gold)}
+.yf-done small{display:block;font-size:12.5px;color:#7A7366;margin-top:12px;line-height:1.7}
+.yf-pg.in{animation:yfin .3s ease}@keyframes yfin{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+</style>
+<script src="analytics.js" defer></script>
+<link rel="stylesheet" href="topbar.css">
+</head>
+<body>
+<header class="top"><a href="./"><img src="logo_h_gold.svg" alt="YOYI 財經"></a><a class="home" href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>回到首頁</a></header>
+<div class="head">
+  <div class="kicker">THANK YOU</div>
+  <h1>中獎者小問卷</h1>
+  <p>恭喜你中獎！<br>花 1 分鐘告訴我你的想法<br>讓社群分享更貼近你需要的內容。</p>
+  <div class="rule"></div>
+</div>
+<div class="note"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>約 1 分鐘</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11.5l2.2 2.2L15.5 9"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg>幾乎都是選擇題</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>只用於社群內容優化</span></div>
+<div class="form" id="yf"></div>
+<footer>本頁內容僅為資訊分享，非投資建議<br>不針對任何特定金融商品。<br>© YOYI 財經</footer>
+
+<script>
+(function(){
+// 之後若建了 Google 問卷：GF 填 formResponse 網址，下面每題 id 換成 entry 代號、EV 填「活動期別」的 entry 代號，選項文字要和 Google 問卷一字不差。
+var GF='', EV='';
+var STEPS=[
+ {h:'先認識你',s:'讓我知道你是誰\n從哪裡認識社群',q:[
+  {id:'name',t:'text',l:'怎麼稱呼你？',ph:'填社群上的暱稱就好',req:1},
+  {id:'from',t:'radio',l:'你是從哪裡認識 YOYI 財經社群的？',o:['Instagram Reel','YOYI 財經官網','朋友推薦','LINE 社群搜尋'],other:1,req:1},
+  {id:'age',t:'radio',l:'你的年齡範圍',o:['25 歲以下','26–35 歲','36–45 歲','46–55 歲','56 歲以上'],req:1},
+  {id:'job',t:'radio',l:'你目前的工作',o:['上班族','公教人員','自營／接案','學生','家管','退休'],other:1,req:1}]},
+ {h:'你和理財',s:'沒有標準答案\n照實際狀況選就好',q:[
+  {id:'exp',t:'radio',l:'你目前有在做投資理財嗎？',o:['還沒開始，想先多了解','剛起步（1 年內）','1–5 年','5 年以上'],req:1},
+  {id:'topic',t:'check',l:'你平常最關心哪些理財主題？',hint:'可複選',o:['存錢與記帳','退休準備','買房／房貸','子女教育費','稅務觀念','全球財經新聞'],other:1,req:1}]},
+ {h:'社群對你的幫助',s:'最後幾題\n你的回答會讓社群更好',q:[
+  {id:'help',t:'check',l:'社群內容對你哪裡最有幫助？',hint:'可複選',o:['每日財經新聞，快速掌握重點','猜猜看互動，邊玩邊學','理財試算工具','財經名詞解釋','學到理財觀念'],other:1,req:1},
+  {id:'time',t:'radio',l:'你最常在什麼時間看社群訊息？',o:['早上通勤','午休','下班後','睡前','不固定']},
+  {id:'more',t:'area',l:'之後還想多看到什麼內容？或想對社群說的話',hint:'選填',ph:'想到什麼都可以寫'},
+  {id:'ok',t:'consent',o:['我同意 YOYI 財經將以上回答僅用於社群內容優化的統計'],req:1}]}
+];
+var ev='';try{ev=(new URLSearchParams(location.search).get('e')||'').slice(0,20)}catch(e){}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function track(n,p){try{window.yoyiTrack&&window.yoyiTrack(n,p||{})}catch(e){}}
+var LOCK='<svg class="yf-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>';
+function qHtml(q){
+  var n='q-'+q.id,rq=q.req?'<span class="rq">*</span>':'',hint=q.hint?'<span class="hint">（'+q.hint+'）</span>':'',h='<div class="yf-q" data-q="'+q.id+'">';
+  if(q.t==='text'||q.t==='area'){
+    h+='<label for="'+n+'">'+esc(q.l)+rq+hint+'</label>';
+    h+=q.t==='area'?'<textarea id="'+n+'" name="'+n+'" placeholder="'+esc(q.ph||'')+'"></textarea>':'<input id="'+n+'" name="'+n+'" type="text" placeholder="'+esc(q.ph||'')+'">';
+  }else{
+    var long=q.o.some(function(o){return o.length>10}),ty=q.t==='radio'?'radio':'checkbox';
+    h+=q.t==='consent'?'':'<div class="l">'+esc(q.l)+rq+hint+'</div>';
+    h+='<div class="yf-op'+(long||q.t==='consent'?' col':'')+(q.t==='consent'?' cs':'')+'">'+q.o.map(function(o){return '<label><input type="'+ty+'" name="'+n+'" value="'+esc(o)+'"><span>'+esc(o)+'</span></label>'}).join('');
+    if(q.other)h+='<label><input type="'+ty+'" name="'+n+'" value="__other_option__"><span>其他</span></label>';
+    h+='</div>';
+    if(q.other)h+='<input class="yf-oth" type="text" name="'+n+'-oth" placeholder="請寫下你的答案">';
+  }
+  return h+'<div class="yf-er">'+(q.t==='check'?'請至少選一個':q.t==='radio'?'請選一個':q.t==='consent'?'請勾選同意':'這題要填喔')+'</div></div>';
+}
+var box=document.getElementById('yf'),cur=0;
+box.innerHTML='<div class="yf"><div class="yf-top"><div class="yf-bar"><i></i></div><div class="yf-cnt"><span><b>1</b> / '+STEPS.length+'</span><span>約 1 分鐘</span></div></div>'+
+ STEPS.map(function(s,i){return '<div class="yf-pg" data-i="'+i+'"'+(i?' hidden':'')+'><h4>'+esc(s.h)+'</h4><p class="s">'+esc(s.s)+'</p>'+s.q.map(qHtml).join('')+'</div>'}).join('')+
+ '<div class="yf-nav"><button type="button" class="bk" hidden>上一步</button><button type="button" class="nx">下一步</button></div><p class="yf-note">'+LOCK+'回答只用於社群內容優化<br>不會公開</p></div>';
+var root=box.firstChild,pgs=root.querySelectorAll('.yf-pg'),bk=root.querySelector('.bk'),nx=root.querySelector('.nx');
+root.addEventListener('change',function(e){var t=e.target;
+  if(t.type==='radio'||t.type==='checkbox'){var o=root.querySelector('[name="'+t.name+'-oth"]');
+    if(o){var on=!!root.querySelector('[name="'+t.name+'"][value="__other_option__"]:checked');o.classList.toggle('on',on);if(on&&t.value==='__other_option__')o.focus()}}
+  var q=t.closest('.yf-q');if(q)q.classList.remove('bad')});
+root.addEventListener('input',function(e){var q=e.target.closest('.yf-q');if(q)q.classList.remove('bad')});
+function val(q){var n='q-'+q.id;
+  if(q.t==='text'||q.t==='area'){var el=root.querySelector('[name="'+n+'"]');return el.value.trim()}
+  return [].map.call(root.querySelectorAll('[name="'+n+'"]:checked'),function(x){return x.value})}
+function oth(q){var el=root.querySelector('[name="q-'+q.id+'-oth"]');return el?el.value.trim():''}
+function ok(i){var bad=null;STEPS[i].q.forEach(function(q){if(!q.req)return;var v=val(q),miss=Array.isArray(v)?!v.length:!v;
+  if(q.other&&Array.isArray(v)&&v.indexOf('__other_option__')>=0&&!oth(q))miss=true;
+  var el=root.querySelector('[data-q="'+q.id+'"]');el.classList.toggle('bad',miss);if(miss&&!bad)bad=el});
+  if(bad)bad.scrollIntoView({behavior:'smooth',block:'center'});return !bad}
+function show(i){pgs[cur].hidden=true;cur=i;pgs[i].hidden=false;pgs[i].classList.remove('in');void pgs[i].offsetWidth;pgs[i].classList.add('in');
+  root.querySelector('.yf-bar i').style.width=((i+1)/STEPS.length*100)+'%';root.querySelector('.yf-cnt b').textContent=i+1;
+  bk.hidden=!i;nx.textContent=i===STEPS.length-1?'送出問卷 ✓':'下一步';
+  var r=root.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.4)root.scrollIntoView({behavior:'smooth',block:'start'})}
+root.querySelector('.yf-bar i').style.width=(100/STEPS.length)+'%';
+bk.onclick=function(){if(cur)show(cur-1)};
+nx.onclick=function(){if(!ok(cur))return;if(cur<STEPS.length-1){show(cur+1);track('winner_form_next',{step:cur+1});return}send()};
+function text(){var lines=['【YOYI 中獎者小問卷】'+(ev?'（'+ev+' 猜猜看）':'')],k=0;
+  STEPS.forEach(function(s){s.q.forEach(function(q){if(q.t==='consent')return;k++;var v=val(q);
+    if(Array.isArray(v))v=v.map(function(x){return x==='__other_option__'?'其他：'+oth(q):x}).join('、');
+    lines.push(k+'. '+q.l.replace(/？$/,'')+'：'+(v||'（未填）'))})});
+  return lines.join('\n')}
+function send(){
+  var t=text();
+  if(!GF){done(t);return}
+  var fd=new URLSearchParams();
+  STEPS.forEach(function(s){s.q.forEach(function(q){var v=val(q);
+    if(Array.isArray(v))v.forEach(function(x){fd.append('entry.'+q.id,x)});else if(v)fd.append('entry.'+q.id,v);
+    if(q.other&&Array.isArray(v)&&v.indexOf('__other_option__')>=0)fd.append('entry.'+q.id+'.other_option_response',oth(q))})});
+  if(EV&&ev)fd.append('entry.'+EV,ev);
+  fd.append('pageHistory','0,1,2');
+  nx.disabled=true;nx.textContent='送出中…';
+  fetch(GF,{method:'POST',mode:'no-cors',body:fd}).then(function(){done('')},function(){nx.disabled=false;nx.textContent='送出問卷 ✓';alert('網路好像不太穩，送出失敗了\n請再按一次「送出問卷」。')})}
+function done(t){track('winner_form_submit',{e:ev});
+  var h='<div class="yf-done"><div class="ok">✓</div><h4>謝謝你的回答！</h4>';
+  if(!t){h+='<p>我已經收到了<br>你的回答會幫助社群<br>分享更多實用的資訊 🙌</p></div>'}
+  else{
+    var href='https://line.me/R/share?text='+encodeURIComponent(t);  // 開 LINE 分享，中獎者選和 YoYi 的聊天
+    h+='<p>最後一步<br>請把回答<b>傳回給 YoYi 宥毅</b><br>按下面的綠色按鈕<br>選擇和 YoYi 的聊天就可以了</p>'+
+     '<div class="yf-ans">'+esc(t)+'</div>'+
+     '<div class="yf-btns"><a class="ln" href="'+href+'" target="_blank" rel="noopener">用 LINE 傳給 YoYi</a><button type="button" class="cp">複製回答（自己貼到 LINE）</button></div>'+
+     '<small>你的回答會幫助社群<br>分享更多實用的資訊 🙌</small></div>'}
+  root.innerHTML=h;
+  var cp=root.querySelector('.cp');if(cp)cp.onclick=function(){(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){cp.textContent='已複製 ✓ 貼到和 YoYi 的聊天'},function(){
+    var r=document.createRange();r.selectNodeContents(root.querySelector('.yf-ans'));var s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent='已選取文字，請長按複製'})};
+  root.scrollIntoView({behavior:'smooth',block:'start'})}
+})();
+</script>
+</body>
+</html>
