@@ -13,8 +13,7 @@
 <style>
 /* 中獎者小問卷（2026-11-06）：只私訊給中獎者，不放選單、不進 sitemap、noindex。
    網址 winner.html?e=2026-11-02 → 自動記錄是哪一期猜猜看。
-   送出方式：GF 有填（Google 問卷 formResponse 網址＋各題 entry 代號）就直接送進 Google 問卷；
-   GF 空白時，送出後把答案整理成文字，讓中獎者一鍵傳回 YoYi 的 LINE。 */
+   送出：資料直接 POST 進 Google 問卷「YOYI 中獎者小問卷」（2026-11-06 接上，已拿掉傳回 LINE 的版本）。 */
 :root{--gold:#B8893A;--ink:#1F1B14;--mute:#7A7366;--bg:#FBF9F4;--line:rgba(184,137,58,.3)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--bg)}
@@ -55,12 +54,6 @@ footer{margin:40px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 .yf-note{font-size:12px;color:#A39C8D;text-align:center;padding:0 20px 18px}.yf-lock{width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:#B8893A}
 .yf-done{padding:34px 22px 30px;text-align:center}.yf-done .ok{width:64px;height:64px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;background:linear-gradient(135deg,#E2BD70,#B8893A);box-shadow:0 10px 26px rgba(184,137,58,.35)}
 .yf-done h4{font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;margin-top:14px}.yf-done p{font-size:15px;color:#4A443A;margin-top:10px;line-height:1.8}
-.yf-ans{margin-top:16px;text-align:left;white-space:pre-wrap;font-size:14px;line-height:1.7;background:#FFF9EC;border:1px dashed #C9A25A;border-radius:14px;padding:12px 14px;color:#4A443A;max-height:260px;overflow:auto}
-.yf-btns{display:flex;flex-direction:column;gap:10px;margin-top:16px}
-.yf-btns a,.yf-btns button{display:block;font:inherit;font-weight:700;font-size:16px;padding:14px 10px;border-radius:14px;cursor:pointer;text-decoration:none;text-align:center}
-.yf-btns .ln{background:#06C755;color:#fff;border:none;box-shadow:0 10px 24px rgba(6,199,85,.25)}
-.yf-btns .cp{background:#fff;color:var(--gold);border:1px solid var(--gold)}
-.yf-done small{display:block;font-size:12.5px;color:#7A7366;margin-top:12px;line-height:1.7}
 .yf-pg.in{animation:yfin .3s ease}@keyframes yfin{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
 </style>
 <script src="analytics.js" defer></script>
@@ -80,8 +73,10 @@ footer{margin:40px 0 0;padding:24px 20px 40px;text-align:center;font-size:12.5px
 
 <script>
 (function(){
-// 之後若建了 Google 問卷：GF 填 formResponse 網址，下面每題 id 換成 entry 代號、EV 填「活動期別」的 entry 代號，選項文字要和 Google 問卷一字不差。
-var GF='', EV='';
+// 資料直接送進 Google 問卷「YOYI 中獎者小問卷」；改題目或選項時，這裡的文字要和 Google 問卷一字不差。
+var GF='https://docs.google.com/forms/d/e/1FAIpQLSfc279WAW5IC2rqamHa8w4a0jr0bT84OoHvTvhLIJm81jKlCg/formResponse', EV='577785329';
+// 題目 key → Google 問卷 entry 代號（2026-11-06 用 Apps Script 建立）
+var ENTRY={name:'544753871',from:'154559864',age:'1730816976',job:'365011490',exp:'105604297',topic:'1192610699',help:'166907535',time:'140046041',more:'1006436778',ok:'1682879498'};
 var STEPS=[
  {h:'先認識你',s:'讓我知道你是誰\n從哪裡認識社群',q:[
   {id:'name',t:'text',l:'怎麼稱呼你？',ph:'填社群上的暱稱就好',req:1},
@@ -141,34 +136,18 @@ function show(i){pgs[cur].hidden=true;cur=i;pgs[i].hidden=false;pgs[i].classList
 root.querySelector('.yf-bar i').style.width=(100/STEPS.length)+'%';
 bk.onclick=function(){if(cur)show(cur-1)};
 nx.onclick=function(){if(!ok(cur))return;if(cur<STEPS.length-1){show(cur+1);track('winner_form_next',{step:cur+1});return}send()};
-function text(){var lines=['【YOYI 中獎者小問卷】'+(ev?'（'+ev+' 猜猜看）':'')],k=0;
-  STEPS.forEach(function(s){s.q.forEach(function(q){if(q.t==='consent')return;k++;var v=val(q);
-    if(Array.isArray(v))v=v.map(function(x){return x==='__other_option__'?'其他：'+oth(q):x}).join('、');
-    lines.push(k+'. '+q.l.replace(/？$/,'')+'：'+(v||'（未填）'))})});
-  return lines.join('\n')}
 function send(){
-  var t=text();
-  if(!GF){done(t);return}
   var fd=new URLSearchParams();
   STEPS.forEach(function(s){s.q.forEach(function(q){var v=val(q);
-    if(Array.isArray(v))v.forEach(function(x){fd.append('entry.'+q.id,x)});else if(v)fd.append('entry.'+q.id,v);
-    if(q.other&&Array.isArray(v)&&v.indexOf('__other_option__')>=0)fd.append('entry.'+q.id+'.other_option_response',oth(q))})});
+    var id=ENTRY[q.id];
+    if(Array.isArray(v))v.forEach(function(x){fd.append('entry.'+id,x)});else if(v)fd.append('entry.'+id,v);
+    if(q.other&&Array.isArray(v)&&v.indexOf('__other_option__')>=0)fd.append('entry.'+id+'.other_option_response',oth(q))})});
   if(EV&&ev)fd.append('entry.'+EV,ev);
-  fd.append('pageHistory','0,1,2');
+  fd.append('pageHistory','0');
   nx.disabled=true;nx.textContent='送出中…';
-  fetch(GF,{method:'POST',mode:'no-cors',body:fd}).then(function(){done('')},function(){nx.disabled=false;nx.textContent='送出問卷 ✓';alert('網路好像不太穩，送出失敗了\n請再按一次「送出問卷」。')})}
-function done(t){track('winner_form_submit',{e:ev});
-  var h='<div class="yf-done"><div class="ok">✓</div><h4>謝謝你的回答！</h4>';
-  if(!t){h+='<p>我已經收到了<br>你的回答會幫助社群<br>分享更多實用的資訊 🙌</p></div>'}
-  else{
-    var href='https://line.me/R/share?text='+encodeURIComponent(t);  // 開 LINE 分享，中獎者選和 YoYi 的聊天
-    h+='<p>最後一步<br>請把回答<b>傳回給 YoYi 宥毅</b><br>按下面的綠色按鈕<br>選擇和 YoYi 的聊天就可以了</p>'+
-     '<div class="yf-ans">'+esc(t)+'</div>'+
-     '<div class="yf-btns"><a class="ln" href="'+href+'" target="_blank" rel="noopener">用 LINE 傳給 YoYi</a><button type="button" class="cp">複製回答（自己貼到 LINE）</button></div>'+
-     '<small>你的回答會幫助社群<br>分享更多實用的資訊 🙌</small></div>'}
-  root.innerHTML=h;
-  var cp=root.querySelector('.cp');if(cp)cp.onclick=function(){(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){cp.textContent='已複製 ✓ 貼到和 YoYi 的聊天'},function(){
-    var r=document.createRange();r.selectNodeContents(root.querySelector('.yf-ans'));var s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent='已選取文字，請長按複製'})};
+  fetch(GF,{method:'POST',mode:'no-cors',body:fd}).then(done,function(){nx.disabled=false;nx.textContent='送出問卷 ✓';alert('網路好像不太穩，送出失敗了\n請再按一次「送出問卷」。')})}
+function done(){track('winner_form_submit',{e:ev});
+  root.innerHTML='<div class="yf-done"><div class="ok">✓</div><h4>謝謝你的回答！</h4><p>我已經收到了<br>你的回答會幫助社群<br>分享更多實用的資訊 🙌</p></div>';
   root.scrollIntoView({behavior:'smooth',block:'start'})}
 })();
 </script>
