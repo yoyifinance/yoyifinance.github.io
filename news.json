@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-09",
+  "weekday": "一",
+  "region": "台灣",
+  "title": "國安基金宣布第 10 度護盤 週一進場 可動用上限 5,000 億元",
+  "one": "國家金融安定基金（國安基金）11/06 下午召開臨時委員會，決議史上第 10 次進場護盤、11/09（週一）起進場，授權執行秘書視情況動用資金，上限 5,000 億元；當週加權指數累計下跌 5,510 點。",
+  "image": "images/news/2026-11-09.jpg",
+  "sources": [
+   {
+    "name": "中央社",
+    "url": "https://www.cna.com.tw/news/afe/202611060270.aspx"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5607/9862516"
+   },
+   {
+    "name": "自由財經",
+    "url": "https://ec.ltn.com.tw/article/breakingnews/5632006"
+   },
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6650445"
+   },
+   {
+    "name": "時報資訊",
+    "url": "https://www.chinatimes.com/realtimenews/20261107001280-260410"
+   },
+   {
+    "name": "自由財經（第 9 次退場）",
+    "url": "https://ec.ltn.com.tw/article/breakingnews/5503939"
+   },
+   {
+    "name": "工商時報（第 9 次績效）",
+    "url": "https://www.ctee.com.tw/news/20260714700656-430301"
+   },
+   {
+    "name": "科技新報（歷史紀錄）",
+    "url": "https://technews.tw/?p=1367443"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "護盤出手了，你的資金安排穩嗎？",
+   "text": "市場信心不足時，政府工具能穩定情緒，但每個人的資金狀況不同。歡迎預約諮詢，一起盤點你的資金規劃與能承受的波動。"
+  }
+ },
+ {
   "date": "2026-11-06",
   "weekday": "五",
   "region": "台灣",
