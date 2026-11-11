@@ -1,5 +1,44 @@
 [
  {
+  "date": "2026-11-11",
+  "weekday": "三",
+  "region": "全球",
+  "title": "輝達（NVIDIA）兩個交易日重挫逾 9% 董事會啟動獨立調查 市值蒸發逾 4,000 億美元",
+  "one": "AI 晶片龍頭輝達股價 11/10 收 168.89 美元、單日下跌 5.47%，加上 11/09 的 4.27% 跌幅，兩個交易日累計跌約 9.5%；起因是執行長黃仁勳 11/08 向員工坦承個人事件，董事會隨後成立獨立調查。",
+  "image": "images/news/2026-11-11.jpg",
+  "sources": [
+   {
+    "name": "中央社",
+    "url": "https://www.cna.com.tw/news/afe/202611110005.aspx"
+   },
+   {
+    "name": "聯合報",
+    "url": "https://udn.com/news/story/125066/9870647"
+   },
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/11/08/nvidia-jensen-huang-email-board-of-directors-statement.html"
+   },
+   {
+    "name": "Axios",
+    "url": "https://www.axios.com/2026/11/08/nvidia-ceo-jensen-huang-admits-affair-board-to-launch-investigation"
+   },
+   {
+    "name": "鏡週刊",
+    "url": "https://www.mirrormedia.mg/story/20261111edi008"
+   },
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6657862"
+   }
+  ],
+  "cta": {
+   "type": "line",
+   "title": "龍頭一出事，你的持股太集中嗎？",
+   "text": "單一公司的消息，也可能牽動整條供應鏈的情緒。加入 YOYI LINE 社群，每天用白話掌握國際財經重點，一起練習看懂市場的變化。"
+  }
+ },
+ {
   "date": "2026-11-09",
   "weekday": "一",
   "region": "台灣",
