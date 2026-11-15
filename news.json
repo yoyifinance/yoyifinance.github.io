@@ -1,5 +1,44 @@
 [
  {
+  "date": "2026-11-15",
+  "weekday": "日",
+  "region": "全球",
+  "title": "黃仁勳辭去輝達（NVIDIA）執行長一週 大股東喊話董事會考慮讓他回任",
+  "one": "黃仁勳 11/12 辭去輝達執行長後，輝達股價 11/13 再跌 2.01% 至 162.85 美元，較風波前的 11/06 累計跌 12.7%；11/14 兩位知名大股東公開信要求董事會把「黃仁勳回任」列為選項，美國國會也要求他說明，11/17 輝達將公布換帥後首份財報。",
+  "image": "images/news/2026-11-15.jpg",
+  "sources": [
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/11/14/nvidia-investors-jensen-huang-return-board-letter.html"
+   },
+   {
+    "name": "NBC News",
+    "url": "https://www.nbcnews.com/tech/tech-news/nvidia-investigation-jensen-huang-continue-departure-sources-say-rcna609136"
+   },
+   {
+    "name": "輝達 8-K（SEC）",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm"
+   },
+   {
+    "name": "美國眾議院中國特別委員會",
+    "url": "https://chinaselectcommittee.house.gov/media/press-releases/moolenaar-mast-and-crawford-seek-briefing-from-jensen-huang-on-ties-to-chinese-intelligence-asset"
+   },
+   {
+    "name": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nov-13-222002466.html"
+   },
+   {
+    "name": "Seeking Alpha（TradingView）",
+    "url": "https://www.tradingview.com/news/seekingalpha:903ba90d5094b:0-prominent-nvidia-investors-call-for-board-to-contemplate-huang-s-return/"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "一個人的去留，會動到你的資產嗎？",
+   "text": "一週內換帥、調查、喊話回任，單一公司的消息就能讓股價大幅波動。不妨找時間檢查自己的資產是否過度集中，預約一對一諮詢，一起把風險看清楚。"
+  }
+ },
+ {
   "date": "2026-11-13",
   "weekday": "五",
   "region": "全球",
