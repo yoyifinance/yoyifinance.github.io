@@ -1,5 +1,48 @@
 [
  {
+  "date": "2026-11-17",
+  "weekday": "二",
+  "region": "台灣",
+  "title": "台股重挫 2,635 點 創收盤史上第 2 大跌點",
+  "one": "加權指數 11/16 重挫 2,635.04 點（−6.03%）收 41,040.08 點，收在當天最低，創收盤史上第 2 大跌點；台積電跌 135 元收 2,215 元，三大法人合計賣超 1,140.55 億元，其中外資賣超 701.89 億元。",
+  "image": "images/news/2026-11-17.jpg",
+  "sources": [
+   {
+    "name": "中央社",
+    "url": "https://www.cna.com.tw/news/afe/202611160219.aspx"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5607/9881813"
+   },
+   {
+    "name": "中時新聞網",
+    "url": "https://www.chinatimes.com/realtimenews/20261116003074-260410"
+   },
+   {
+    "name": "華視（中央社）",
+    "url": "https://news.cts.com.tw/cna/money/202611/202611163101735.html"
+   },
+   {
+    "name": "新頭殼",
+    "url": "https://newtalk.tw/news/view/2026-11-16/1071448"
+   },
+   {
+    "name": "TVBS",
+    "url": "https://tech.tvbs.com.tw/money/4051386"
+   },
+   {
+    "name": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-16/us-moves-to-limit-remote-access-to-advanced-ai-chips"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "一天跌 2,635 點，你睡得著嗎？",
+   "text": "大跌時最考驗的不是眼光，而是資金安排。不妨趁這次檢查自己有沒有借錢投資、緊急預備金夠不夠，預約一對一諮詢，一起把風險看清楚。"
+  }
+ },
+ {
   "date": "2026-11-15",
   "weekday": "日",
   "region": "全球",
