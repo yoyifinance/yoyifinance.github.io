@@ -43,6 +43,45 @@
   }
  },
  {
+  "date": "2026-11-16",
+  "weekday": "一",
+  "region": "全球",
+  "title": "AI 公司 Anthropic 本週掛牌 估值上看 1.4 兆美元",
+  "one": "開發 AI 助理 Claude 的 Anthropic 公布 IPO 價格區間每股 70～78 美元、發行 8.25 億股，最高募資約 644 億美元，預計美國時間 11/18 定價、11/19 在那斯達克以代號 ANT 掛牌；以區間上限、完全稀釋股數計，估值約 1.4 兆美元。",
+  "image": "images/news/2026-11-16.jpg",
+  "sources": [
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html"
+   },
+   {
+    "name": "Fortune",
+    "url": "https://fortune.com/2026/11/10/anthropic-ipo-price-range-ai-stock-sell-off/"
+   },
+   {
+    "name": "TechCrunch",
+    "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/"
+   },
+   {
+    "name": "Yahoo 財經",
+    "url": "https://finance.yahoo.com/technology/ai/articles/forget-spacex-potential-blockbuster-ipo-220602300.html"
+   },
+   {
+    "name": "香港雅虎新聞",
+    "url": "https://hk.news.yahoo.com/anthropic-ipo-%E9%A0%90%E8%A8%88-11-%E6%9C%88-125312196.html"
+   },
+   {
+    "name": "CNBC（本週焦點）",
+    "url": "https://www.cnbc.com/investingclub/2026/11/15/3-big-things-were-watching-in-the-stock-market-in-the-week-ahead.html"
+   }
+  ],
+  "cta": {
+   "type": "line",
+   "title": "AI 熱潮這麼大，你看懂了嗎？",
+   "text": "一家 AI 公司上市就可能牽動全球科技股與台灣供應鏈。加入 YOYI LINE 社群，每天用白話掌握國際財經重點，一起練習看懂市場變化。"
+  }
+ },
+ {
   "date": "2026-11-15",
   "weekday": "日",
   "region": "全球",
