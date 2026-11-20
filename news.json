@@ -1,5 +1,72 @@
 [
  {
+  "date": "2026-11-20",
+  "weekday": "五",
+  "region": "全球",
+  "title": "Anthropic 掛牌首日收漲 17% 美股道瓊仍重挫 1,101 點",
+  "one": "AI 公司 Anthropic 美東時間 11/19 在那斯達克掛牌（代號 ANT），承銷價 83 美元、募資約 813 億美元，創史上最大 IPO，首日收 97.17 美元、漲 17.07%；但同一天道瓊跌 1,101 點（−2.19%）、跌破 5 萬點，那斯達克、費城半導體指數都跌逾 2%。",
+  "image": "images/news/2026-11-20.jpg",
+  "sources": [
+   {
+    "name": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/live-blog/2026-11-19/anthropic-trading-debut-live-updates"
+   },
+   {
+    "name": "CNN",
+    "url": "https://www.cnn.com/2026/11/19/business/live-news/anthropic-ipo"
+   },
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html"
+   },
+   {
+    "name": "Fox Business",
+    "url": "https://www.foxbusiness.com/markets/anthropic-begins-trading-nasdaq-record-breaking-ipo"
+   },
+   {
+    "name": "ETtoday 財經雲",
+    "url": "https://finance.ettoday.net/news/3275261"
+   },
+   {
+    "name": "民視新聞",
+    "url": "https://www.ftvnews.com.tw/news/detail/2026B20W0060"
+   },
+   {
+    "name": "工商時報",
+    "url": "https://www.ctee.com.tw/news/20261120700405-430702"
+   },
+   {
+    "name": "新頭殼",
+    "url": "https://newtalk.tw/news/view/2026-11-20/1072165"
+   },
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6667840"
+   },
+   {
+    "name": "世界日報",
+    "url": "https://www.worldjournal.com/wj/story/121477/9890424"
+   },
+   {
+    "name": "FTNN 新聞網",
+    "url": "https://www.ftnn.com.tw/news/597443"
+   },
+   {
+    "name": "風傳媒",
+    "url": "https://www.storm.mg/article/11183143"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5613/9890133"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "新股漲、大盤跌，你的計畫跟得上嗎？",
+   "text": "熱門新股吸睛，大盤一天卻也能跌逾 2%。預約 1 對 1 財務諮詢，一起看看自己的現金流和能承受的波動，把計畫想清楚再面對市場。"
+  }
+ },
+ {
   "date": "2026-11-18",
   "weekday": "三",
   "region": "全球",
