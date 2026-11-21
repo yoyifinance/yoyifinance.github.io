@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>先留後路檢查表｜YOYI 財經</title>
+<!-- IG 留言限定筆記：不進 sitemap、官網不放連結、搜尋引擎不收錄 -->
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="市場大跌時，最怕剛好要用錢只能在低點賣。花 1 分鐘，算算你的緊急預備金夠不夠，再用 7 個問題檢查自己有沒有先留後路。">
+<meta property="og:title" content="先留後路｜1 分鐘檢查表">
+<meta property="og:description" content="市場跌的時候，你的錢撐得住嗎？算預備金＋7 個問題，1 分鐘檢查完。">
+<meta property="og:image" content="https://yoyifinance.github.io/images/og/og-calc.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YOYI 財經">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="note.css">
+<style>
+/* 預備金試算 */
+.calc{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;box-shadow:var(--shadow)}
+.fld + .fld{margin-top:16px}
+.fld label{display:block;font-weight:700;font-size:15.5px}
+.fld small{display:block;font-size:13px;color:var(--mute);line-height:1.55}
+.inp{display:flex;align-items:center;gap:8px;margin-top:8px}
+.inp input{flex:1;min-width:0;font:inherit;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:#FFFDF8;color:var(--ink)}
+.inp input:focus{outline:none;border-color:var(--gold)}
+.inp span{color:var(--mute);font-weight:700;white-space:nowrap}
+.seg{display:flex;gap:8px;margin-top:8px}
+.seg button{flex:1;font:inherit;font-weight:700;font-size:15px;padding:9px 0;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--body);cursor:pointer}
+.seg button.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.out{margin-top:20px;padding:18px;border-radius:14px;background:var(--soft);text-align:center}
+.out .t{font-size:13.5px;color:var(--mute);font-weight:700}
+.out .n{font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(30px,8.5vw,42px);line-height:1.2;color:var(--gold-d);font-variant-numeric:tabular-nums}
+.meter{height:12px;border-radius:999px;background:#E9E2D2;margin-top:14px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#D9B061,#B8893A);transition:width .4s}
+.meter.low i{background:linear-gradient(90deg,#D98A6E,#B5523B)}
+.out .msg{margin-top:10px;font-size:15px;color:var(--body);line-height:1.7}
+/* 勾選清單 */
+.ck{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.ck label{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 16px;box-shadow:0 4px 18px rgba(90,65,20,.06);cursor:pointer;transition:border-color .2s,background .2s}
+.ck input{position:absolute;opacity:0;pointer-events:none}
+.ck .bx{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--gold-l);display:grid;place-items:center;margin-top:2px;transition:background .2s}
+.ck .bx svg{width:16px;height:16px;opacity:0;stroke:#fff}
+.ck input:checked + .bx{background:var(--gold);border-color:var(--gold)}
+.ck input:checked + .bx svg{opacity:1}
+.ck label:has(input:checked){border-color:var(--gold);background:#FFFDF6}
+.ck input:focus-visible + .bx{outline:2px solid var(--gold);outline-offset:2px}
+.ck b{display:block;font-size:16px;line-height:1.5}
+.ck p{font-size:14px;color:var(--mute);line-height:1.6;margin-top:2px}
+.score{margin-top:18px;padding:20px 18px;border-radius:18px;background:linear-gradient(160deg,#FFFDF7,#F6EEDD);border:1px solid var(--gold);text-align:center}
+.score .n{font-family:'Noto Serif TC',serif;font-weight:900;font-size:40px;color:var(--gold-d);line-height:1.2}
+.score .n small{font-size:18px;color:var(--mute)}
+.score h4{font-size:18px;margin-top:4px}
+.score p{font-size:15px;color:var(--body);margin-top:8px;line-height:1.7}
+</style>
+<script src="../analytics.js" defer></script>
+<script src="../yoyi-form.js" defer></script>
+<link rel="stylesheet" href="../topbar.css">
+</head>
+<body>
+<header class="top"><a href="../"><img src="../logo_h_gold.svg" alt="YOYI 財經"></a><a class="home" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>回到首頁</a></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="kicker">YOYI NOTE</div>
+    <h1>先留後路<br>1 分鐘檢查表</h1>
+    <p class="sub">市場跌的時候<br>你的錢撐得住嗎？</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="motto">市場大跌時<br>讓人受傷的常常不是跌<br>而是<b>剛好這時候要用錢</b><br>只能在低點賣<br>先花 1 分鐘<br>看看自己的後路留了多少</div>
+
+  <section>
+    <h2>STEP 1</h2>
+    <h3>你的緊急預備金<br>夠撐幾個月？</h3>
+    <div class="calc">
+      <div class="fld">
+        <label for="spend">一個月大概花多少？</label>
+        <small>房租或房貸、吃飯交通、保費、孝親費<br>全部加起來</small>
+        <div class="inp"><input id="spend" type="text" inputmode="numeric" placeholder="30,000" value="30,000"><span>元／月</span></div>
+      </div>
+      <div class="fld">
+        <label for="cash">隨時領得到的錢有多少？</label>
+        <small>活存、定存這類<br>不用賣掉投資就拿得到的錢</small>
+        <div class="inp"><input id="cash" type="text" inputmode="numeric" placeholder="100,000"><span>元</span></div>
+      </div>
+      <div class="fld">
+        <label>你想留幾個月？</label>
+        <small>收入穩定可以少一點<br>自己接案、家裡只靠一份收入的多留一點</small>
+        <div class="seg" id="months"><button type="button" data-m="3">3 個月</button><button type="button" data-m="6" class="on">6 個月</button><button type="button" data-m="12">12 個月</button></div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="t" id="needT">建議預備金</div>
+        <div class="n" id="need">$180,000</div>
+        <div class="meter" id="meter"><i></i></div>
+        <div class="msg" id="msg">填入「隨時領得到的錢」<br>看看可以撐幾個月</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>STEP 2</h2>
+    <h3>7 個問題<br>勾起來檢查</h3>
+    <p>做得到的就勾</p>
+    <div class="ck" id="ck">
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>我知道自己一個月大概花多少</b><p>不用很精準<br>差不多的數字就好</p></div></label>
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>預備金放在隨時領得到的地方</b><p>這筆錢不拿去投資<br>也不跟投資的錢放在一起</p></div></label>
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>1～2 年內要用的大錢<br>沒有放在股市</b><p>學費、買車、頭期款、結婚<br>時間到了一定要拿出來的錢</p></div></label>
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>收入停 3 個月<br>不用賣投資也過得下去</b><p>換工作、生病、景氣不好<br>都可能讓收入暫停</p></div></label>
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>家人臨時要用錢<br>我知道錢從哪裡拿</b><p>醫療、意外、長輩照顧<br>先想好順序，不用臨時慌</p></div></label>
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>我沒有借錢投資<br>或是算過最壞情況也還得起</b><p>信貸、增貸、融資買股<br>市場跌的時候壓力會加倍</p></div></label>
+      <label><input type="checkbox"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>帳面跌 20%<br>我還睡得著、不會急著賣</b><p>投資的錢是短期用不到的錢<br>才放得住</p></div></label>
+    </div>
+    <div class="score" aria-live="polite">
+      <div class="n"><span id="sc">0</span><small> / 7</small></div>
+      <h4 id="scT">勾完看看結果</h4>
+      <p id="scP">每一題都是<br>市場跌的時候<br>讓你不用被迫賣的一條後路</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>FOR YOU</h2>
+    <h3>想把後路<br>一次排清楚？</h3>
+    <p>每個人的收入、支出、家庭狀況都不一樣<br>想一起把預備金和資金分配排出來<br>可以預約 30 分鐘線上聊聊</p>
+    <div class="contact">
+      <div class="bookf" data-yoyi-form></div>
+      <a href="../calc.html" data-where="note-road"><span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01" stroke-width="2.6"/></svg></i></span><div><b>理財試算</b><small>用你的數字算算看</small></div><span class="go">›</span></a>
+      <a href="../" data-where="note-road"><span class="i"><i class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5s1.2-6.1 3.5-8.5z"/></svg></i></span><div><b>YoYi 的官方網站</b><small>財經日報、理財試算、認識 YoYi</small></div><span class="go">›</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>本檢查表僅為資訊分享與自我檢查，非投資建議，不針對任何特定金融商品。<br>請勿在未充分了解風險前為了投資而增貸。<br>實際規劃請依個人財務狀況評估。<br>© YOYI 財經</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var spend=$('spend'),cash=$('cash'),months=6,used=false;
+  var num=function(el){return Number((el.value||'').replace(/[^\d]/g,''))||0};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US')};
+  function tidy(el){var n=num(el);el.value=n?n.toLocaleString('en-US'):''}
+  function calc(){
+    var s=num(spend),c=num(cash),need=s*months;
+    $('needT').textContent='建議預備金（'+months+' 個月）';
+    $('need').textContent=fmt(need);
+    var m=$('meter'),msg=$('msg');
+    if(!s){m.firstChild.style.width='0';msg.innerHTML='先填一個月大概花多少';return}
+    if(!cash.value){m.firstChild.style.width='0';msg.innerHTML='填入「隨時領得到的錢」<br>看看可以撐幾個月';return}
+    var cover=c/s,pct=Math.min(100,c/need*100);
+    m.firstChild.style.width=pct+'%';
+    m.classList.toggle('low',cover<3);
+    var cv=cover>=100?'100 個月以上':(Math.floor(cover*10)/10)+' 個月';
+    if(c>=need) msg.innerHTML='你的預備金可以撐 <b>'+cv+'</b><br>已經達到 '+months+' 個月的目標';
+    else msg.innerHTML='你的預備金可以撐 <b>'+cv+'</b><br>離 '+months+' 個月還差 <b>'+fmt(need-c)+'</b>';
+    if(!used&&window.gtag){used=true;gtag('event','calc_use',{tool:'note-road'})}
+  }
+  [spend,cash].forEach(function(el){
+    el.addEventListener('input',calc);
+    el.addEventListener('blur',function(){tidy(el)});
+  });
+  document.querySelectorAll('#months button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#months button').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');months=Number(b.dataset.m);calc();
+    });
+  });
+  var R=[
+    [0,'勾完看看結果','每一題都是<br>市場跌的時候<br>讓你不用被迫賣的一條後路'],
+    [1,'後路還有點窄','先從第一題開始<br>算出一個月花多少<br>預備金目標就出來了'],
+    [4,'後路留了一半','把還沒勾的那幾題補起來<br>下次市場跌<br>你會比現在從容很多'],
+    [6,'後路留得不錯','只差一兩題<br>補齊之後<br>跌的時候就不用被迫賣'],
+    [7,'後路很完整','市場怎麼跌<br>生活都不受影響<br>記得每年回來檢查一次']
+  ];
+  var boxes=document.querySelectorAll('#ck input');
+  boxes.forEach(function(b){b.addEventListener('change',function(){
+    var n=0;boxes.forEach(function(x){if(x.checked)n++});
+    var r=R[0];R.forEach(function(x){if(n>=x[0])r=x});
+    $('sc').textContent=n;$('scT').textContent=r[1];$('scP').innerHTML=r[2];
+  })});
+  calc();
+})();
+</script>
+</body>
+</html>
