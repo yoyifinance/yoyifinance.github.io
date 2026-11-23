@@ -1,5 +1,44 @@
 [
  {
+  "date": "2026-11-23",
+  "weekday": "一",
+  "region": "全球",
+  "title": "快訊｜黃仁勳請辭 11 天後 回任輝達（NVIDIA）執行長",
+  "one": "輝達美東時間 11/23 宣布，黃仁勳即日起恢復總裁、執行長及董事職務，董事會表示一致通過並曾徵詢美國政府官員意見；消息公布後輝達盤前股價大漲逾 25%，獨立委員會調查仍持續。",
+  "image": "images/news/2026-11-23.jpg",
+  "sources": [
+   {
+    "name": "Reuters",
+    "url": "https://www.investing.com/news/stock-market-news/nvidia-reinstates-jensen-huang-as-ceo-5045809"
+   },
+   {
+    "name": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-091118583.html"
+   },
+   {
+    "name": "The Korea Times",
+    "url": "https://www.koreatimes.co.kr/world/20261123/nvidia-reinstates-jensen-huang-as-ceo"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://udn.com/news/story/6811/9897261"
+   },
+   {
+    "name": "東森新聞",
+    "url": "https://news.ebc.net.tw/news/world/582148"
+   },
+   {
+    "name": "NOWnews",
+    "url": "https://www.nownews.com/news/6894900"
+   }
+  ],
+  "cta": {
+   "type": "line",
+   "title": "一週大起大落，你看得懂嗎？",
+   "text": "同一家公司，一週內從請辭到回任，股價也跟著劇烈波動。加入 LINE 社群，每天一則白話財經解讀，陪你把新聞看完整，再做自己的判斷。"
+  }
+ },
+ {
   "date": "2026-11-20",
   "weekday": "五",
   "region": "全球",
