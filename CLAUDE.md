@@ -19,3 +19,4 @@
 - 文字排版（使用者 2026-11-04 要求）：短句在逗號、頓號處改成換行（拿掉標點），不要讓一句話講到一半就被折到下一行。
 - 試算 → 預約：「網站試算結果」是 entry.2011746388；booking.html?calc=… 也會預填。問卷改題目時要確認這個代號沒變。
 - 中獎者小問卷：winner.html（noindex、不進 sitemap、不放選單，只私訊給猜猜看中獎者），網址帶 ?e=猜猜看出題日期（寫進「活動期別」）。資料直接 POST 到 Google 問卷「YOYI 中獎者小問卷」（2026-11-06 用 yoyi-daily-finance/工具/中獎問卷/建立Google問卷.gs 建立），entry 代號在 winner.html 的 ENTRY；Google 問卷改題目、選項時，winner.html 的文字要一字不差同步改。
+- 給 AI／搜尋引擎的資料（2026-11-24）：六個公開頁（index、news、glossary、calc、about、booking）在 canonical 後面有 JSON-LD（WebSite＋Person「YoYi 宥毅」＋該頁 WebPage 類型），不用 FinancialService 這類「金融服務商」類型。llms.txt 是給 AI 的網站導覽。改頁面標題、描述、og 圖，新增或移除公開頁時，兩邊一起改。n/、t/、winner.html 是 noindex，不放進去。

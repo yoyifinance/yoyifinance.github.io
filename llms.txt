@@ -1,0 +1,27 @@
+# YOYI 財經
+
+> YoYi 宥毅經營的財經資訊分享網站：每天一則財經新聞白話看懂（台股・美股・全球經濟）、今日市場數字、財經名詞小教室與理財試算工具。本站內容僅為資訊分享，非投資建議，不針對任何特定金融商品。
+
+- 語言：繁體中文（台灣）
+- 作者：YoYi 宥毅（Instagram @yoyi_1205）
+
+## 主要頁面
+
+- [首頁](https://yoyifinance.github.io/)：網站導覽與今日市場跑馬燈
+- [財經日報](https://yoyifinance.github.io/news.html)：今日台股、美股市場數字、產業溫度計，加上每天一則焦點新聞的白話解讀
+- [財經名詞小教室](https://yoyifinance.github.io/glossary.html)：用生活比喻解釋財經名詞，例如 ADR、本益比、殖利率倒掛、基點、ETF
+- [理財試算](https://yoyifinance.github.io/calc.html)：聰明養房、無痛買車兩種情境，輸入自己的數字比較資金放在不同位置的差別；試算結果僅供參考
+- [認識 YoYi](https://yoyifinance.github.io/about.html)：個人介紹與服務說明
+- [預約財務諮詢](https://yoyifinance.github.io/booking.html)：填寫問卷預約 1 對 1 線上財務諮詢
+
+## 資料
+
+這兩份是財經日報與名詞小教室頁面內容的原始資料，每則都有日期：
+
+- [每日焦點新聞](https://yoyifinance.github.io/news.json)：每天一則，含日期、標題、白話重點與新聞來源連結
+- [財經名詞](https://yoyifinance.github.io/glossary.json)：名詞、英文全名、一句話解釋、生活比喻與小提醒
+
+## 其他
+
+- [LINE 社群](https://line.me/ti/g2/oGpI4FlkE2rB_jD6QlG7KZxtaWwn9jZ72CVLiA)：每日財經圖卡與完整解讀
+- [Instagram](https://www.instagram.com/yoyi_1205/)
