@@ -7,7 +7,7 @@
 - 任何一項抓不到就沿用上一次的數字，頁面不會壞掉
 - 三大法人、漲跌家數只算上市，和加權指數同一個範圍
 """
-import datetime, json, sys, time, urllib.parse, urllib.request
+import datetime, json, re, sys, time, urllib.parse, urllib.request
 
 TPE = datetime.timezone(datetime.timedelta(hours=8))
 UA = {"User-Agent": "Mozilla/5.0"}
@@ -78,7 +78,7 @@ def twse(old):
         for back in range(8):
             d = today - datetime.timedelta(days=back)
             md = d.strftime("%m/%d")
-            if (tw.get(kind) or {}).get("date") == md:
+            if (tw.get(kind) or {}).get("date") == md and (kind != "sectors" or "taiex" in tw[kind]):
                 break  # 已經是最新的，不用再抓
             ymd = d.strftime("%Y%m%d")
             try:
@@ -105,6 +105,12 @@ def twse(old):
                     if not items:
                         continue
                     tw[kind] = {"date": md, "items": sorted(items, key=lambda x: -x[1])}
+                    # 證交所官方的加權指數收盤，用來核對 Yahoo（見 fix_taiex）
+                    ix = next((row for row in rows if row[0].strip() == "發行量加權股價指數"), None)
+                    if ix:
+                        close, pts = num(ix[1]), num(re.sub(r"<[^>]*>", "", ix[3]))
+                        sign = -1 if "-" in re.sub(r"<[^>]*>", "", ix[2]) else 1
+                        tw[kind]["taiex"] = {"close": close, "prev": round(close - sign * pts, 2)}
                 break
             except Exception as e:
                 print("證交所", kind, ymd, e)
@@ -131,6 +137,7 @@ def main():
         "chain": {"us": quotes(CHAIN_US, (old.get("chain") or {}).get("us")),
                   "tw": quotes(CHAIN_TW, (old.get("chain") or {}).get("tw"))},
     }
+    fix_taiex(data["tw"])
     check(data)
     with open(out, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
@@ -140,6 +147,25 @@ def main():
         sys.exit(2)  # 數字照樣寫出去（沿用上一次），但排程標成失敗，GitHub 會寄通知
 
 
+def fix_taiex(tw):
+    """加權指數用證交所官方數字校正，避免 Yahoo 的前一天收盤跳錯天（2026-11-24 就發生過：+8.99% 被算成 +11.35%）。
+    - 證交所資料就是今天：收盤、前一天收盤都用證交所的
+    - 證交所資料是前一個交易日（盤中、或今天還沒公布）：前一天收盤用證交所的收盤"""
+    q, off = tw.get("index"), (tw.get("sectors") or {}).get("taiex")
+    if not q or not off:
+        return
+    sd = tw["sectors"]["date"]
+    if sd == q["date"]:
+        price, prev = off["close"], off["prev"]
+    elif sd < q["date"]:
+        price, prev = q["price"], off["close"]
+    else:
+        return
+    if abs(price - q["price"]) > 1 or abs(prev - q["prev"]) > 1:
+        print(f"加權指數校正：Yahoo {q['price']}／前收 {q['prev']} → 證交所 {price}／前收 {prev}")
+    q.update(price=round(price, 2), prev=round(prev, 2), pct=round((price - prev) / prev * 100, 2))
+
+
 def check(data):
     """台股今天有開盤（加權指數日期＝今天）時，收盤後的證交所資料也要是今天的；休市日不檢查。"""
     if len(MISSED) >= 5:
@@ -147,6 +173,11 @@ def check(data):
     now = datetime.datetime.now(TPE)
     today = now.strftime("%m/%d")
     tw = data["tw"]
+    # 台股個股漲跌停 10%，加權指數不可能超過；超過一定是前一天收盤抓錯，先不顯示漲跌，等下一輪
+    q = tw.get("index")
+    if q and abs(q["pct"]) > 10:
+        PROBLEMS.append(f"加權指數漲跌幅 {q['pct']}% 不合理（{q['price']}／前收 {q['prev']}），這次不顯示")
+        tw["index"] = None
     if not tw.get("index") or tw["index"]["date"] != today:
         return
     hm = now.strftime("%H:%M")
