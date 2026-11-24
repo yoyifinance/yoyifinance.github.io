@@ -31,11 +31,18 @@ def get(url):
 
 def quote(name, symbol):
     """最新價（盤中就是盤中價）、前一天收盤、漲跌幅、資料日期、是否盤中。"""
-    m = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}?range=1d&interval=5m")["chart"]["result"][0]["meta"]
+    r = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}?range=10d&interval=1d")["chart"]["result"][0]
+    m = r["meta"]
     tz = datetime.timezone(datetime.timedelta(seconds=m["gmtoffset"]))
     t = m["regularMarketTime"]
     reg = m["currentTradingPeriod"]["regular"]
-    price, prev = m["regularMarketPrice"], m.get("previousClose") or m["chartPreviousClose"]
+    price = m["regularMarketPrice"]
+    # 前一天收盤：用日線裡「資料日期之前最後一天」的收盤價。
+    # Yahoo meta 的 previousClose 偶爾會停在更早一天（2026-11-24 加權指數就拿到 11/20 的收盤，漲跌幅算成 11.35%，實際 8.99%）
+    day = lambda x: datetime.datetime.fromtimestamp(x, tz).date()
+    closes = [(day(ts), c) for ts, c in zip(r.get("timestamp") or [], r["indicators"]["quote"][0].get("close") or []) if c]
+    before = [c for d, c in closes if d < day(t)]
+    prev = before[-1] if before else (m.get("previousClose") or m["chartPreviousClose"])
     return {"name": name, "symbol": symbol, "price": round(price, 2), "prev": round(prev, 2),
             "pct": round((price - prev) / prev * 100, 2), "date": datetime.datetime.fromtimestamp(t, tz).strftime("%m/%d"),
             "live": reg["start"] <= time.time() < reg["end"]}
