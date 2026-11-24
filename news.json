@@ -47,6 +47,45 @@
   }
  },
  {
+  "date": "2026-11-23",
+  "weekday": "一",
+  "region": "台灣",
+  "title": "金管會今起全面禁止平盤以下放空 2015 年來首見",
+  "one": "金融監督管理委員會（金管會）11/21 宣布第 3 波穩定市場措施，今天（11/23）起上市櫃股票與臺灣存託憑證全面禁止平盤以下放空，最低融券保證金成數由 130% 提高到 150%，是 2015 年以來首度全面禁空；加權指數上週一週跌 7,642 點、跌幅約 17.5%。",
+  "image": "images/news/2026-11-23.jpg",
+  "sources": [
+   {
+    "name": "工商時報",
+    "url": "https://www.ctee.com.tw/news/20261121700641-430301"
+   },
+   {
+    "name": "公視新聞",
+    "url": "https://news.pts.org.tw/article/836748"
+   },
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6669819"
+   },
+   {
+    "name": "聯合新聞網",
+    "url": "https://udn.com/news/story/7251/9894512"
+   },
+   {
+    "name": "商業周刊",
+    "url": "https://www.businessweekly.com.tw/business/blog/3023539"
+   },
+   {
+    "name": "Reuters（Yahoo Finance 轉載）",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/us-futures-bounce-while-asia-234419517.html"
+   }
+  ],
+  "cta": {
+   "type": "line",
+   "title": "禁空令上路，你看懂放空了嗎？",
+   "text": "放空、平盤以下、融券保證金，新制名詞一次好多個。加入 YOYI LINE 社群，每天一則白話財經整理，陪你把新聞看懂、看完整。"
+  }
+ },
+ {
   "date": "2026-11-20",
   "weekday": "五",
   "region": "全球",
@@ -111,6 +150,41 @@
    "type": "booking",
    "title": "新股漲、大盤跌，你的計畫跟得上嗎？",
    "text": "熱門新股吸睛，大盤一天卻也能跌逾 2%。預約 1 對 1 財務諮詢，一起看看自己的現金流和能承受的波動，把計畫想清楚再面對市場。"
+  }
+ },
+ {
+  "date": "2026-11-19",
+  "weekday": "四",
+  "region": "台灣",
+  "title": "金管會逐一約談 37 家國銀總經理 要求別排擠首購自住房貸",
+  "one": "金管會 10 月底到 11 月初首度逐一約談全部 37 家國銀總經理，要求銀行強化資金調度與資本、擴大放款能力，不得以流動性覆蓋比率（LCR）為由排擠中小微企業及首購、自住房貸；金管會 11/17 表示，9 月底國銀平均 LCR 為 120.61%，整體資金仍充裕。",
+  "image": "images/news/2026-11-19.jpg",
+  "sources": [
+   {
+    "name": "經濟日報（聯合新聞網）",
+    "url": "https://udn.com/news/story/7239/9882752"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5612/9884774"
+   },
+   {
+    "name": "知新聞",
+    "url": "https://www.knews.com.tw/news/41AA4F1B6A36344E9C4A2ED4BB824CD9"
+   },
+   {
+    "name": "MoneyDJ 理財網",
+    "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=901a9738-8e5d-4df9-b12f-aee67a03fc9f"
+   },
+   {
+    "name": "鏡週刊",
+    "url": "https://www.mirrormedia.mg/external/mirrordaily_98783"
+   }
+  ],
+  "cta": {
+   "type": "house",
+   "title": "想買第一間房，先看懂自己的房貸？",
+   "text": "銀行放款政策會影響房貸的取得與條件。用「聰明養房」試算，先看看自己的房貸負擔與每月現金流，再規劃買房的節奏。"
   }
  },
  {
@@ -333,6 +407,41 @@
   }
  },
  {
+  "date": "2026-11-12",
+  "weekday": "四",
+  "region": "台灣",
+  "title": "台股大漲 1,545 點收 44,257 點 外資連 10 賣、投信連 22 買",
+  "one": "加權指數 11/11 大漲 1,545.23 點（+3.62%）收 44,257.15 點，創史上第 6 大收盤漲點，台積電漲 110 元收 2,395 元；三大法人合計買超 202.56 億元，但外資仍賣超 7.66 億元（連 10 賣），投信買超 147.65 億元（連 22 買）。",
+  "image": "images/news/2026-11-12.jpg",
+  "sources": [
+   {
+    "name": "中央社",
+    "url": "https://cna.com.tw/news/afe/202611110143.aspx"
+   },
+   {
+    "name": "聯合新聞網",
+    "url": "https://udn.com/news/story/12806/9872122"
+   },
+   {
+    "name": "風傳媒",
+    "url": "https://www.storm.mg/article/11180589"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5607/9871803"
+   },
+   {
+    "name": "中央社（台積電營收）",
+    "url": "https://www.cna.com.tw/news/afe/202611100129.aspx"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "大漲 1,545 點，你心動了嗎？",
+   "text": "大漲的日子容易想追，大跌時又想跑。預約 1 對 1 財務諮詢，先看看自己的現金流和能承受的波動，再決定怎麼面對行情。"
+  }
+ },
+ {
   "date": "2026-11-11",
   "weekday": "三",
   "region": "全球",
@@ -451,6 +560,41 @@
    "type": "booking",
    "title": "市場一天大震盪，你的計畫還穩嗎？",
    "text": "股匯同步承壓、盤中波動劇烈時，最能檢視自己的狀況。歡迎預約諮詢，一起盤點你的資金規劃與能承受的波動。"
+  }
+ },
+ {
+  "date": "2026-11-05",
+  "weekday": "四",
+  "region": "全球",
+  "title": "美國期中選舉結果出爐，道瓊大漲 1,569 點、費城半導體指數重挫 3.13%，記憶體股領跌",
+  "one": "美股 11/04 道瓊收 53,356.12 點、上漲 1,569.40 點（約 3.03%），費城半導體指數收 10,268.66 點、下跌約 3.13%，台積電 ADR 收 395.75 美元、跌約 2.24%。",
+  "image": "images/news/2026-11-05.jpg",
+  "sources": [
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6646812"
+   },
+   {
+    "name": "中時新聞網",
+    "url": "https://chinatimes.com/realtimenews/20261105000968-260410"
+   },
+   {
+    "name": "知新聞",
+    "url": "https://www.knews.com.tw/news/7653FD3DD95C3BE317DBA67F45AAF4E2"
+   },
+   {
+    "name": "聯合新聞網",
+    "url": "https://money.udn.com/money/story/123398/9858365"
+   },
+   {
+    "name": "聯合新聞網（台股）",
+    "url": "https://udn.com/news/story/7251/9857091"
+   }
+  ],
+  "cta": {
+   "type": "line",
+   "title": "選舉結果出爐，你看懂市場反應了嗎？",
+   "text": "同一天道瓊大漲、半導體卻重挫，國際大事對市場的影響常常不只一個方向。加入 YOYI LINE 社群，每天用白話掌握國際財經重點。"
   }
  },
  {
