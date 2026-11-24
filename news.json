@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-24",
+  "weekday": "二",
+  "region": "台灣",
+  "title": "黃仁勳回任輝達（NVIDIA）執行長 台股早盤飆逾 3,300 點 台積電開盤漲停",
+  "one": "輝達董事會 11/23（美國時間）讓黃仁勳回任執行長，美股費城半導體指數大漲 14.03%；台股 11/24 以 39,148.91 點開出、上漲 2,337 點，早盤最高到 40,158.44 點、漲 3,346 點，重回 4 萬點，台積電開盤即漲停到 2,230 元，上市櫃逾 550 檔漲停（以上為早盤數字，以收盤為準）。",
+  "image": "images/news/2026-11-24.jpg",
+  "sources": [
+   {
+    "name": "輝達 8-K（SEC）",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm"
+   },
+   {
+    "name": "CNBC",
+    "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5607/9897803"
+   },
+   {
+    "name": "中時新聞網",
+    "url": "https://www.chinatimes.com/realtimenews/20261124001439-260410"
+   },
+   {
+    "name": "ETtoday",
+    "url": "https://finance.ettoday.net/news/3277398"
+   },
+   {
+    "name": "三立新聞",
+    "url": "https://www.setn.com/news/1943873"
+   },
+   {
+    "name": "Newtalk",
+    "url": "https://newtalk.tw/news/view/2026-11-24/1073361"
+   },
+   {
+    "name": "聯合新聞網",
+    "url": "https://udn.com/news/story/6811/9897654"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "一天跌、一天漲，你的配置還安心嗎？",
+   "text": "台股上週一週跌 17.5%，今天早盤大漲逾 3,300 點。行情來回擺盪時，預約 1 對 1 財務諮詢，一起看看自己的現金流和能承受的波動。"
+  }
+ },
+ {
   "date": "2026-11-20",
   "weekday": "五",
   "region": "全球",
