@@ -1,5 +1,115 @@
 [
  {
+  "date": "2026-11-26",
+  "weekday": "四",
+  "region": "台灣",
+  "title": "新台幣收盤貶破 33 元 外資賣超台股逾 1,200 億元",
+  "one": "11/25 新台幣兌美元收 33.126 元、一天貶 1.87 角，是近 19 個月來首度收盤貶破 33 元，外匯市場總成交量 63.62 億美元、史上第 3 大量；同一天台股跌 1,926.92 點（−4.80%）收 38,195.43 點，外資賣超 1,236.54 億元，股匯雙殺。",
+  "image": "images/news/2026-11-26.jpg",
+  "sources": [
+   {
+    "name": "中央社",
+    "url": "https://www.cna.com.tw/news/afe/202611250272.aspx"
+   },
+   {
+    "name": "經濟日報",
+    "url": "https://money.udn.com/money/story/5616/9902321"
+   },
+   {
+    "name": "NOWnews",
+    "url": "https://www.nownews.com/news/6895468"
+   },
+   {
+    "name": "中天新聞",
+    "url": "https://ctinews.com/news/items/qXWQN7wjaR"
+   },
+   {
+    "name": "華視新聞（中央社）",
+    "url": "https://news.cts.com.tw/cna/money/202611/202611253105087.html"
+   },
+   {
+    "name": "鉅亨網",
+    "url": "https://news.cnyes.com/news/id/6671817"
+   },
+   {
+    "name": "Yahoo 股市",
+    "url": "https://tw.stock.yahoo.com/news/11-25%E9%9B%86%E4%B8%AD%E5%B8%82%E5%A0%B4%E4%B8%89%E5%A4%A7%E6%B3%95%E4%BA%BA%E5%90%88%E8%A8%88%E8%B3%A3%E8%B6%85829-56%E5%84%84%E5%85%83-070600575.html"
+   },
+   {
+    "name": "The Hill",
+    "url": "https://thehill.com/business/6239346-october-pce-inflation-data/"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "台幣變弱，你的換匯計畫排好了嗎？",
+   "text": "新台幣一天貶 1.87 角、收盤跌破 33 元。有出國、留學等外幣需求，預約 1 對 1 財務諮詢，一起把用錢時間表和現金流排清楚。"
+  }
+ },
+ {
+  "date": "2026-11-25",
+  "weekday": "三",
+  "region": "全球",
+  "title": "美國聯準會（Fed）12 月估再升 1 碼 存款族、房貸族怎麼看",
+  "one": "美國聯準會（Fed）12 月 8～9 日召開今年最後一次利率會議，目前聯邦基金利率 3.75%～4.00%；CME FedWatch 顯示市場估 12 月再升息 1 碼（0.25 個百分點）的機率約 9 成，若成真將升到 4.00%～4.25%，會前最受關注的 10 月 PCE 物價數據在台灣時間今晚公布。",
+  "image": "images/news/2026-11-25.jpg",
+  "sources": [
+   {
+    "name": "Al Jazeera",
+    "url": "https://www.aljazeera.com/news/2026/9/16/what-to-know-about-us-federal-reserves-first-interest-rate-hike-in-3-years"
+   },
+   {
+    "name": "Fortune",
+    "url": "https://fortune.com/2026/09/16/fed-rate-hike-trump-kevin-warsh/"
+   },
+   {
+    "name": "自由財經",
+    "url": "https://ec.ltn.com.tw/article/breakingnews/5576648"
+   },
+   {
+    "name": "Vizaca",
+    "url": "https://www.vizaca.com/business/fed-holds-rates-october-2026/"
+   },
+   {
+    "name": "24/7 Wall St.",
+    "url": "https://247wallst.com/investing/2026/11/18/traders-now-see-a-95-chance-the-fed-hikes-rates-in-december/"
+   },
+   {
+    "name": "TradingView",
+    "url": "https://www.tradingview.com/news/stocktwits:1daf98ea3094b:0-fed-rate-hike-bets-build-ahead-of-december-meet-fed-s-john-williams-says-inflation-still-too-high/"
+   },
+   {
+    "name": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/economy/policy/articles/fed-williams-signals-warning-jumbo-173300088.html"
+   },
+   {
+    "name": "StockAnalysis",
+    "url": "https://stockanalysis.com/news/us-cpi-rises-october-2026/"
+   },
+   {
+    "name": "investingLive",
+    "url": "https://investinglive.com/technical-analysis/us-stocks-slide-yields-jump-usd-higher-after-hotter-than-expected-october-cpi/"
+   },
+   {
+    "name": "Oxford Economics",
+    "url": "https://www.oxfordeconomics.com/resource/us-pce-nowcast-broadening-pressures-lock-in-december-rate-hike/"
+   },
+   {
+    "name": "鉅亨網",
+    "url": "https://m.cnyes.com/news/id/6608481"
+   },
+   {
+    "name": "果仁家",
+    "url": "https://applealmondrealty.com/posts/46822"
+   }
+  ],
+  "cta": {
+   "type": "booking",
+   "title": "利率可能再升，你的現金流準備好了嗎？",
+   "text": "市場估 Fed 12 月再升息 1 碼機率約 9 成。利率變動會影響房貸月付與存款利息，預約 1 對 1 財務諮詢，看看自己的現金流與負債。"
+  }
+ },
+ {
   "date": "2026-11-24",
   "weekday": "二",
   "region": "台灣",
