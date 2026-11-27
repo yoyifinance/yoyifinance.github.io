@@ -1,0 +1,295 @@
+{
+ "updated": "2026-11-28T06:52",
+ "tw": {
+  "breadth": {
+   "date": "11/27",
+   "up": 438,
+   "down": 551,
+   "flat": 97
+  },
+  "inst": {
+   "date": "11/27",
+   "foreign": -296.3,
+   "trust": 85.2,
+   "dealer": -2.0,
+   "total": -213.0
+  },
+  "sectors": {
+   "date": "11/26",
+   "items": [
+    [
+     "電子零組件",
+     8.31
+    ],
+    [
+     "電腦週邊",
+     7.21
+    ],
+    [
+     "塑膠",
+     7.07
+    ],
+    [
+     "光電",
+     6.81
+    ],
+    [
+     "油電燃氣",
+     6.02
+    ],
+    [
+     "其他電子",
+     5.47
+    ],
+    [
+     "電機機械",
+     5.33
+    ],
+    [
+     "電子通路",
+     4.81
+    ],
+    [
+     "生技醫療",
+     4.66
+    ],
+    [
+     "通信網路",
+     4.16
+    ],
+    [
+     "綠能環保",
+     3.93
+    ],
+    [
+     "化學",
+     3.41
+    ],
+    [
+     "金融保險",
+     2.52
+    ],
+    [
+     "建材營造",
+     2.18
+    ],
+    [
+     "汽車",
+     2.02
+    ],
+    [
+     "紡織纖維",
+     1.95
+    ],
+    [
+     "觀光餐旅",
+     1.7
+    ],
+    [
+     "水泥",
+     1.51
+    ],
+    [
+     "鋼鐵",
+     1.38
+    ],
+    [
+     "資訊服務",
+     1.29
+    ],
+    [
+     "半導體",
+     0.7
+    ],
+    [
+     "航運",
+     0.69
+    ],
+    [
+     "貿易百貨",
+     0.56
+    ],
+    [
+     "食品",
+     0.12
+    ]
+   ],
+   "taiex": {
+    "close": 39151.81,
+    "prev": 38195.43
+   }
+  },
+  "index": {
+   "name": "加權指數",
+   "symbol": "^TWII",
+   "price": 39308.08,
+   "prev": 39151.81,
+   "pct": 0.4,
+   "date": "11/27",
+   "live": false
+  }
+ },
+ "us": [
+  {
+   "name": "道瓊",
+   "symbol": "^DJI",
+   "price": 50774.94,
+   "prev": 50182.95,
+   "pct": 1.18,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "S&P 500",
+   "symbol": "^GSPC",
+   "price": 7297.49,
+   "prev": 7182.78,
+   "pct": 1.6,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "NASDAQ",
+   "symbol": "^IXIC",
+   "price": 24129.5,
+   "prev": 23585.8,
+   "pct": 2.31,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "費城半導體",
+   "symbol": "^SOX",
+   "price": 9186.71,
+   "prev": 8774.86,
+   "pct": 4.69,
+   "date": "11/27",
+   "live": false
+  }
+ ],
+ "cross": [
+  {
+   "name": "台積電 ADR",
+   "symbol": "TSM",
+   "price": 353.34,
+   "prev": 342.34,
+   "pct": 3.21,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "日經 225",
+   "symbol": "^N225",
+   "price": 58711.11,
+   "prev": 57499.16,
+   "pct": 2.11,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "原油",
+   "symbol": "CL=F",
+   "price": 83.08,
+   "prev": 83.68,
+   "pct": -0.72,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "美元／台幣",
+   "symbol": "TWD=X",
+   "price": 32.98,
+   "prev": 33.19,
+   "pct": -0.63,
+   "date": "11/27",
+   "live": true
+  },
+  {
+   "name": "美債 10 年",
+   "symbol": "^TNX",
+   "price": 4.94,
+   "prev": 4.85,
+   "pct": 1.82,
+   "date": "11/27",
+   "live": false
+  },
+  {
+   "name": "黃金",
+   "symbol": "GC=F",
+   "price": 3668.5,
+   "prev": 3535.8,
+   "pct": 3.75,
+   "date": "11/27",
+   "live": false
+  }
+ ],
+ "chain": {
+  "us": [
+   {
+    "name": "NVIDIA",
+    "symbol": "NVDA",
+    "price": 150.49,
+    "prev": 149.3,
+    "pct": 0.8,
+    "date": "11/27",
+    "live": false
+   },
+   {
+    "name": "Microsoft",
+    "symbol": "MSFT",
+    "price": 492.85,
+    "prev": 489.93,
+    "pct": 0.6,
+    "date": "11/27",
+    "live": false
+   },
+   {
+    "name": "Alphabet",
+    "symbol": "GOOGL",
+    "price": 274.96,
+    "prev": 273.1,
+    "pct": 0.68,
+    "date": "11/27",
+    "live": false
+   }
+  ],
+  "tw": [
+   {
+    "name": "台積電",
+    "symbol": "2330.TW",
+    "price": 2180.0,
+    "prev": 2145.0,
+    "pct": 1.63,
+    "date": "11/27",
+    "live": false
+   },
+   {
+    "name": "聯發科",
+    "symbol": "2454.TW",
+    "price": 3680.0,
+    "prev": 3705.0,
+    "pct": -0.67,
+    "date": "11/27",
+    "live": false
+   },
+   {
+    "name": "鴻海",
+    "symbol": "2317.TW",
+    "price": 219.0,
+    "prev": 216.5,
+    "pct": 1.15,
+    "date": "11/27",
+    "live": false
+   },
+   {
+    "name": "廣達",
+    "symbol": "2382.TW",
+    "price": 278.0,
+    "prev": 281.0,
+    "pct": -1.07,
+    "date": "11/27",
+    "live": false
+   }
+  ]
+ }
+}
